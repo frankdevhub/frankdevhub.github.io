@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>index.html</title>
+
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="this is my page">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shCore.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushCss.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushPlain.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushPython.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJava.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushScala.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushSql.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushXml.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushPerl.js"></script>
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCore.css" />
+		<link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shThemeDefault.css" />
+<script type="text/javascript">
+		SyntaxHighlighter.defaults['toolbar'] = false;  //去掉右上角问号图标
+		SyntaxHighlighter.config.tagName = 'pre';       //可以更改解析的默认Tag。
+		SyntaxHighlighter.config.bloggerMode = true; 
+		SyntaxHighlighter.config.stripBrs = true;  
+		SyntaxHighlighter.all();
+</script>
+	</head>
+
+	<body>
+		<p>HTML</p>
+		<pre class="brush: html;">
+		    <table>
+		    	<tbody>
+		    		<tr>
+						<td>hello</td>
+						<td>syntaxhighlighter</td>
+					</tr>
+					<tr>
+						<td>代码</td>
+						<td>亮起来</td>
+					</tr>
+		    	</tbody>
+			</table>
+		</pre>
+		<p>JAVA</p>
+		<pre class="brush: java;">
+		    private String err;
+   			private String msg;
+   			public String getErr() {
+				return err;
+			}
+			public void setErr(String err) {
+				this.err = err;
+			}
+			public String getMsg() {
+				return msg;
+			}
+			public void setMsg(String msg) {
+				this.msg = msg;
+			}
+		</pre>
+		<p>JavaScript</p>
+		<pre class="brush: js;">
+		    $(function() {
+				$('#submitButtonId').bind('click', function() {
+					var flag = $('#submitFormBook').form('validate');
+					if (flag) {
+						if(confirm('是否提交该订单?')){
+							$('#submitFormBook').submit();
+						}
+					}
+				});
+			});
+		</pre>
+		<p>如有疑问,欢迎加入JAVA技术交流群：74955800</p>
+	</body>
+</html>
