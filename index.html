@@ -75,7 +75,15 @@ title: Home
 <script type="text/javascript">
   //$(document).ready(alert("test install of jquery"));
    $(".update").each(function(index,element){
-   alert(this.html);
-     
+   alert(this.html());
+     var _dyear =  this.split("/")[2];
+	 var _dmonth =  this.split("/")[1];
+	 var _dday = this.split("/")[0];
+	 if(new Date().getFullYear() == _dyear 
+	     && new Date().getDate() == _dday
+		 && new Date().getMonth()+1 == _dmonth
+	    ){
+		alert("get");
+	 }
    });
 </script>
