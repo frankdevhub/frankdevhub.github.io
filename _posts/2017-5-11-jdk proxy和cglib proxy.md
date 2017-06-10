@@ -1,7 +1,7 @@
 ---
 layout: post
 title: jdk proxy和cglib proxy
-date:   2017-05-11 08:50:20
+date:   2017-5-11 08:50:20
 categories: java
 ---
 
