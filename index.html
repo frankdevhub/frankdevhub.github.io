@@ -13,11 +13,12 @@ title: Home
         <div class="row-content">
 		  <div class="update">
 		     {{ post.date | date: "%m/%d/%Y" }  
-					<div class="notibar msginfo">
+		  </div>
+		  <div class="notibar msginfo">
                         <a class="close"></a>
                         <p>This is an information message.</p>
-                    </div><!-- notification msginfo -->
-		  </div>
+          </div><!-- notification msginfo -->
+		  
           <div class="least-content">{{ post.date | date_to_string }}</div>
           <h4 class="list-group-item-heading"><a class="updated_list" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
 
