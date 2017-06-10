@@ -2,9 +2,7 @@
 layout: default
 title: Home
 ---
-<script type="text/javascript">
-  $(document).ready(alert("11"));
-</script>
+
 <div class="well">
     <div class="list-group">
       {% for post in paginator.posts %}
@@ -13,7 +11,9 @@ title: Home
           <i class="fa fa-sticky-note"></i>
         </div>
         <div class="row-content">
-		  <div>{{ page.date | date: "%m/%d/%Y" }}</div>
+		  <div class="update">{{ post.date | date: "%m/%d/%Y" }}
+		    <div></div>
+		  </div>
           <div class="least-content">{{ post.date | date_to_string }}</div>
           <h4 class="list-group-item-heading"><a class="updated_list" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
 
@@ -64,3 +64,8 @@ title: Home
     </ul>
     {% endif %}
 </div><!-- end #home -->
+
+
+<script type="text/javascript">
+  $(document).ready(alert("11"));
+</script>
