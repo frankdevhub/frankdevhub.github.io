@@ -69,14 +69,17 @@ title: Home
       {% endif %}
     </ul>
     {% endif %}
+	
+	  <script type="text/javascript">
+      //$(document).ready(alert("test install of jquery"));
+       var list = $(".update"); var _year = new Date().getFullYear(); var _month = new Date().getMonth()+1; var _day = new Date().getDate();
+       for(var i=0 ; i<list.length;i++){
+	     alert(list.eq(i).html());
+       }
+      </script>
+	
+	
 </div><!-- end #home -->
 
 
-<script type="text/javascript">
-  //$(document).ready(alert("test install of jquery"));
-  var list = $(".update"); var _year = new Date().getFullYear(); var _month = new Date().getMonth()+1; var _day = new Date().getDate();
-  for(var i=0 ; i<list.length;i++){
-	alert(list.eq(i).html());
-  }
-   
-</script>
+
