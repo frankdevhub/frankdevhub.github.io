@@ -79,7 +79,7 @@ title: Home
 	     //alert(list.eq(i).html());
 		 var _dyear = list.eq(i).html().split("/")[2]; 
 		 var _dmonth = list.eq(i).html().split("/")[0]; 
-		 alert(_dmonth[0]);
+		 alert(_dmonth.split(0)[1]);
 		   if(_dmonth.length == 2 && _dmonth[0] == '0'){
 		     _dmonth = _dmonth.split('0')[1];
 		   }
