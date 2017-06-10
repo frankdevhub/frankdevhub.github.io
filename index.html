@@ -15,7 +15,7 @@ title: Home
 		  <div class="update">
 		     {{ post.date | date: "%m/%d/%Y" }}  
 		  </div>
-		  <div class="notibar msginfo"style="background-color:red">
+		  <div class="notibar msginfo">
                         <a class="close"></a>
                         <p>This is an information message.</p>
           </div><!-- notification msginfo -->
@@ -74,16 +74,9 @@ title: Home
 
 <script type="text/javascript">
   //$(document).ready(alert("test install of jquery"));
-   $(".update").each(function(){
-   alert(this.text());
-     var _dyear =  this.text().split("/")[2];
-	 var _dmonth =  this.text().split("/")[1];
-	 var _dday = this.text().split("/")[0];
-	 if(new Date().getFullYear() == _dyear 
-	     && new Date().getDate() == _dday
-		 && new Date().getMonth()+1 == _dmonth
-	    ){
-		alert("get");
-	 }
-   });
+  var list = $(".update");
+  for(var i=0 ; i<list.length();i++){
+   alert(list[i].text());
+  }
+   
 </script>
