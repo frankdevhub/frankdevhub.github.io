@@ -16,7 +16,7 @@ title: Home
 		     {{ post.date | date: "%m/%d/%Y" }}  
 		  </div>
 		  </br></br>
-		  <div class="notibar msginfo">
+		  <div class="notibar msginfo" style="display:none">
                         <a class="close"></a>
                         <p>This is an information message.</p>
           </div><!-- notification msginfo -->
@@ -85,7 +85,7 @@ title: Home
 		     && _dyear == _year 
 			 && _dday == _day
 			 ){
-				$(".update:eq('i')").attr("display","none");
+				$(".update:eq('i')").attr("display","true");
 			// _index = i;
 		 }
        }
