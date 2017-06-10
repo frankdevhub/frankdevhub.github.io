@@ -12,17 +12,17 @@ title: Home
         </div>
         <div class="row-content">
 		
-		  <div class="update" style="display:none">
-		     {{ post.date | date: "%m/%d/%Y" }}  
-		  </div>
-		  <div class="notibar msginfo" style="display:none">
-                        <a class="close"></a>
-                        <p>This is an information message.</p>
-          </div><!-- notification msginfo -->
-		  
           <div class="least-content">{{ post.date | date_to_string }}</div>
           <h4 class="list-group-item-heading"><a class="updated_list" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
-
+          
+		    <div class="update" style="display:none">
+		     {{ post.date | date: "%m/%d/%Y" }}  
+			</div>
+		    <div class="notibar msginfo" style="display:none">
+                        <a class="close"></a>
+                        <p>This is an information message.</p>
+			</div><!-- notification msginfo -->
+		  
           <p class="list-group-item-text">{{ post.content | strip_html | truncatewords: 7 }}</p>
         </div>
       </div>
@@ -85,7 +85,8 @@ title: Home
 			 && _dday == _day
 			 ){
 				$(".update:eq('i')").css("display","block");
-				$(".update:eq('i')").fadeIn(4500);
+				$(".update:eq('i')").next().fadeIn(4500);
+				alert("find a new element");
 			// _index = i;
 		 }
        }
