@@ -76,9 +76,9 @@ title: Home
   //$(document).ready(alert("test install of jquery"));
    $(".update").each(function(index,element){
    alert(this.text());
-     var _dyear =  this.split("/")[2];
-	 var _dmonth =  this.split("/")[1];
-	 var _dday = this.split("/")[0];
+     var _dyear =  this.text().split("/")[2];
+	 var _dmonth =  this.text().split("/")[1];
+	 var _dday = this.text().split("/")[0];
 	 if(new Date().getFullYear() == _dyear 
 	     && new Date().getDate() == _dday
 		 && new Date().getMonth()+1 == _dmonth
