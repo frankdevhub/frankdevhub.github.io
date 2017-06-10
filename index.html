@@ -15,6 +15,7 @@ title: Home
 		  <div class="update" style="display:none">
 		     {{ post.date | date: "%m/%d/%Y" }}  
 		  </div>
+		  </br></br>
 		  <div class="notibar msginfo">
                         <a class="close"></a>
                         <p>This is an information message.</p>
@@ -75,17 +76,16 @@ title: Home
       //$(document).ready(alert("test install of jquery"));
        var list = $(".update"); var _year = new Date().getFullYear(); var _month = new Date().getMonth()+1; var _day = new Date().getDate();
       // var _index = -1;
-	   for(var i=0 ; i<list.length;i++){
+	   for(var i=0 ; i < list.length; i++){
 	     //alert(list.eq(i).html());
 		 var _dyear = list.eq(i).html().split("/")[2];
 		 var _dmonth = list.eq(i).html().split("/")[0];
 		 var _dday = list.eq(i).html().split("/")[1];
-		 alert(_dmonth);
 		 if(_dmonth == _month 
 		     && _dyear == _year 
 			 && _dday == _day
 			 ){
-				$(".update")[i].attri("display","none");
+				$(".update")[i].attr("display","none");
 			// _index = i;
 		 }
        }
