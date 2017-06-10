@@ -79,6 +79,7 @@ title: Home
 	     //alert(list.eq(i).html());
 		 var _dyear = list.eq(i).html().split("/")[2]; 
 		 var _dmonth = list.eq(i).html().split("/")[0]; 
+		  var _dday = list.eq(i).html().split("/")[1];
 		    if(_dday.length == 2 && _dday.split(0)[0]== 0){
 		     _dday = _dday.split('0')[1];
 		   }
@@ -86,7 +87,6 @@ title: Home
 		   if(_dmonth.length == 2 && _dmonth.split(0)[0]== 0){
 		     _dmonth = _dmonth.split('0')[1];
 		   }
-		 var _dday = list.eq(i).html().split("/")[1];
 		 alert(_dmonth);
 		 alert(_month);
 		 if(_dmonth == _month 
