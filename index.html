@@ -84,10 +84,10 @@ title: Home
 		  _dmonth = _dmonth.replace(/\ +/g, "").
 							replace(/[ ]/g, "").
 							replace(/[\r\n]/g, "");
-		alert(parseInt(_dmonth));
-		 if(_dmonth == _month 
-		     && _dyear == _year 
-			 && _dday == _day
+		
+		 if(pI(_dmonth) == pI(_month) 
+		     &&  pI(_dyear) == pI(_year) 
+			 && pI(_dday) == pI(_day)
 			 ){
 			    alert("find a new element");
 				$(".update:eq('i')").css("display","block");
