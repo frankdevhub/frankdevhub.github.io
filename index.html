@@ -15,7 +15,7 @@ title: Home
           <div class="least-content">{{ post.date | date_to_string }}</div>
           <h4 class="list-group-item-heading"><a class="updated_list" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
           
-		    <div class="update" style="display:none">
+		    <div class="update" style="display:none;height:10px">
 		     {{ post.date | date: "%m/%d/%Y" }}  
 			</div>
 					<div class="notibar msgsuccess" style="display:none">
@@ -90,8 +90,7 @@ title: Home
 			 && pI(_dday) == pI(_day)
 			 ){
 			   // alert("find updated element");
-				$(".update").eq(i).next().fadeIn(2500);
-				$(".update").eq(i).next().hide();
+				$(".update").eq(i).next().fadeIn(1500);
 				//alert("complete");
 			// _index = i;
 		 }
