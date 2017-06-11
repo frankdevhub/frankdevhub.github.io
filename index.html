@@ -78,13 +78,13 @@ title: Home
 	  if( _month <= 9 && _month >= 1){_month = "0"+_month};if( _day <= 9 && _month >= 1){_day = "0"+_day};
 	   for(var i=0 ; i < list.length; i++){
 	     //alert(list.eq(i).html());
-		 var _dyear = list.eq(i).html().split("/")[2]; 
-		 var _dmonth = list.eq(i).html().split("/")[0]; 
-		  var _dday = list.eq(i).html().split("/")[1];
+		 var _dyear = list.eq(i).text().split("/")[2]; 
+		 var _dmonth = list.eq(i).text().split("/")[0]; 
+		  var _dday = list.eq(i).text().split("/")[1];
 		  _dmonth = _dmonth.replace(/\ +/g, "").
 							replace(/[ ]/g, "").
 							replace(/[\r\n]/g, "");
-		  alert(typeof _dmonth);alert(typeof _month);
+		 alert(_month == _dmonth +"ans:"+_dmonth);
 		 if(_dmonth == _month 
 		     && _dyear == _year 
 			 && _dday == _day
