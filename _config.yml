@@ -29,7 +29,13 @@ markdown: kramdown
 gems: [jekyll-paginate, jekyll-gist]
 
 theme: jekyll-theme-cayman
+
+###comments :
+###    provider : disqus
+  
 comments :
-    provider : disqus
-    
+  provider : duoshuo
+  duoshuo :
+    short_name : havee
+  
 google_tracking_id: UA-XXXXX-Y
