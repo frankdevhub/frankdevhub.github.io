@@ -18,10 +18,10 @@ title: Home
 		    <div class="update" style="display:none">
 		     {{ post.date | date: "%m/%d/%Y" }}  
 			</div>
-		    <div class="notibar msginfo" style="display:none">
+					<div class="notibar msgsuccess">
                         <a class="close"></a>
-                        <p>This is an information message.</p>
-			</div><!-- notification msginfo -->
+                        <p>Newly Realesed !</p>
+                    </div><!-- notification msgsuccess -->
 		  
           <p class="list-group-item-text">{{ post.content | strip_html | truncatewords: 7 }}</p>
         </div>
@@ -91,7 +91,7 @@ title: Home
 			 ){
 			   // alert("find updated element");
 				$(".update").eq(i).next().fadeIn(4500);
-				alert("complete");
+				//alert("complete");
 			// _index = i;
 		 }
        }
