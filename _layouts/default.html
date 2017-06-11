@@ -40,8 +40,11 @@
 	<!--message bars-->
     {% include main.html %}
     {% include js.html %}
-    {% include analytics.html %}
+    
 	
+	{% if site.google_tracking_id %}
+		 {% include analytics.html %}
+	{% endif %}
 	
   </body>
 </html>
