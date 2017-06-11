@@ -81,7 +81,7 @@ title: Home
 		 var _dyear = list.eq(i).html().split("/")[2]; 
 		 var _dmonth = list.eq(i).html().split("/")[0]; 
 		  var _dday = list.eq(i).html().split("/")[1];
-		  alert(encodeURIComponent(_dmonth)==_month );
+		  alert(encodeURIComponent(_dmonth).trim()==_month );
 		  alert(_dmonth);
 		 if(_dmonth == _month 
 		     && _dyear == _year 
