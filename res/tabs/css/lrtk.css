@@ -1,0 +1,16 @@
+/* 懒人图库 搜集整理 www.lanrentuku.com */
+
+ol.hashTabber-nav, ol.hashTabber-data {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ol.hashTabber-data {
+    > li {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}
