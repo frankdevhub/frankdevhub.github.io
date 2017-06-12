@@ -26,6 +26,7 @@ layout: default
 
 
 
+
 <section class="example">
 	<section class="hashTabber-sandstone-wrapper">
     <ol class="hashTabber-nav hashTabber-sandstone" data-hashtabber-id="dinosaurs" data-hashtabber-default="pterosaur">
@@ -109,31 +110,29 @@ tabber.run();
 var d =document; var s = null;
  (function() { // DON'T EDIT BELOW THIS LINE
                                            d = document, s = d.createElement('script');
-										   s.src = 'https://frankdevhub.github.io/res/tabs/js/jquery-1.2.4b.js';
+										   s.src = 'https://frankdevhub.github.io/res/tabs/js/hashtabber.js';
                                            //s.src = 'https://disqus.com/embed.js';
-											s.setAttribute('data-timestamp', +new Date());
+											//s.setAttribute('data-timestamp', +new Date());
 											(d.head || d.body).appendChild(s);
 											})();
 (function() { // DON'T EDIT BELOW THIS LINE
-                                           var d = document, s = d.createElement('script');
-										   s.src = 'https://frankdevhub.github.io/res/tabs/js/ui.core.js';
+                                            d = document, s = d.createElement('link');
+										   s.href = 'https://frankdevhub.github.io/res/tabs/css/main.css';
+										   s.rel = "stylesheet";
                                            //s.src = 'https://disqus.com/embed.js';
-											s.setAttribute('data-timestamp', +new Date());
+										//	s.setAttribute('data-timestamp', +new Date());
 											(d.head || d.body).appendChild(s);
 											})();											
 
 (function() { // DON'T EDIT BELOW THIS LINE
-                                           var d = document, s = d.createElement('script');
-										   s.src = 'https://frankdevhub.github.io/res/tabs/js/ui.tabs.js';
+                                            d = document, s = d.createElement('link');
+										   s.href = 'https://frankdevhub.github.io/res/tabs/js/ui.tabs.js';
+										    s.rel = "stylesheet";
                                            //s.src = 'https://disqus.com/embed.js';
-											s.setAttribute('data-timestamp', +new Date());
+										//	s.setAttribute('data-timestamp', +new Date());
 											(d.head || d.body).appendChild(s);
 											})();
-
- $(function() {
-                $('#rotate > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('rotate', 2000);
-            });											
-
+										
 </script>
 
 
