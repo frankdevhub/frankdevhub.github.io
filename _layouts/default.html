@@ -43,7 +43,11 @@
 		SyntaxHighlighter.config.stripBrs = true;  
 		SyntaxHighlighter.all();
 </script>
-	  
+	     <script type="text/javascript">
+            $(function() {
+                $('#rotate > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('rotate', 2000);
+            });
+        </script> 
 	  
       {% include css.html %}
   </head>
