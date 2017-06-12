@@ -21,7 +21,7 @@ layout: default
     {% include share-page.html %}
 </article>
 
-
+<br/>
 
 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
@@ -121,5 +121,16 @@ var duoshuoQuery = {short_name:"orangleliu"};
   {% if page.next.url %}
     <a class="next pull-right" href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
   {% endif %}
+  
+   <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+		</script>
+		<div style="align:center">
+				<span id="busuanzi_container_site_pv">
+				本站总访问量<span id="busuanzi_value_site_pv"></span>次
+				</span>
+				<span id="busuanzi_container_site_uv">
+				总访客数<span id="busuanzi_value_site_uv"></span>人次
+				</span>
+		</div>		
 </div>
 
