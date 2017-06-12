@@ -3,7 +3,6 @@
   <head>
     {% include baidu-analysis.html %}
     {% include meta.html %}
-	{% include tabhead.html %}
       <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
       <script type="text/javascript">window.baseurl = '{{ site.url }}';</script>
 	  
@@ -53,5 +52,6 @@
 	{% if site.google_tracking_id %}
 		 {% include analytics.html %}
 	{% endif %}
+	{% include tabhead.html %}
   </body>
 </html>
