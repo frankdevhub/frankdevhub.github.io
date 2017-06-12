@@ -5,7 +5,7 @@ logo: /static/img/g.jpg
 github: https://github.com/frankdevhub
 about: Software Engineer
 
-baseurl: "https://frankdevhub.github.io"
+baseurl: https://frankdevhub.github.io
 url: ""
 
 allowsearch: true
