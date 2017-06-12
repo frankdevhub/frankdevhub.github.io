@@ -26,7 +26,7 @@ layout: default
 <!---############################################################################################################################--->
 
 <!---############################################################################################################################--->
-					<DIV id=con>
+					<DIV id=con width="80%">
 					<UL id=tags>
 					  <LI><A onClick="selectTag('tagContent0',this)" 
 					  href="javascript:void(0)">标签一</A> </LI>
@@ -34,8 +34,51 @@ layout: default
 					  href="javascript:void(0)">标签二</A> </LI>
 					</UL>
 					<DIV id=tagContent>
-					<DIV class=tagContent id=tagContent0>第一个标签的内容</DIV>
-					<DIV class="tagContent selectTag" id=tagContent1>第二个标签的内容</DIV>
+					<DIV class=tagContent id=tagContent0>
+					   <!--netease-->
+						 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+									<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+									<script>
+										var cloudTieConfig = {
+												url: document.location.href, 
+												sourceId: "",
+												productKey: "14f7fedac9ee40c2b79116f0e0bb678a",
+												target: "cloud-tie-wrapper"
+												};
+										var yunManualLoad = true;
+										Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+									</script>
+						
+					
+					</DIV>
+					<DIV class="tagContent selectTag" id=tagContent1>
+					 <!--disqus-->
+					     <div id="tabs-2">
+                              <div id="disqus_thread"></div>
+									<script type="text/javascript">
+
+										/**
+									     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			                             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                                        /*
+											var disqus_config = function () {
+											this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+										    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+											};
+                                         */
+                                        (function() { // DON'T EDIT BELOW THIS LINE
+                                           var d = document, s = d.createElement('script');
+										   s.src = 'https://frankdevhub-github-io.disqus.com/embed.js';
+                                           //s.src = 'https://disqus.com/embed.js';
+											s.setAttribute('data-timestamp', +new Date());
+											(d.head || d.body).appendChild(s);
+											})();
+											</script>
+											<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+																		</div>
+					   
+					
+					</DIV>
 					</DIV></DIV>
 					<p>
 					  <SCRIPT type=text/javascript>
@@ -64,6 +107,7 @@ layout: default
 
 <!---############################################################################################################################--->
 
+<!--
  <div id="tabs">
                         	<ul>
                                 <li><a href="#tabs-1">Netease</a></li>
@@ -109,7 +153,7 @@ layout: default
 															
 				</div><!--#tabs-->
 
-
+-->
 
 
 
