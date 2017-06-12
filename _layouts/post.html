@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+       <script type="text/javascript">
+            $(function() {
+                $('#rotate > ul').tabs({ fx: { opacity: 'toggle' } }).tabs('rotate', 2000);
+            });
+        </script> 
+
 <div class="post-content well">
 <article class="content">
     <!--网易插件统计浏览阅读次数和访客量-->
@@ -25,17 +31,13 @@ layout: default
 
 <!---############################################################################################################################--->
 
-<!---############################################################################################################################--->
-					<DIV id=con width="80%">
-					<UL id=tags>
-					  <LI><A onClick="selectTag('tagContent0',this)" 
-					  href="javascript:void(0)">标签一</A> </LI>
-					  <LI class=selectTag><A onClick="selectTag('tagContent1',this)" 
-					  href="javascript:void(0)">标签二</A> </LI>
-					</UL>
-					<DIV id=tagContent>
-					<DIV class=tagContent id=tagContent0>
-					   <!--netease-->
+    <div id="rotate">
+            <ul>
+                <li><a href="#fragment-1"><span>Section 1</span></a></li>
+                <li><a href="#fragment-2"><span>Section 2</span></a></li>
+            </ul>
+            <div id="fragment-1">
+                <!--netease-->
 						 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 									<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
 									<script>
@@ -48,13 +50,10 @@ layout: default
 										var yunManualLoad = true;
 										Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
 									</script>
-						
-					
-					</DIV>
-					<DIV class="tagContent selectTag" id=tagContent1>
-					 <!--disqus-->
-					     <div id="tabs-2">
-                              <div id="disqus_thread"></div>
+			   
+            </div>
+            <div id="fragment-2">
+               <div id="disqus_thread"></div>
 									<script type="text/javascript">
 
 										/**
@@ -76,31 +75,12 @@ layout: default
 											</script>
 											<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 																		</div>
-					   
-					
-					</DIV>
-					</DIV></DIV>
-					<p>
-					  <SCRIPT type=text/javascript>
-					function selectTag(showContent,selfObj){
-						// 操作标签
-						var tag = document.getElementById("tags").getElementsByTagName("li");
-						var taglength = tag.length;
-						for(i=0; i<taglength; i++){
-							tag[i].className = "";
-						}
-						selfObj.parentNode.className = "selectTag";
-						// 操作内容
-						for(i=0; j=document.getElementById("tagContent"+i); i++){
-							j.style.display = "none";
-						}
-						document.getElementById(showContent).style.display = "block";
-						
-						
-					}
-					</SCRIPT>
-					</p>
+            </div>
+    </div>
 
+
+
+<!---############################################################################################################################--->
 
 
 
