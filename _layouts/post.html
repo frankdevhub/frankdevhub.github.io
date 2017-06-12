@@ -23,26 +23,46 @@ layout: default
 
 <br/>
 
+<!---############################################################################################################################--->
 
- <div id="slider">    
-            <ul class="navigation">
-                <li><a href="{{ page.url }}#sites">Sites</a></li>
-                <li><a href="{{ page.urls }}#files">Files</a></li>
-            </ul>
+<!---############################################################################################################################--->
+					<DIV id=con>
+					<UL id=tags>
+					  <LI><A onClick="selectTag('tagContent0',this)" 
+					  href="javascript:void(0)">标签一</A> </LI>
+					  <LI class=selectTag><A onClick="selectTag('tagContent1',this)" 
+					  href="javascript:void(0)">标签二</A> </LI>
+					</UL>
+					<DIV id=tagContent>
+					<DIV class=tagContent id=tagContent0>第一个标签的内容</DIV>
+					<DIV class="tagContent selectTag" id=tagContent1>第二个标签的内容</DIV>
+					</DIV></DIV>
+					<p>
+					  <SCRIPT type=text/javascript>
+					function selectTag(showContent,selfObj){
+						// 操作标签
+						var tag = document.getElementById("tags").getElementsByTagName("li");
+						var taglength = tag.length;
+						for(i=0; i<taglength; i++){
+							tag[i].className = "";
+						}
+						selfObj.parentNode.className = "selectTag";
+						// 操作内容
+						for(i=0; j=document.getElementById("tagContent"+i); i++){
+							j.style.display = "none";
+						}
+						document.getElementById(showContent).style.display = "block";
+						
+						
+					}
+					</SCRIPT>
+					</p>
 
-            <div class="scroll">
-                <div class="scrollContainer">
-                <div class="panel" id="sites"><h2>Sites</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-                <div class="panel" id="files"><h2>Files</h2><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-                </div>
-            </div>
-
-            <div id="shade"></div>
-        </div>
 
 
 
 
+<!---############################################################################################################################--->
 
  <div id="tabs">
                         	<ul>
