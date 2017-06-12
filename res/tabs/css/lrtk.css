@@ -1,4 +1,4 @@
-/* 懒人图库 搜集整理 www.lanrentuku.com */
+
 
 body { 
     margin: 10px;
@@ -36,7 +36,7 @@ h2 {
     overflow-x: hidden;
     position: relative;
     clear: left;
-    background: #FFFFFF url(../images/content_pane-gradient.gif) repeat-x scroll left bottom;
+    background: #FFFFFF url(https://frankdevhub.github.io/res/tabs/images/content_pane-gradient.gif) repeat-x scroll left bottom;
 }
 
 .scrollContainer div.panel {
@@ -46,7 +46,7 @@ h2 {
 }
 
 #shade {
-    background: #EDEDEC url(../images/shade.jpg) no-repeat 0 0;
+    background: #EDEDEC url(https://frankdevhub.github.io/res/tabs/images/shade.jpg) no-repeat 0 0;
     height: 50px;
 }
 
