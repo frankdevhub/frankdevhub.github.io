@@ -3,12 +3,42 @@ layout: default
 ---
 <div class="post-content well">
 <article class="content">
+    <!--网易插件统计浏览阅读次数和访客量-->
+    <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:#ef7522;font-size:14px;">
+            <span class="icon-comment"></span>
+            <span class="join-text" style="color:#ef7522;font-size:14px;">评论数:</span>
+            <span class="join-count">0</span>次
+        </a>
     <div class="post">{{ content }}</div>
     <hr />
     {% include share-page.html %}
 </article>
 
 
+
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+var cloudTieConfig = {
+  url: document.location.href, 
+  sourceId: "",
+  productKey: "14f7fedac9ee40c2b79116f0e0bb678a",
+  target: "cloud-tie-wrapper"
+};
+var yunManualLoad = true;
+Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+</script>
+
+
+
+ <!--
  <div id="disqus_thread"></div>
 <script type="text/javascript">
 
@@ -30,6 +60,7 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+-->
 
 
 
@@ -92,23 +123,3 @@ var duoshuoQuery = {short_name:"orangleliu"};
   {% endif %}
 </div>
 
-<!--
-<div class="disqus-comments">
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* <![CDATA[ */
-
-        var disqus_shortname = "{{ site.disqus_shortname }}";
-        var disqus_identifier = "{{ site.url }}_{{ page.title }}";
-        var disqus_title = "{{ page.title }}";
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    /* ]]> */
-    </script>
-</div>
-</div>-->
