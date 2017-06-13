@@ -8,7 +8,7 @@ title: Home
       {% for post in paginator.posts %}
       <div class="list-group-item">
         <div class="row-action-primary">
-           <i class="fa fa-sticky-note" style="background-image:/static/img/{{ post.categories }}.jpg">
+           <i class="fa fa-sticky-note" style="background-image:url({{ site.baseurl }}/static/img/{{ post.categories }}.jpg)">
 		   </i>
         </div>
         <div class="row-content">
