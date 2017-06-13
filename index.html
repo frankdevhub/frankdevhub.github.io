@@ -7,11 +7,11 @@ title: Home
     <div class="list-group">
       {% for post in paginator.posts %}
       <div class="list-group-item">
-       <!-- <div class="row-action-primary">
+       <div class="row-action-primary">
            <i class="fa fa-sticky-note" style="background-image:url({{ site.baseurl }}/static/img/{{ post.categories }}.jpg)">
 		   </i>
-        </div>-->
-		<div class="updatethumb" style="width:60px;height:60px"><img src="{{ site.baseurl }}/static/img/{{ post.categories }}.jpg" alt="" /></div>
+        </div>
+		
         <div class="row-content">
 		
           <div class="least-content">{{ post.date | date_to_string }}</div>
