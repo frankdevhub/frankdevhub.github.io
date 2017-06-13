@@ -36,18 +36,51 @@ $(function(){
 	})
 })
 </script>
-<div style="width:75%;margin:40px auto;">
+<div style="width:90%;margin:40px auto;">
 
     <div class="tabPanel">
 		<ul>
 			<li class="hit">Tab1</li>
 			<li>Tab2</li>
-			<li>Tab3</li>
 		</ul>
 		<div class="panes">
-			<div class="pane" style="display:block;"><h4>First tab content</h4><p>First tab content</p></div>
-			<div class="pane"><h4>Secend tab content</h4><p>First tab content</p></div>
-			<div class="pane"><h4>Third tab content</h4><p>First tab content</p></div>
+			<div class="pane" style="display:block;">
+			         <!--netease-->
+						 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+									<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+									<script>
+										var cloudTieConfig = {
+												url: document.location.href, 
+												sourceId: "",
+												productKey: "14f7fedac9ee40c2b79116f0e0bb678a",
+												target: "cloud-tie-wrapper"
+												};
+										var yunManualLoad = true;
+										Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+									</script>
+		    </div>
+			<div class="pane">
+			            <div id="disqus_thread"></div>
+									<script type="text/javascript">
+
+										/**
+									     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			                             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                                        /*
+											var disqus_config = function () {
+											this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+										    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+											};
+                                         */
+                                        (function() { // DON'T EDIT BELOW THIS LINE
+                                           var d = document, s = d.createElement('script');
+										   s.src = 'https://frankdevhub-github-io.disqus.com/embed.js';
+                                           //s.src = 'https://disqus.com/embed.js';
+											s.setAttribute('data-timestamp', +new Date());
+											(d.head || d.body).appendChild(s);
+											})();
+											</script>
+			</div>
 		</div>
     </div>
 
