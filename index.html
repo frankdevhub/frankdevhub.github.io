@@ -21,8 +21,8 @@ title: Home
 		
         <div class="row-content">
 		
-          <div class="least-content">{{ post.date | date_to_string }}</div>
-          <div float="left">
+          <div style="float:right" class="least-content">{{ post.date | date_to_string }}</div>
+          <div>
 		     <h4 class="list-group-item-heading"><a class="updated_list" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
           </div>
 		    <div class="update" style="display:none;height:10px">
