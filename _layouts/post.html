@@ -28,7 +28,30 @@ layout: default
 
 
 <!---############################################################################################################################--->
+<script type="text/javascript">
+$(function(){	
+	$('.tabPanel ul li').click(function(){
+		$(this).addClass('hit').siblings().removeClass('hit');
+		$('.panes>div:eq('+$(this).index()+')').show().siblings().hide();	
+	})
+})
+</script>
+<div style="width:75%;margin:40px auto;">
 
+    <div class="tabPanel">
+		<ul>
+			<li class="hit">Tab1</li>
+			<li>Tab2</li>
+			<li>Tab3</li>
+		</ul>
+		<div class="panes">
+			<div class="pane" style="display:block;"><h4>First tab content</h4><p>First tab content</p></div>
+			<div class="pane"><h4>Secend tab content</h4><p>First tab content</p></div>
+			<div class="pane"><h4>Third tab content</h4><p>First tab content</p></div>
+		</div>
+    </div>
+
+</div>
 <!---############################################################################################################################--->
 
  
