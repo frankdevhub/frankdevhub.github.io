@@ -83,6 +83,10 @@ title: Home
       // var _index = -1;
 	  if( _month <= 9 && _month >= 1){_month = "0"+_month};if( _day <= 9 && _month >= 1){_day = "0"+_day};
 	   for(var i=0 ; i < list.length; i++){
+	     //修改伪类 ::before,去除bootstrap默认状体下的图标
+	   
+	     $("i .fa fa-sticky-note").eq(i).innerHTML += '.fa fa-sticky-note:before {content: "XX";}';
+	   
 	     //alert(list.eq(i).html());
 		 var _dyear = list.eq(i).text().split("/")[2]; 
 		 var _dmonth = list.eq(i).text().split("/")[0]; 
