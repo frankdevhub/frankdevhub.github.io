@@ -80,6 +80,7 @@ title: Home
 	.change{
 	  content:"";
 	}
+	
 	</style>
 	  <script type="text/javascript">
 	    function pI(argString){return parseInt(argString)};
@@ -90,9 +91,10 @@ title: Home
 	   for(var i=0 ; i < list.length; i++){
 	     //修改伪类 ::before,去除bootstrap默认状体下的图标
 	   
-	     $("i .fa fa-sticky-note").eq(i).addClass("change");
+	   //  $("i .fa fa-sticky-note").eq(i).addClass("change");
 	  
-	   
+	    $("i .fa fa-sticky-note").eq(i).attr("content",null);
+		
 	     //alert(list.eq(i).html());
 		 var _dyear = list.eq(i).text().split("/")[2]; 
 		 var _dmonth = list.eq(i).text().split("/")[0]; 
