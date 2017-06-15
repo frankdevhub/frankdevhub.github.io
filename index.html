@@ -93,8 +93,15 @@ title: Home
 	   
 	   //  $("i .fa fa-sticky-note").eq(i).addClass("change");
 	  
-	   
-		alert($("i .fa fa-sticky-note").eq(i));
+	    //原来的伪类元素
+		<!--.fa-sticky-note:before {
+				//content: "\f249";
+		//}-->
+		
+		//利用Jquery覆盖，将新的元素插入到头部head文件当中
+		$('<style>.fa-sticky-note:before{content:'xx'}</style>').appendTo('head');
+		
+		
 	     //alert(list.eq(i).html());
 		 var _dyear = list.eq(i).text().split("/")[2]; 
 		 var _dmonth = list.eq(i).text().split("/")[0]; 
