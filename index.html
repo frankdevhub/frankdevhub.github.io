@@ -100,8 +100,10 @@ title: Home
 		
 		//利用Jquery覆盖，将新的元素插入到头部head文件当中
 		$('<style>.fa-sticky-note:before{content:""}</style>').appendTo('head');
-		$(".list-group .list-group-item .row-action-primary i").eq(i).attr("background","url(https://{{site.baseurl}}/static/img/javascript.jpg)");
+		$('<style>.list-group .list-group-item .row-action-primary i{background:url(https://{{site.baseurl}}/static/img/javascript.jpg);border-radius: 100%;text-align: center;    line-height: 56px;font-size: 20px;	color: #fff;    display: block;    width: 56px;    height: 56px;}</style>').appendTo('head');
 		
+		//$(".list-group .list-group-item .row-action-primary i").eq(i).attr("background","url(https://{{site.baseurl}}/static/img/javascript.jpg)");
+		//$(".list-group .list-group-item .row-action-primary i").eq(i).style.background = "url(https://{{site.baseurl}}/static/img/javascript.jpg)";
 	     //alert(list.eq(i).html());
 		 var _dyear = list.eq(i).text().split("/")[2]; 
 		 var _dmonth = list.eq(i).text().split("/")[0]; 
