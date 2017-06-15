@@ -85,7 +85,8 @@ title: Home
 	   for(var i=0 ; i < list.length; i++){
 	     //修改伪类 ::before,去除bootstrap默认状体下的图标
 	   
-	     $("i .fa fa-sticky-note").eq(i).innerHTML += '.fa fa-sticky-note:before {content: "XX";}';
+	  //   $("i .fa fa-sticky-note").eq(i).innerHTML += '.fa fa-sticky-note:before {content: "XX";}';
+	   alert($('i .fa fa-sticky-note').eq(i).css('content'));
 	   
 	     //alert(list.eq(i).html());
 		 var _dyear = list.eq(i).text().split("/")[2]; 
