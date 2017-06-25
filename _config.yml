@@ -1,0 +1,43 @@
+title: Fang ChenSheng
+description: My Personal Blog
+author: Fang ChenSheng
+logo: /static/img/g.jpg
+github: https://github.com/frankdevhub
+about: Software Engineer
+
+baseurl: https://frankdevhub.github.io
+url: ""
+
+allowsearch: true
+safe: false
+
+disqus_shortname: aboutashu
+google_analytics: UA-72862926-1
+
+share:
+  twitter_username: \#
+  fb_appid: 000000000000
+
+
+enableTags: true
+tagarray: []
+
+paginate: 5
+per_page: 5
+paginate_path: "/page:num/"
+markdown: kramdown
+gems: [jekyll-paginate, jekyll-gist]
+
+theme: jekyll-theme-cayman
+
+comments :
+    provider : disqus
+  
+###comments :
+###  provider : duoshuo
+###  duoshuo :
+###    short_name : havee
+  
+google_tracking_id: UA-XXXXX-Y
+
+wangYi: 14f7fedac9ee40c2b79116f0e0bb678a
