@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--2017/6/27 日历 start--->
+        <link rel="stylesheet" href="{{ site.url }}/calendar/css/default.css">
+		<link rel="stylesheet" href="{{ site.url }}/calendar/css/fullcalendar.css">
+		<link rel="stylesheet" href="{{ site.url }}/calendar/css/fullcalendar.print.css" media='print'>
+		
+	
+  <!--2017/6/27 日历 end --->
+  
+  
+    {% include baidu-analysis.html %}
+    {% include meta.html %}
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+      <script type="text/javascript">window.baseurl = '{{ site.url }}';</script>
+	  
+	  	<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shCore.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushCss.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushPlain.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushPython.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushJava.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushScala.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushSql.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushXml.js"></script>
+		<script type="text/javascript" src="{{ site.baseurl }}/res/js/syntaxhighlighter/scripts/shBrushPerl.js"></script>
+		<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/res/js/syntaxhighlighter/styles/shCore.css" />
+		<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/res/js/syntaxhighlighter/styles/shThemeDefault.css" />
+		
+		<link type="text/css" rel="stylesheet" href="{{ site.baseurl }}/res/css/style.default.css" />
+		
+	    <script type="text/javascript" src="{{ site.baseurl }}/static/js/jquery.min.js"></script>
+		
+	    <!--tabs plgin start-->
+	        <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/res/tabs/css/style.css" media="all" />
+
+			<script type="text/javascript" src="{{ site.baseurl }}/res/tabs/js/jquery-1.4.2.js"></script>
+	    <!--tabs plgin end--->
+	
+	
+	  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/list.css" />
+	
+	
+	
+<script type="text/javascript">
+		SyntaxHighlighter.defaults['toolbar'] = false;  //去掉右上角问号图标
+		SyntaxHighlighter.config.tagName = 'pre';       //可以更改解析的默认Tag。
+		SyntaxHighlighter.config.bloggerMode = true; 
+		SyntaxHighlighter.config.stripBrs = true;  
+		SyntaxHighlighter.all();
+</script>
+	    
+	  
+      {% include css.html %}
+  </head>
+
+  <body class="home overflow-hidden">
+    {% include header.html %}
+	<!--message bars-->
+    {% include main1.html %}
+    {% include js.html %}
+    
+	
+	{% if site.google_tracking_id %}
+		 {% include analytics.html %}
+	{% endif %}
+
+  </body>
+</html>
