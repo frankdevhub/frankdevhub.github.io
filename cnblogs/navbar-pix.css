@@ -1,0 +1,232 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body {
+	background:#DDE4EF;/*整个网页的背景颜色*/
+}
+/*.tit为每个菜单的标题样式  .list 为菜单项目的样式*/
+.tit , .list{ width:183px; /*菜单的宽度*/
+} 
+
+/*======================================标题部分===============================*/
+.tit {/*菜单标题的样式*/
+	height: 22px;/*底部边框没有*/
+	background:#D8E1EC url(images/pix/bar-open.png) repeat-x;/*背景样式依次为：颜色，图片路径，横向重复*/
+	color: #3F3D3D;/*前景色*/
+	font:bold 12px/22px "lucida Grande", verdana, lucida, Arial, helvetica, "宋体", sans-serif;/*文字样式依次为：粗体 大小/行高 字族*/
+	text-indent: 35px;/*文字缩进*/
+	margin-top:15px;/*外填充*/
+	position: relative;
+	border-top: 1px solid #C1CDE1;
+	border-right: 1px solid #C1CDE1;
+	border-bottom: 1px none #C1CDE1;
+	border-left: 1px solid #C1CDE1;
+}
+.tit a ,.tit a:link , .tit a hover{/*菜单标题中的链接的样式，共同的部分*/
+	color: #3F3D3D;
+	display:block;
+	text-decoration:none;
+	width:183px;
+	background-repeat: no-repeat;
+	background-position: right top;
+	cursor: pointer;
+}
+.tit a:hover{
+	color: #7E7C7C;/*鼠标经过时的颜色*/
+}
+/*====================
+	菜单标题中的箭头图片
+======================*/
+.on{
+	background-image: url(images/pix/open.png);/*向上的箭头-暗色*/
+}
+.on:hover{
+	background-image: url(images/pix/open-o.png);/*向上的箭头-亮色*/
+}
+.off{
+	background-image: url(images/pix/close.png);/*向下的箭头-暗色*/
+}
+.off:hover{
+	background-image: url(images/pix/close-o.png);/*向下的箭头-亮色*/
+}
+/*标题图标样式*/
+.titpic {
+	position: absolute;
+	height: 32px;
+	width: 32px;
+	left: 0px;
+	bottom: 0px;
+}
+
+
+/*每一个标题图标，可变的部分*/
+#pc1{
+	background: url(images/pepo.png) no-repeat;
+}
+#pc2{
+	background: url(images/st.png) no-repeat;
+}
+#pc3{
+	background: url(images/ring.png) no-repeat;
+}
+#pc4{
+	background: url(images/pic.png) no-repeat;
+}
+#pc5{
+	background: url(images/mv.png) no-repeat;
+}
+#pc6{
+	background: url(images/up.png) no-repeat;
+}
+#pc7{
+	background: url(images/help.png) no-repeat;
+}
+/*==========================================菜单体部分======================================*/
+/*====================
+	菜单列表的样式
+======================*/
+.list{
+	font-size: 12px;
+	color: #002280;
+	background: #fff no-repeat right bottom;
+	width: 183px;/*宽度*/
+	border: 1px solid #C1C1C1;
+	text-align:left;
+	padding:10px 10px;
+	voice-family:"\"}\"";
+	voice-family:inherit;
+	width:163px;
+	overflow:hidden;
+}
+html>body .list {
+width:163px;
+}
+.list ul{
+list-style-type:none;
+margin:0;
+padding:0;
+padding-left:18px;
+}
+.list li{
+margin:0;
+padding:0;
+padding-left:5px;
+}
+/*============
+菜单链接的样式
+==============*/
+.list a{
+color:#3F3D3D;
+text-decoration:none;
+}
+.list a:link{
+color:#3F3D3D;
+}
+.list a:hover{
+color:#3F3D3D;
+text-decoration:underline;
+}
+.list a:active{
+color:#3F3D3D;
+}
+
+/*每一个菜单体的背景图片可变部分*/
+#menu1_child{
+	background-image:url(images/bgmv.png);
+}
+/*#menu2_child{
+	background-image:url(images/bgring.png);
+}
+*/#menu3_child{
+	background-image:url(images/bgring.png);
+
+}
+#menu4_child{
+	background-image:url(images/bgpic.png);
+
+}
+#menu5_child{
+	background-image:url(images/bgmv.png);
+}
+
+/*每一个列表前的，列表图标*/
+#m1_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m1_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m1_3{
+list-style-image:url(images/ico/5.gif);
+}
+#m1_4{
+list-style-image:url(images/ico/4.gif);
+}
+/*2*/
+#m2_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m2_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m2_3{
+list-style-image:url(images/ico/3.gif);
+}
+#m2_4{
+list-style-image:url(images/ico/4.gif);
+}
+/*3*/
+#m3_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m3_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m3_3{
+list-style-image:url(images/ico/3.gif);
+}
+#m3_4{
+list-style-image:url(images/ico/4.gif);
+}
+/*4*/
+#m4_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m4_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m4_3{
+list-style-image:url(images/ico/11.gif);
+}
+#m4_4{
+list-style-image:url(images/ico/3.gif);
+}
+#m4_5{
+list-style-image:url(images/ico/4.gif);
+}
+/*5*/
+#m5_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m5_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m5_3{
+list-style-image:url(images/ico/3.gif);
+}
+#m5_4{
+list-style-image:url(images/ico/4.gif);
+}
+/*6*/
+#m6_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m6_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m6_3{
+list-style-image:url(images/ico/3.gif);
+}
+#m6_4{
+list-style-image:url(images/ico/4.gif);
+}

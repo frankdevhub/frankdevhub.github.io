@@ -1,0 +1,259 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body {
+	background:#fff;/*整个网页的背景颜色*/
+}
+/*.tit为每个菜单的标题样式  .list 为菜单项目的样式*/
+.tit ,.tit_on{
+	width:130px!important;
+} 
+
+/*======================================标题部分===============================*/
+.tit {/*菜单标题的样式*/
+	background:#FFFFFF url(images/qq/close.png) no-repeat left center;/*背景样式依次为：颜色，图片路径，横向重复*/
+	color: #151C4F;
+	list-style: url(images/qq/close.png);
+	font-family: "lucida Grande", verdana, lucida, Arial, helvetica, "宋体", sans-serif;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	height: 16px;
+}
+.tit_on{
+	background: url(images/qq/open.png) no-repeat left center;/*背景样式依次为：颜色，图片路径，横向重复*/
+	color: #151C4F;
+	list-style: url(images/qq/close.png);
+	font-family: "lucida Grande", verdana, lucida, Arial, helvetica, "宋体", sans-serif;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	height: 16px;
+
+}
+.tit a ,.tit a:link , .tit a:hover,.tit_on a,.tit_on a:link, .tit a:hover{/*菜单标题中的链接的样式，共同的部分*/
+	display:block;
+	text-decoration:none;
+	cursor: pointer;
+	font-size: small;
+	line-height: normal;
+	margin-left: 18px;
+	border: 1px solid #FFFFFF;
+	color: #101C4A;
+}
+.tit a:hover,.tit_on a:hover{/*鼠标经过时的颜色*/
+	border: 1px solid #8CAAC6;
+	background: #CEEBFF;
+}
+.tit_on a{
+	border: 1px solid #8CAAC6!important;
+	background: #CEEBFF!important;
+}
+.bar {
+	background: #C6E3FF url(images/qq/bar.png) no-repeat 0px 0px;
+	height: 19px;
+	width: 154px;
+	font-size: 12px;
+	color: #183C94;
+	text-align: center;
+	line-height: 19px;
+	cursor: pointer;
+}
+.bar:hover {
+	background: url(images/qq/bar_on.png);
+}
+
+
+/*====================
+	菜单标题中的箭头图片
+======================*/
+.on{
+}
+.on:hover{
+}
+.off{
+	background-image: url(images/arrow_down.gif);/*向下的箭头-暗色*/
+}
+.off:hover{
+	background-image: url(images/arrow_down_o.gif);/*向下的箭头-亮色*/
+}
+/*标题图标样式*/
+.titpic {
+	position: absolute;
+	height: 32px;
+	width: 32px;
+	left: 0px;
+	bottom: 0px;
+}
+
+
+/*每一个标题图标，可变的部分*/
+#pc1{
+	background: url(images/pepo.png) no-repeat;
+}
+#pc2{
+	background: url(images/st.png) no-repeat;
+}
+#pc3{
+	background: url(images/ring.png) no-repeat;
+}
+#pc4{
+	background: url(images/pic.png) no-repeat;
+}
+#pc5{
+	background: url(images/mv.png) no-repeat;
+}
+#pc6{
+	background: url(images/up.png) no-repeat;
+}
+#pc7{
+	background: url(images/help.png) no-repeat;
+}
+/*==========================================菜单体部分======================================*/
+/*====================
+	菜单列表的样式
+======================*/
+.list{
+	font-size: 12px;
+	color: #002280;
+	text-align:left;
+	padding:10px 0px 10px 5px;
+	voice-family:"\"}\"";
+	voice-family:inherit;
+	overflow:hidden;
+}
+.list ul{
+list-style-type:none;
+margin:0;
+padding:0;
+padding-left:18px;
+}
+.list li{
+margin:0;
+padding:0;
+padding-left:5px;
+}
+/*============
+菜单链接的样式
+==============*/
+.list a{
+color:#002280;
+text-decoration:none;
+}
+.list a:link{
+color:#002280;
+}
+.list a:hover{
+color:#296DC1;
+text-decoration:underline;
+}
+.list a:active{
+color:#296DC1;
+}
+
+
+/*每一个列表前的，列表图标*/
+#m1_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m1_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m1_3{
+list-style-image:url(images/ico/5.gif);
+}
+#m1_4{
+list-style-image:url(images/ico/4.gif);
+}
+/*2*/
+#m2_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m2_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m2_3{
+list-style-image:url(images/ico/3.gif);
+}
+#m2_4{
+list-style-image:url(images/ico/4.gif);
+}
+/*3*/
+#m3_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m3_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m3_3{
+list-style-image:url(images/ico/3.gif);
+}
+#m3_4{
+list-style-image:url(images/ico/4.gif);
+}
+/*4*/
+#m4_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m4_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m4_3{
+list-style-image:url(images/ico/11.gif);
+}
+#m4_4{
+list-style-image:url(images/ico/3.gif);
+}
+#m4_5{
+list-style-image:url(images/ico/4.gif);
+}
+/*5*/
+#m5_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m5_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m5_3{
+list-style-image:url(images/ico/3.gif);
+}
+#m5_4{
+list-style-image:url(images/ico/4.gif);
+}
+#m6_1{
+list-style-image:url(images/ico/1.gif);
+}
+#m6_2{
+list-style-image:url(images/ico/2.gif);
+}
+#m6_3{
+list-style-image:url(images/ico/3.gif);
+}
+#m6_4{
+list-style-image:url(images/ico/4.gif);
+}
+.qq_in {
+	background: #FFFFFF;
+	width: 154px;
+	border: 1px solid #2367C3;
+	height: 360px;
+	overflow: hidden;
+}
+.qq_outer {
+	border: 1px solid #1E3E93;
+	background: #58B3FF;
+	padding: 5px 2px 2px 28px;
+	width: 157px;
+}
+/*每一个菜单体的背景图片可变部分*/
+#bar_cld_3{
+	background: url(images/bgring.png) no-repeat right bottom;
+}
+#bar_cld_2{
+	background: url(images/bgpic.gif) no-repeat right bottom;
+}
+#bar_cld_1 {
+	overflow: auto;
+	background: url(images/bgmv.png) no-repeat right bottom;
+	width: 154px;
+	height: 135px;
+	background: url(images/bgmv.png) no-repeat right bottom;
+}

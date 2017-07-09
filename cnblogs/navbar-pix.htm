@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="title" content="仿xp导航菜单" />
+<meta name="author" content="雷晓宝，张瑾" />
+<meta name="language" content="zh-cn" />
+<meta name="copyright" content="&copy;2005 lxbzj.com" />
+<meta name="date" content="2005-10-21" />
+<meta name="Reply-to" content="lxbzmy@163.com" />
+<meta name="description" content="这是管理导航菜单，遵循xhtml，点击标题隐藏内容，基于DOM的脚本。" />
+<meta name="robots" content="None" />
+<meta name="Keywords" content="menu navbar" />
+<meta name="pragma" content="no-cache" />
+<meta name="document-class" content="Completed" />
+<meta name="cache-control" content="Private" />
+<title>管理菜单</title>
+<script language="JavaScript" type="text/javascript" src="navbar.js"></script>
+<link href="navbar-pix.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<script language="JavaScript" type="text/JavaScript">
+var show = true;
+var hide = false;
+//修改菜单的上下箭头符号
+function my_on(head,body)
+{
+	var tag_a;
+	for(var i=0;i<head.childNodes.length;i++)
+	{
+		if (head.childNodes[i].nodeName=="A")
+		{
+			tag_a=head.childNodes[i];
+			break;
+		}
+	}
+	tag_a.className="on";
+}
+function my_off(head,body)
+{
+	var tag_a;
+	for(var i=0;i<head.childNodes.length;i++)
+	{
+		if (head.childNodes[i].nodeName=="A")
+		{
+			tag_a=head.childNodes[i];
+			break;
+		}
+	}
+	tag_a.className="off";
+}
+//添加菜单	
+window.onload=function()
+{
+	m1 =new Menu("menu1",'menu1_child','dtu','100',show,my_on,my_off);
+	m1.init();
+	m2 =new Menu("menu2",'menu2_child','dtu','100',hide,my_on,my_off);
+	m2.init();
+	m3 =new Menu("menu3",'menu3_child','dtu','100',hide,my_on,my_off);
+	m3.init();
+	m4 =new Menu("menu4",'menu4_child','dtu','100',hide,my_on,my_off);
+	m4.init();
+	m5 =new Menu("menu5",'menu5_child','dtu','100',hide,my_on,my_off);
+	m5.init();
+	m6 =new Menu("menu6",'menu6_child','dtu','100',hide,my_on,my_off);
+	m6.init();
+	m7 =new Menu("menu7",'menu7_child','dtu','100',show,my_on,my_off);
+	m7.init();
+}
+</script>
+<noscript title="系统提示">
+
+<div class="list" id="menu0_child">
+	<p><strong>您的设备不支持js,不能使用菜的折叠功能</strong></p>
+</div>
+</noscript>
+
+<div id="menu">
+	<div class="tit" id="menu1" title="菜单标题">
+		<div class="titpic" id="pc1"></div>
+		<a href="#nojs" title="折叠菜单" target="" class="on" id="menu1_a" tabindex="1" >用户功能</a> </div>
+	<div class="list" id="menu1_child" title="菜单功能区" >
+		<ul>
+			<li id="m1_1" ><a href="#">注册信息</a></li>
+			<li id="m1_2" ><a href="#">我的文档</a></li>
+			<li id="m1_3" ><a href="#">回收站</a></li>
+			<li id="m1_4" ><a href="#">控制面板</a></li>
+		</ul>
+	</div>
+	<div class="tit" id="menu2" title="菜单标题" >
+		<div class="titpic" id="pc2"></div>
+		<a href="#nojs" title="折叠菜单" target="" class="on" id="menu2_a" tabindex="2">系统设置</a> </div>
+	<div class="list" id="menu2_child" title="菜单功能区">
+		<ul>
+			<li id="m2_1" ><a href="#">环境变量</a></li>
+			<li id="m2_2" ><a href="#">执行SQL</a></li>
+			<li id="m2_3" ><a href="#">回收站</a></li>
+			<li id="m2_4" ><a href="#">控制面板</a></li>
+		</ul>
+	</div>
+	<div class="tit" id="menu3" title="菜单标题" >
+		<div class="titpic" id="pc3"></div>
+		<a href="" title="折叠菜单" target="" class="on" id="menu3_a" tabindex="3">分类管理</a> </div>
+	<div class="list" id="menu3_child" title="菜单功能区">
+		<ul>
+			<li id="m3_1" ><a href="#">友情链接</a></li>
+			<li id="m3_2" ><a href="#">文章分类</a></li>
+			<li id="m3_3" ><a href="#">相册分类</a></li>
+		</ul>
+	</div>
+	
+	<div class="tit" id="menu6" title="菜单标题" >
+		<div class="titpic" id="pc6"></div>
+		<a href="" title="折叠菜单" class="on" id="menu6_a" tabindex="6">生成html</a> </div>
+	<div class="list" id="menu6_child" title="菜单功能区">
+		<ul>
+			<li id="m6_1" ><a href="#">网站统计</a></li>
+			<li id="m6_2" ><a href="#">文章目录</a></li>
+			<li id="m6_3" ><a href="#">友情连接</a></li>
+		</ul>
+	</div>
+	<div class="tit" id="menu7" title="菜单标题" >
+		<div class="titpic" id="pc7"></div>
+		<a href="" title="折叠菜单" class="on" id="menu7_a" tabindex="6">关于</a> </div>
+	<div class="list" id="menu7_child" title="菜单功能区">
+		<ul id="auth" >
+			<li>作者：雷晓宝</li>
+			<li>网址：<a href="http://www.lxbzj.com/">lxbzj.com</a></li>
+			<li>版本：2.3</li>
+			<li>时间：2006-04-13</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
