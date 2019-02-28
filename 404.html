@@ -1,22 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>404</title>
-<link rel="stylesheet" type="text/css" href="styles.css" />
-</head>
+---
+layout: default
+description: "Sorry, Page Not Found :("
+---
 
-<body style="text-align:center">
-<!-- 代码 开始 -->
-<div id="rocket"></div>
-<hgroup>
-    <h1>Page Not Found</h1>
-    <h2>We couldn't find what you were looking for.</h2>
-</hgroup>
-<script src="http://lib.sinaapp.com/js/jquery/1.8.2/jquery.min.js"></script>
-<script src="script.js"></script>
-<!-- 代码 结束 -->
+{% include header.html %}
+
+<header class="g-banner np-banner {{ site.postPatterns | prepend: 'post-pattern-' }}" data-theme="{{ site.theme-color }}">
+    <div class="post-wrapper">
+        <h1>404</h1>
+        <span class="subheading">{{ page.description }}</span>
+        <a href="{{ site.nav.home }}" class="btn">Back to home</a>
+    </div>
+</header>
 
 
-</body>
-</html>
