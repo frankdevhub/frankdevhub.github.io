@@ -1,235 +1,149 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+{% include post-head.html %}
 
-<div class="post-content well">
-<article class="content">
-    <!--网易插件统计浏览阅读次数和访客量-->
-    <br/>
-        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-        <span class="icon-sort"></span>
-        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-        </span>
-        </a>
-        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:#ef7522;font-size:14px;">
-            <span class="icon-comment"></span>
-            <span class="join-text" style="color:#ef7522;font-size:14px;">评论数:</span>
-            <span class="join-count">0</span>次
-        </a>
-    <div class="post">{{ content }}</div>
-    <hr />
-    {% include share-page.html %}
-</article>
+<body>
+  <!--[if lt IE 10]>
+<div class="alert-danger" role="alert">你的浏览器实在太太太旧了，放学别走，升级完浏览器再说！<a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div>
+<![endif]-->
+  <input id="nm-switch" type="hidden" value="{{ site.nightMode }}"> {% include header.html %}
 
-<br/>
-
-
-
-
-<!---############################################################################################################################--->
-<script type="text/javascript">
-$(function(){	
-	$('.tabPanel ul li').click(function(){
-		$(this).addClass('hit').siblings().removeClass('hit');
-		$('.panes>div:eq('+$(this).index()+')').show().siblings().hide();	
-	})
-})
-</script>
-<div style="width:90%;margin:40px auto;">
-
-    <div class="tabPanel">
-		<ul>
-			<li class="hit">Netease</li>
-			<li>Disqus</li>
-		</ul>
-		<div class="panes">
-			<div class="pane" style="display:block;">
-			         <!--netease-->
-						 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-									<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-									<script>
-										var cloudTieConfig = {
-												url: document.location.href, 
-												sourceId: "",
-												productKey: "14f7fedac9ee40c2b79116f0e0bb678a",
-												target: "cloud-tie-wrapper"
-												};
-										var yunManualLoad = true;
-										Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
-									</script>
-		    </div>
-			<div class="pane">
-			
-			    <div style="padding:10px">
-				         <div id="disqus_thread"></div>
-									<script type="text/javascript">
-
-										/**
-									     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-			                             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-                                        /*
-											var disqus_config = function () {
-											this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-										    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-											};
-                                         */
-                                        (function() { // DON'T EDIT BELOW THIS LINE
-                                           var d = document, s = d.createElement('script');
-										   s.src = 'https://frankdevhub-github-io.disqus.com/embed.js';
-                                           //s.src = 'https://disqus.com/embed.js';
-											s.setAttribute('data-timestamp', +new Date());
-											(d.head || d.body).appendChild(s);
-											})();
-											</script>
-				
-				</div>
-			         
-			</div>
-		</div>
+  <header
+    class="g-banner post-header {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }} {% unless page.cover %}post-no-cover{% endunless %}"
+    data-theme="{{ site.theme-color }}"
+  >
+    <div class="post-wrapper">
+      <div class="post-tags">
+        {% if page.tags.size > 0 %}
+          {% for tag in page.tags  %}
+            <a href="{{ "tags#" | append: tag | absolute_url }}" class="post-tag">{{ tag }}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      <div class="post-meta">
+        <span class="post-meta-item"><i class="iconfont icon-author"></i>{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</span>
+        <time class="post-meta-item" datetime="{{ page.date | date:"%y-%m-%d" }}"><i class="iconfont icon-date"></i>{{ page.date | date_to_string }}</time>
+      </div>
     </div>
+    {% if page.cover %}
+    <div class="filter"></div>
+      <div class="post-cover" style="background: url('{{ page.cover }}') center no-repeat; background-size: cover;"></div>
+    {% endif %}
+  </header>
 
-</div>
-<!---############################################################################################################################--->
+  <div class="post-content visible">
+    {% if page.subtitle %}
+    <h2 class="post-subtitle">{{ page.subtitle }}</h2>
+    {% endif %}
 
- 
+    <article class="markdown-body">
+      {{ page.content }}
+    </article>
 
- <!---
+    {% if site.social-share %}
+    <div class="social-share-wrapper">
+      <div class="social-share"></div>
+    </div>
+    {% endif %}
+  </div>
 
- <div id="tabs">
-                        	<ul>
-                                <li><a href="#tabs-1">Netease</a></li>
-                                <li><a href="#tabs-2">Disqus</a></li>                 
-                            </ul>
-                            <div id="tabs-1">
-                                <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-								<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-								<script>
-									var cloudTieConfig = {
-											url: document.location.href, 
-											sourceId: "",
-											productKey: "14f7fedac9ee40c2b79116f0e0bb678a",
-											target: "cloud-tie-wrapper"
-											};
-									var yunManualLoad = true;
-									Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
-								</script>
-                            </div>
-                            <div id="tabs-2">
-                              <div id="disqus_thread"></div>
-									<script type="text/javascript">
-
-										/**
-									     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-			                             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-                                        /*
-											var disqus_config = function () {
-											this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-										    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-											};
-                                         */
-                                        (function() { // DON'T EDIT BELOW THIS LINE
-                                           var d = document, s = d.createElement('script');
-										   s.src = 'https://frankdevhub-github-io.disqus.com/embed.js';
-                                           //s.src = 'https://disqus.com/embed.js';
-											s.setAttribute('data-timestamp', +new Date());
-											(d.head || d.body).appendChild(s);
-											})();
-											</script>
-											<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-																		</div>
-															
-				</div>
-
--->
-
-
-
-
- <!--
- <div id="disqus_thread"></div>
-<script type="text/javascript">
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://frankdevhub-github-io.disqus.com/embed.js';
-//s.src = 'https://disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
--->
-
-
-
-
-<!--
-
-    <div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}" data-url="{{ page.url }}"></div>  
-
-
-<script type="text/javascript">  
-var duoshuoQuery = {short_name:"orangleliu"};  
-    (function() {  
-        var ds = document.createElement('script');  
-        ds.type = 'text/javascript';ds.async = true;  
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';  
-        ds.charset = 'UTF-8';  
-        (document.getElementsByTagName('head')[0]   
-         || document.getElementsByTagName('body')[0]).appendChild(ds);  
-    })();  
-    </script>  
- -->
-
-
-
-<hr />
-{% assign hasSimilar = '' %}
-{% for post in site.posts  %}
-    {% assign postHasSimilar = false %}
-    {% for tag in post.categories %}
-        {% for thisTag in page.categories %}
-            {% if postHasSimilar == false and hasSimilar.size < 6 and post != page and tag == thisTag %}
-                {% if hasSimilar.size == 0 %}
-                <div class="panel-body">
-                <h4>Related Posts</h4>
-                <ul>
-                {% endif %}
-                <li class="relatedPost">
-                    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                    {% if post.categories %}
-                        <small>(Categories: {% for category in post.categories %}<a href="/category/{{ category }}">{{ category }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %})</small>
-                    {% endif %}
-                </li>
-                {% capture hasSimilar %}{{ hasSimilar }}*{% endcapture %}
-                {% assign postHasSimilar = true %}
-            {% endif %}
+  <section class="author-detail">
+    <section class="post-footer-item author-card">
+      <div class="avatar">
+        <img src="{{ site.avatar | absolute_url }}" alt="">
+      </div>
+      <div class="author-name" rel="author">{{ site.author }}</div>
+      <div class="bio">
+        <p>{{ site.bio }}</p>
+      </div>
+      {% if site.sns.size > 0 %}
+      <ul class="sns-links">
+        {% for s in site.sns %}
+        <li>
+          <a href="{{ s[1] }}" target="_blank">
+                    <i class="iconfont icon-{{ s[0] }}"></i>
+                </a>
+        </li>
         {% endfor %}
-    {% endfor %}
-{% endfor %}
-{% if hasSimilar.size > 0 %}
-    </ul>
-    </div>
-{% endif %}
+      </ul>
+      {% endif %}
+    </section>
+    <section class="post-footer-item read-next">
+      {% if page.next.url %}
+      <div class="read-next-item">
+        <a href="{{ page.next.url }}" class="read-next-link"></a>
+        <section>
+          <span>{{ page.next.title }}</span>
+          <p>{{ page.next.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+        </section>
+        {% if page.next.cover %}
+        <div class="filter"></div>
+        <img src="{{ page.next.cover }}" alt="">
+        {% endif %}
+     </div>
+      {% endif %}
 
-<div class="PageNavigation">
-  {% if page.previous.url %}
-    <a class="prev pull-left" href="{{ site.url }}{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
+      {% if page.previous.url %}
+      <div class="read-next-item">
+        <a href="{{ page.previous.url }}" class="read-next-link"></a>
+          <section>
+            <span>{{ page.previous.title }}</span>
+            <p>{{ page.previous.excerpt | strip_html | strip_newlines | truncate: 60}}</p>
+          </section>
+          {% if page.previous.cover %}
+          <div class="filter"></div>
+          <img src="{{ page.previous.cover }}" alt="">
+          {% endif %}
+      </div>
+      {% endif %}
+    </section>
+    {% if site.comments.disqus %}
+    <section class="post-footer-item comment">
+        <div id="disqus_thread"></div>
+    </section>
+    {% endif %}
+  </section>
+
+  {% include footer.html %}
+
+  <script src="/assets/js/social-share.min.js"></script>
+  <script>
+    socialShare('.social-share', {
+      sites: [
+        {% for i in site.social-share-items %}
+          '{{ i }}'
+          {% if forloop.last == false %},
+          {% endif %}
+        {% endfor %}
+      ],
+      wechatQrcodeTitle: "分享到微信朋友圈",
+      wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
+    });
+  </script>
+
+  {% if site.comments.disqus %}
+  <script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '{{ site.comments.disqus_url }}';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
   {% endif %}
-  {% if page.next.url %}
-    <a class="next pull-right" href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
-  {% endif %}
-  
 
-</div>
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/index.min.js"></script>
+</body>
 
+</html>
