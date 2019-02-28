@@ -1,15 +1,6 @@
-<<<<<<< .mine
-.gitignore
-=======
-
->>>>>>> .theirs
 .DS_Store
 */.DS_Store
 
 node_modules
 
-<<<<<<< .mine
 _site
-=======
-_site
->>>>>>> .theirs
