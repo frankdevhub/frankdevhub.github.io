@@ -1,104 +1,160 @@
 ---
 layout: default
-home-title: H2O Theme For Jekyll
-description: 或许是最漂亮的Jekyll主题
 ---
 
-{% include header.html %}
-
-<div
-    class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}"
-    data-theme="{{ site.theme-color }}"
-    style="{% if page.header-img %}background: url({{ page.header-img | prepend: site.baseurl }}) no-repeat center center; background-size: cover;{% endif %}"
->
-    <h2>{{ page.home-title }}</h2>
-    <h3>{{ page.description }}</h3>
-</div>
-
-<main class="g-container home-content">
-    <div class="article-list">
-        {% for post in paginator.posts %}
-            <article class="article-item">
-                {% if post.cover %}
-                <div class="post-cover">
-                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"></a>
-                    <img src="{{ post.cover }}" href="{{ post.url | prepend: site.baseurl }}" alt="">
-                </div>
-                {% endif %}
-                <section class="post-preview">
-                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"></a>
-                    <h2 class="post-title">{{ post.title }}</h2>
-                    {% if post.subtitle %}
-                    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-                    {% endif %}
-                    {% if post.subtitle.size==0 or post.subtitle==nil %}
-                    <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 126}}</p>
-                    {% endif %}
-                </section>
-                <footer class="post-meta">
-                    <div class="post-tags">
-                        {% if post.tags.size > 0 %}
-                            {% for tag in post.tags  %}
-                            <a href={{ "tags.html#" | append: tag | pretend: site.baseurl}} class="post-tag">{{ tag }}</a>
-                            {% endfor %}
+<div class="page clearfix" index>
+    <div class="left">
+        <h1>Welcome to HyG's Blog!</h1>
+        <small>这里记录着我的前端学习之路</small>
+        <hr>
+        <ul>
+            {% for post in paginator.posts %}
+              <li>
+                <h2>
+                  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>{{ post.date | date: "%F" }}
+                    </div>
+                    <div class="label-card">
+                        {% if post.author %}<i class="fa fa-user"></i>{{ post.author }}
                         {% endif %}
                     </div>
-                    <time class="post-date" datetime="{{ post.date | date:"%y-%m-%d" }}">{{ post.date | date_to_string }}</time>
-                </footer>
-            </article>
-        {% endfor %}
+                    <div class="label-card">
+                        {% if page.meta %}<i class="fa fa-key"></i>{{ page.meta }}  {% endif %}
+                    </div>
 
-        {% if paginator.total_pages > 1 %}
-            {% include pageNav.html %}
-        {% endif %}
+                    <div class="label-card">
+                    {% include category.html %}
+                    </div>
 
+                    <div class="label-card">
+                    {% include tag.html %}
+                    </div>
+                </div>
+                <div class="excerpt">
+                    {{post.excerpt}}
+                </div>
+                <div class="read-all">
+                    <a  href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            {% endfor %}
+        </ul>
+
+
+
+        <!-- Pagination links -->
+        <div class="pagination">
+          {% if paginator.previous_page %}
+            <a href="/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous"><i class="fa fa-angle-left"></i></a>
+          {% else %}
+            <span class="previous disable"><i class="fa fa-angle-double-left"></i></span>
+            <span class="previous disable"><i class="fa fa-angle-left"></i></span>
+          {% endif %}
+          <span class="page_number ">{{ paginator.page }}/{{ paginator.total_pages }}</span>
+          {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="next"><i class="fa fa-angle-right"></i></a>
+            <a href="{{ site.baseurl }}/page{{ paginator.total_pages }}" class="next"><i class="fa fa-angle-double-right"></i></a>
+          {% else %}
+            <span class="next disable"><i class="fa fa-angle-right"></i></span>
+            <span class="next disable"><i class="fa fa-angle-double-right"></i></span>
+          {% endif %}
+        </div>
     </div>
+    <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
+    <div class="right">
+        <div class="wrap">
+            <div class="side">
+                <div>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    Recent Posts
+                </div>
+                <ul class="content-ul" recent>
+                    {% for post in site.posts offset: 0 limit: 10  %}
+                        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
 
-    <aside class="g-sidebar-wrapper">
-        <div class="g-sidebar">
-            <section class="author-card">
-                <div class="avatar">
-                    <img src="{{ site.avatar | prepend: site.baseurl }}" alt="">
+            <!-- Content -->
+            <div class="side ">
+                <div>
+                    <i class="fa fa-th-list"></i>
+                    Categories
                 </div>
-                <div class="author-name" rel="author">{{ site.author }}</div>
-                <div class="bio">
-                    <p>{{ site.bio }}</p>
-                </div>
-                {% if site.sns.size > 0 %}
-                <ul id="sns-links" class="sns-links">
-                    {% for s in site.sns %}
+                <ul class="content-ul" cate>
+                    {% for category in site.categories %}
                     <li>
-                        <a href="{{ s[1] }}" target="_blank">
-                            <i class="iconfont icon-{{ s[0] }}"></i>
+                        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
+                            <span class="name">
+                                {{ category | first }}
+                            </span>
+                            <span class="badge">{{ category | last | size }}</span>
                         </a>
                     </li>
                     {% endfor %}
                 </ul>
-                {% endif %}
-            </section>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <div class="side">
+                <div>
+                    <i class="fa fa-tags"></i>
+                    Tags
+                </div>
+                <div class="tags-cloud">
+                    {% assign first = site.tags.first %}
+                    {% assign max = first[1].size %}
+                    {% assign min = max %}
+                    {% for tag in site.tags offset:1 %}
+                      {% if tag[1].size > max %}
+                        {% assign max = tag[1].size %}
+                      {% elsif tag[1].size < min %}
+                        {% assign min = tag[1].size %}
+                      {% endif %}
+                    {% endfor %}
 
-            {% if site.recommend-tags and site.tags.size>0 %}
-            <section class="tags-card">
-                {% for tag in site.tags %}
-                    {% if forloop.index > site.recommend-condition-size %}
-                        {% break %}
+                    {% if max == min %}
+                        {% assign diff = 1 %}
+                    {% else %}
+                        {% assign diff = max | minus: min %}
                     {% endif %}
-                    <a href="{{ "tags.html#" | append: tag[0] | prepend: site.baseurl }}" class="tag">{{ tag[0]}}</a>
-                {% endfor %}
-            </section>
-            {% endif %}
+
+                    {% for tag in site.tags %}
+                      {% assign temp = tag[1].size | minus: min | times: 36 | divided_by: diff %}
+                      {% assign base = temp | divided_by: 4 %}
+                      {% assign remain = temp | modulo: 4 %}
+                      {% if remain == 0 %}
+                        {% assign size = base | plus: 9 %}
+                      {% elsif remain == 1 or remain == 2 %}
+                        {% assign size = base | plus: 9 | append: '.5' %}
+                      {% else %}
+                        {% assign size = base | plus: 10 %}
+                      {% endif %}
+                      {% if remain == 0 or remain == 1 %}
+                        {% assign color = 9 | minus: base %}
+                      {% else %}
+                        {% assign color = 8 | minus: base %}
+                      {% endif %}
+                      <a href="{{ root_url }}/{{ site.tag_dir }}#{{ tag[0] }}" style="font-size: {{ size }}pt; color: #{{ color }}{{ color }}{{ color }};">{{ tag[0] }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- <div class="side">
+                <div>
+                    <i class="fa fa-external-link"></i>
+                    Links
+                </div>
+                <ul  class="content-ul">
+
+                </ul>
+            </div> -->
         </div>
-
-        {% if site.search %}
-        <div class="search-card">
-            <input id="search_input" type="text" placeholder="Search..." autocomplete="off">
-            <i class="iconfont icon-search"></i>
-            <div class="search_result"></div>
-        </div>
-        {% endif %}
-
-    </aside>
-
-</main>
-
-{% include footer.html %}
+    </div>
+</div>
+<!-- <script src="{{ "/js/scroll.min.js " | prepend: site.baseurl }}" charset="utf-8"></script> -->
+<!-- <script src="{{ "/js/pageContent.js " | prepend: site.baseurl }}" charset="utf-8"></script> -->
