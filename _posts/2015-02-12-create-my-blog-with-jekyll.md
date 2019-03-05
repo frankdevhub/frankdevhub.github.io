@@ -131,7 +131,7 @@ gem ins hitimes -v 1.2.1 --platform ruby
 下面是我自己的卸载和安装过程：
 
 ```
-E:\GitWorkSpace\gaohaoyang.github.io>gem uni hitimes
+E:\GitWorkSpace\frankdevhub.github.io>gem uni hitimes
 
 You have requested to uninstall the gem:
         hitimes-1.2.2-x86-mingw32
@@ -141,7 +141,7 @@ If you remove this gem, these dependencies will not be met.
 Continue with Uninstall? [yN]  y
 Successfully uninstalled hitimes-1.2.2-x86-mingw32
 
-E:\GitWorkSpace\gaohaoyang.github.io>gem ins hitimes -v 1.2.1 --platform ruby
+E:\GitWorkSpace\frankdevhub.github.io>gem ins hitimes -v 1.2.1 --platform ruby
 Fetching: hitimes-1.2.1.gem (100%)
 Temporarily enhancing PATH to include DevKit...
 Building native extensions.  This could take a while...
