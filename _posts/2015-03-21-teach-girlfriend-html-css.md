@@ -4,6 +4,7 @@ title:  "Teach Girlfriend to make a Web Pages like Zhihu"
 date:   2015-03-21 15:14:54
 categories: Bootstrap
 tags: BootStrap HTML CSS Zhihu
+author: Franklinfang
 ---
 
 * content

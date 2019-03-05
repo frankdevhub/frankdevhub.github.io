@@ -4,6 +4,7 @@ title:  "前端处理动态 url 和 pushStatus 的使用"
 date:   2015-12-31 23:06:05
 categories: JavaScript
 tags: JavaScript Ajax URL HistoryApi pushState pjax
+author: Franklinfang
 ---
 
 * content
