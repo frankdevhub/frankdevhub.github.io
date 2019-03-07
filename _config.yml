@@ -45,6 +45,7 @@ kramdown:
 # url
 category_dir: category/
 tag_dir: tag/
+life_dir: life/
 
 # excerpt
 excerpt_separator: "\n\n\n\n"
