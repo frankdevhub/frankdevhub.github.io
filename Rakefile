@@ -67,7 +67,7 @@ task :post do
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts 'description: ""'
 	#frankdevhub add start
-	post.puts 'life: ""'
+	post.puts 'lives: ""'
 	#frankdevhub add end 
     post.puts "category: #{category}"
     post.puts "tags: #{tags}"
