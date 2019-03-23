@@ -66,6 +66,9 @@ task :post do
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts 'description: ""'
+    # frankdevhub add start
+	post.puts 'life: ""'
+	# frankdevhub add end
     post.puts "category: #{category}"
     post.puts "tags: #{tags}"
     post.puts "---"
@@ -136,10 +139,7 @@ namespace :theme do
       open(File.join(CONFIG['layouts'], File.basename(filename)), 'w') do |page|
         page.puts "---"
         page.puts File.read(settings_file) if File.exist?(settings_file)
-		# frankdevhub add start
-		post.puts 'life: ""'
 		post.puts "tags: #{tags}"
-		# frankdevhub add end
         page.puts "layout: default" unless File.basename(filename, ".html").downcase == "default"
         page.puts "---"
         page.puts "{% include JB/setup %}"
