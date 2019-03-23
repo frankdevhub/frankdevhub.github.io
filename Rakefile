@@ -84,17 +84,62 @@ end
 # == Tasks =====================================================================
 
 # rake post["Title"]
+#desc "Create a post in _posts"
+#task :post, :title do |t, args|
+#  title = args[:title]
+#  template = CONFIG["post"]["template"]
+#  extension = CONFIG["post"]["extension"]
+#  editor = CONFIG["editor"]
+#  check_title(title)
+#  filename = "#{DATE}-#{transform_to_slug(title, extension)}"
+#  content = read_file(template)
+#  create_file(POSTS, filename, content, title, editor)
+#end
+
+
+
+# Add 2016-03－01(rake post title="xx")
 desc "Create a post in _posts"
-task :post, :title do |t, args|
-  title = args[:title]
-  template = CONFIG["post"]["template"]
-  extension = CONFIG["post"]["extension"]
-  editor = CONFIG["editor"]
-  check_title(title)
-  filename = "#{DATE}-#{transform_to_slug(title, extension)}"
-  content = read_file(template)
-  create_file(POSTS, filename, content, title, editor)
+task :new do
+    puts "Input File Path(book/life/resource/tech/tool,default _posts Root)："
+    @dir = STDIN.gets.chomp
+    puts "Input File Name(for Url)："
+    @url = STDIN.gets.chomp
+    puts "Input Article Title(for Article)："
+    @name = STDIN.gets.chomp
+    puts "Input Article Categories(工具｜资源｜生活｜技术｜读书 Separated By Spaces)："
+    @categories = STDIN.gets.chomp
+    puts "Input Article Tags(Separated By ,)"
+    @tags = STDIN.gets.chomp
+    puts "Input Article Keywords(Separated By ,)"
+    @keywords = STDIN.gets.chomp
+    puts "Input Article Description(Article Desc)："
+    @description = STDIN.gets.chomp
+
+    @slug = "#{@url}"
+    @slug = @slug.downcase.strip.gsub(' ', '-')
+    @date = Time.now.strftime("%F")
+    @post_url = (@dir=="") ? "" : ("/" + "#{@dir}");
+    @post_name = "_posts#{@post_url}/#{@date}-#{@slug}.md"
+    if File.exist?(@post_name)
+       abort("Failed to create the file name already exists !")
+    end
+    FileUtils.touch(@post_name)
+    open(@post_name, 'a') do |file|
+        file.puts "---"
+        file.puts "layout: post"
+        file.puts "title: #{@name}"
+        file.puts "date: #{Time.now}"
+        file.puts "categories: #{@categories}"
+        file.puts "tags: #{@tags}"
+        file.puts "keywords: #{@keywords}"
+        file.puts "description: #{@description}"
+        file.puts "---"
+    end
+    exec "vi #{@post_name}"
 end
+
+
 
 # rake draft["Title"]
 desc "Create a post in _drafts"
