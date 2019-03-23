@@ -136,6 +136,9 @@ namespace :theme do
       open(File.join(CONFIG['layouts'], File.basename(filename)), 'w') do |page|
         page.puts "---"
         page.puts File.read(settings_file) if File.exist?(settings_file)
+		# frankdevhub add start
+		post.puts "tags: #{tags}"
+		# frankdevhub add end
         page.puts "layout: default" unless File.basename(filename, ".html").downcase == "default"
         page.puts "---"
         page.puts "{% include JB/setup %}"
