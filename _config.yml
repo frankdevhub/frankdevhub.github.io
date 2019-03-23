@@ -54,18 +54,4 @@ excerpt_separator: "\n\n\n\n"
 gems: [jekyll-paginate]
 paginate: 6
 
-#boilerplate
-post:
-  template: _post.txt
-  extension: md
-page:
-  template: _page.txt
-  extension: md
-editor: gvim
-git:
-  branch: master
-transfer:
-  command: rsync
-  settings: -av
-  source: _site/
-  destination: ~/Git/frankdevhub.github.com/
+

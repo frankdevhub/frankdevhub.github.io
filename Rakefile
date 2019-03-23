@@ -47,6 +47,7 @@ task :post do
   title = ENV["title"] || "new-post"
   tags = ENV["tags"] || "[]"
   category = ENV["category"] || ""
+  category = "\"#{category.gsub(/-/,' ')}\"" if !category.empty?
   slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   begin
     date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
@@ -58,20 +59,19 @@ task :post do
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
-
+  
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts 'description: ""'
-    post.puts "category: \"#{category.gsub(/-/,' ')}\""
+    post.puts "category: #{category}"
     post.puts "tags: #{tags}"
     post.puts "---"
     post.puts "{% include JB/setup %}"
   end
 end # task :post
-
 
 # Usage: rake page name="about.html"
 # You can also specify a sub-directory path.
