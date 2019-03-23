@@ -137,6 +137,7 @@ namespace :theme do
         page.puts "---"
         page.puts File.read(settings_file) if File.exist?(settings_file)
 		# frankdevhub add start
+		post.puts 'description: ""'
 		post.puts "tags: #{tags}"
 		# frankdevhub add end
         page.puts "layout: default" unless File.basename(filename, ".html").downcase == "default"
