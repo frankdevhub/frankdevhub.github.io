@@ -12,8 +12,8 @@ type: page
         <hr>
         <ul>
           {% for post in site.posts %}
-		  {% capture categoryHeader %}{{ post.categories | first | split: '-' }}{% endcapture %}
-		  {{ categoryHeader }}
+		  <!--{% capture categoryHeader %}{{ post.categories | first | split: '-' }}{% endcapture %}-->
+		  {% capture categoryHeader %}{{ post.categories[0] }}{% endcapture %}
             {% if categoryHeader == 'Life' %}
 				{% unless post.next %}
 				  <h2 id="y{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h2>
