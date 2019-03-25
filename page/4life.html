@@ -12,7 +12,7 @@ type: page
         <hr>
         <ul>
           {% for post in site.categories.Life %}
-            <h3>{% post.categories | first |split: '-' %}</h3>
+            <h3>{{ post.categories | first | split: '-' }}</h3>
             {% unless post.next %}
               <h2 id="y{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h2>
             {% else %}
