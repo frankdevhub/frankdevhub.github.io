@@ -11,9 +11,9 @@ type: page
         <h1>{{page.title}}</h1>
         <hr>
         <ul>
-            {% for life in site.lives %}
-            <h2 id="{{life | first}}">{{life | first}}</h2>
-                {% for posts in life  %}
+            {% for category in site.categories %}
+            <h2 id="{{category | first}}">{{category | first}}</h2>
+                {% for posts in category  %}
                     {% for post in posts %}
                         {% if post.url %}
                         <li>
@@ -32,19 +32,21 @@ type: page
     <button class="anchor"><i class="fa fa-anchor"></i></button>
     <div class="right">
         <div class="wrap">
+
             <!-- Content -->
             <div class="side content">
                 <div>
                     Content
                 </div>
-                <ul id="content-side" class="content-ul">
-                    {% for life in site.lives%}
-                        <li>
-                            <a data-scroll href="#{{ life | first }}">
-                                {{ life | first }} ({{ life | last | size }})
-                            </a>
-                        </li>
+               <ul id="content-side" class="content-ul">
+                    {% for tag in sortedtags %}
+                    <li>
+                        <a data-scroll href="#{{ tag }}">
+                            {{ tag }} ({{ site.tags[tag].size }})
+                        </a>
+                    </li>
                     {% endfor %}
+
                 </ul>
             </div>
         </div>
