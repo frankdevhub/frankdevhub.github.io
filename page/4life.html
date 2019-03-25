@@ -11,28 +11,29 @@ type: page
            <h1>{{page.title}}</h1>
         <hr>
         <ul>
-          {% for post in site.categories.Life %}
-            <h3>{{ post.categories | first | split: '-' }}</h3>
-            {% unless post.next %}
-              <h2 id="y{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h2>
-            {% else %}
-              {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-              {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-              {% if year != nyear %}
-                <h2 id="y{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h2>
-              {% endif %}
-            {% endunless %}
+          {% for post in site.categories %}
+		  {% assign categoryHeader = post.categories | first | split: '-' %}
+            {% if categoryHeader == "Life" %}
+				{% unless post.next %}
+				  <h2 id="y{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h2>
+				 {% else %}
+				  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+				  {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+				  {% if year != nyear %}
+					<h2 id="y{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h2>
+				  {% endif %}
+				{% endunless %}
 
-            <li>
-                <time>
-                {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
-                </time>
-                <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+				<li>
+					<time>
+					{{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
+					</time>
+					<a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 
-                {% include category.html %}
-                {% include tag.html %}
-            </li>
-
+					{% include category.html %}
+					{% include tag.html %}
+				</li>
+            {% endif %}
           {% endfor %}
         </ul>
     </div>
