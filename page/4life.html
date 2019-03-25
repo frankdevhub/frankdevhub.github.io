@@ -12,8 +12,8 @@ type: page
         <hr>
         <ul>
           {% for post in site.categories %}
-		  {% assign categoryHeader = post.categories | first | split: '-' %}
-            {% if categoryHeader == "Life" %}
+		  {% capture categoryHeader %}{{% c categoryHeader = post.categories | first | split: '-' %}}{% endcapture %}
+            {% if categoryHeader == 'Life' %}
 				{% unless post.next %}
 				  <h2 id="y{{ post.date | date: '%Y' }}">{{ post.date | date: '%Y' }}</h2>
 				 {% else %}
@@ -33,7 +33,7 @@ type: page
 					{% include category.html %}
 					{% include tag.html %}
 				</li>
-            {% endif %}
+             {% endif %}
           {% endfor %}
         </ul>
     </div>
