@@ -19,11 +19,18 @@ email: frankdevhub@163.com
 
 description_footer: 世界上只有两种人，一种是羊，另一种是牧羊犬。
 
-# comments
-# two ways to comment, only choose one, and use your own short name
-#duoshuo_shortname: 
+comments: true
+
+comment:
 #disqus_shortname: 
-gitalk: frankdevhub
+#duoshuo_shortname: 
+   gitalk: true
+   gitalk_clientID: 'dd5d3058c9ed2d5835c6'
+   gitalk_Secret: '3a64d23a737d67ebb98903b9af98e53889592573'
+   gitalk_repo: 'frankdevhub.github.io'
+   gitalk_owner: 'frankdevhub'
+   gitalk_admin: 'frankdevhub'
+   distractionFreeMode: false
 
 # statistic analysis 统计代码
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
