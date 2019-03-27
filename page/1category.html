@@ -13,7 +13,7 @@ type: page
         <hr>
         <ul>
 		  {{site.posts.categories.first}}
-           {% for category in site.posts | categories | first %}
+           {% for category in site.posts.categories[0] %}
             <h2 id="{{category | first}}">{{category | first}}</h2>
                 {% for posts in category  %}
                     {% for post in posts %}
