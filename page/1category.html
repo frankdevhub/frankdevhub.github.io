@@ -13,9 +13,6 @@ type: page
         <hr>
         <ul>
 		  {% for category in site.categories %}
-		  {{ category.first }}
-		  {% endfor %}
-          <!-- {% for category in site.posts.categories %}
             <h2 id="{{category | first}}">{{category | first}}</h2>
                 {% for posts in category  %}
                     {% for post in posts %}
@@ -25,12 +22,14 @@ type: page
                             {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
                             </time>
                             <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+
+                            {% include category.html %}
                             {% include tag.html %}
                         </li>
                         {% endif %}
                     {% endfor %}
                 {% endfor %}
-            {% endfor %}-->
+            {% endfor %}
         </ul>
     </div>
     <button class="anchor"><i class="fa fa-anchor"></i></button>
