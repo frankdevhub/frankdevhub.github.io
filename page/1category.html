@@ -9,30 +9,24 @@ type: page
 
 <div class="page clearfix">
 
-    <h1>test-block</h1>
-	
-	{% assign categories = 'Life' %}
-	{% for post in site.posts %}
-	 {% assign cat = post.categories[0] %}
-	  {% unless categories contains cat %}
-	     {% if post.next %}
-		   {% capture categories % %}{{ categories | append:',{{ cat }}' }}{% endcapture %}
-		 {% else %}
-		   {% capture categories % %}{{ categories | append:'{{ cat }}' }}{% endcapture %}
-	     {% endif %}
-	  {% endunless %} 
-    {% endfor %}	
-	
-	{% for cat in categories %}
-	 {{ cat }}
-	{% endfor %}
-	
-	
     <div class="left">
         <h1>{{page.title}}</h1>
         <hr>
         <ul>
-		  {% for category in site.categories %}
+		
+		{% assign categories = 'Life' %}
+		{% for post in site.posts %}
+		 {% assign cat = post.categories[0] %}
+		  {% unless categories contains cat %}
+			 {% if post.page.next %}
+			   {% capture categories % %}{{ categories | append:', 'cat' ' }}{% endcapture %}
+			 {% else %}
+			   {% capture categories % %}{{ categories | append: cat }}{% endcapture %}
+			 {% endif %}
+		  {% endunless %} 
+		{% endfor %}	
+	
+		  {% for category in categories %}
             <h2 id="{{category | first}}">{{category | first}}</h2>
                 {% for posts in category  %}
                     {% for post in posts %}
