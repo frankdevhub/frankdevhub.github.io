@@ -14,21 +14,24 @@ type: page
         <hr>
         <ul>
 		<!--filter header categories frankdevhub add -->
-		{% assign categories = 'Life' %}
+		{% assign categories = 'Life,' %}
 		{% for post in site.posts %}
 		 {% assign cat = post.categories[0] %}
 		  {% unless categories contains cat %}
 			 {% if post.next %}
-			   {% capture categories % %}{{ categories | append:', 'cat' ' }}{% endcapture %}
+			   {% capture categories % %}{{ categories | append:',' | append: cat }}{% endcapture %}
 			 {% else %}
 			   {% capture categories % %}{{ categories | append: cat }}{% endcapture %}
 			 {% endif %}
 		  {% endunless %} 
 		{% endfor %}	
 		
-		{% if categories contains 'jekyll' %}
-		 AAAAA
-		{% endif %}
+		{% for category in categories %}
+		   {{ category }}
+		   <hr/>
+		{% endfor %}
+		
+		
 		
 		  {% for category in site.categories %}
             {% capture cat % %}{{ category | first }}{% endcapture %}
