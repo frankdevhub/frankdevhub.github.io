@@ -13,7 +13,7 @@ type: page
         <hr>
         <ul>
 		  {% for category in site.categories.first[0]%}
-		  {{ category }}
+		  {{ category | first}}
 		  {% endfor %}
           <!-- {% for category in site.posts.categories %}
             <h2 id="{{category | first}}">{{category | first}}</h2>
