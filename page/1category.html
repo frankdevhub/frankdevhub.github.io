@@ -13,36 +13,43 @@ type: page
         <h1>{{page.title}}</h1>
         <hr>
         <ul>
-		
+		<!--filter header categories frankdevhub add -->
 		{% assign categories = 'Life' %}
 		{% for post in site.posts %}
 		 {% assign cat = post.categories[0] %}
 		  {% unless categories contains cat %}
-			 {% if post.page.next %}
+			 {% if post.next %}
 			   {% capture categories % %}{{ categories | append:', 'cat' ' }}{% endcapture %}
 			 {% else %}
 			   {% capture categories % %}{{ categories | append: cat }}{% endcapture %}
 			 {% endif %}
 		  {% endunless %} 
 		{% endfor %}	
-	
-		  {% for category in categories %}
-            <h2 id="{{category | first}}">{{category | first}}</h2>
-                {% for posts in category  %}
-                    {% for post in posts %}
-                        {% if post.url %}
-                        <li>
-                            <time>
-                            {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
-                            </time>
-                            <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+		
+		{% if categories contains 'jekyll' %}
+		 AAAAA
+		{% endif %}
+		
+		  {% for category in site.categories %}
+            {% capture cat % %}{{ category | first }}{% endcapture %}
+				{% if categories contains cat %}
+					<h2 id="{{category | first}}">{{category | first}}</h2>
+						{% for posts in category %}
+							{% for post in posts %}
+								{% if post.url %}
+								<li>
+									<time>
+									{{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
+									</time>
+									<a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 
-                            {% include category.html %}
-                            {% include tag.html %}
-                        </li>
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
+									{% include category.html %}
+									{% include tag.html %}
+								</li>
+								{% endif %}
+							{% endfor %}
+						{% endfor %}	
+				 {% endif %}	
             {% endfor %}
         </ul>
     </div>
