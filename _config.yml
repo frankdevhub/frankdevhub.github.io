@@ -30,7 +30,7 @@ comment:
    gitalk_repo: 'frankdevhub.github.io'
    gitalk_owner: 'frankdevhub'
    gitalk_admin: 'frankdevhub'
-   distractionFreeMode: false
+   distractionFreeMode: true
 
 # statistic analysis 统计代码
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
