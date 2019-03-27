@@ -13,29 +13,26 @@ type: page
         <h1>{{page.title}}</h1>
         <hr>
         <ul>
-		<!--filter header categories frankdevhub add -->
-		{% assign categories = 'Life,' %}
+		<!--filter header categories frankdevhub add start-->
+		{% assign categories = "Life," %}
 		{% for post in site.posts %}
 		 {% assign cat = post.categories[0] %}
 		  {% unless categories contains cat %}
 			 {% if post.next %}
-			   {% capture categories % %}{{ categories | append:',' | append: cat }}{% endcapture %}
+			   {% capture categories %}{{ categories | append: ","| append: cat }}{% endcapture %}
 			 {% else %}
-			   {% capture categories % %}{{ categories | append: cat }}{% endcapture %}
+			   {% capture categories %}{{ categories | append: cat }}{% endcapture %}
 			 {% endif %}
 		  {% endunless %} 
 		{% endfor %}	
 		
-		{% for category in categories %}
-		   {{ category }}
-		   <hr/>
-		{% endfor %}
+		{% assign filteredCategories = {{categories | split: "," }} %}
 		
-		
+		<!--filter header categories frankdevhub add end-->
 		
 		  {% for category in site.categories %}
             {% capture cat % %}{{ category | first }}{% endcapture %}
-				{% if categories contains cat %}
+				{% if filteredCategories contains cat %}
 					<h2 id="{{category | first}}">{{category | first}}</h2>
 						{% for posts in category %}
 							{% for post in posts %}
