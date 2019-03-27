@@ -11,12 +11,14 @@ type: page
     <div class="left">
         <h1>{{page.title}}</h1>
         <hr>
-        <ul>			
-			{% for posts in site.posts %}
-                {% for post in posts.categories[0]  %}
-				<h2 id="{{post.categories | first}}">{{post.categories | first}}</h2>
+        <ul>
+           {% for category in site.categories %}
+            <h2 id="{{category | first}}">{{category | first}}</h2>
+                {% for posts in category  %}
+                    {% for post in posts %}
                         {% if post.url %}
                         <li>
+						    {{ post.categories.size }}
                             <time>
                             {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
                             </time>
@@ -24,6 +26,7 @@ type: page
                             {% include tag.html %}
                         </li>
                         {% endif %}
+                    {% endfor %}
                 {% endfor %}
             {% endfor %}
         </ul>
