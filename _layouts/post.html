@@ -32,9 +32,9 @@ layout: default
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         {{content}}
-        </article>
+
 		
-		 <!-- social share start -->
+		<!-- social share start -->
 		 
 		 {% if site.social-share %}
             <div class="social-share-wrapper">
@@ -57,6 +57,10 @@ layout: default
 			});
 		  </script>
 		  <!-- social share end -->
+		  
+        </article>
+		
+		
         <hr>
 
         {% assign hasSimilar = '' %}
