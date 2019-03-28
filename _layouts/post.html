@@ -34,7 +34,8 @@ layout: default
         {{content}}
         </article>
 		
-		
+        <hr>
+
 		<!-- social share start -->
 		 
 		 {% if site.social-share %}
@@ -59,8 +60,7 @@ layout: default
 		  </script>
 		  <!-- social share end -->
 		  
-        <hr>
-
+		
         {% assign hasSimilar = '' %}
         {% for post in site.related_posts %}
             {% assign postHasSimilar = false %}
