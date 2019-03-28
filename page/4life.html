@@ -17,7 +17,7 @@ type: page
 		      {% capture header %}{{ post.categories[0] }}{% endcapture %} 
 			     {% if header == 'Life' %}
 				  {% for tag in post.tags %}
-					{{ tag[0] }}
+					  {{ tag }}
 				  {% endfor %}
 			   	 {% endif %} 
 		   {% endfor %}	  
