@@ -8,31 +8,6 @@
     {% include header.html %}
 
         {{ content }}
-
-		  <!-- social share start -->
-		 
-		 {% if site.social-share %}
-            <div class="social-share-wrapper">
-			aaa
-            <div class="social-share"></div>
-            </div>
-          {% endif %}
-		 
-		  <script src="/js/social-share.min.js"></script>
-		  <script>
-			socialShare('.social-share', {
-			  sites: [
-				{% for i in site.social-share-items %}
-				  '{{ i }}'
-				  {% if forloop.last == false %},
-				  {% endif %}
-				{% endfor %}
-			  ],
-			  wechatQrcodeTitle: "分享到微信朋友圈",
-			  wechatQrcodeHelper: '<p>扫码后点击右上角</p><p>将本文分享至朋友圈</p>'
-			});
-		  </script>
-		  <!-- social share end -->
 		
     {% include footer.html %}
     {% include backToTop.html %}
