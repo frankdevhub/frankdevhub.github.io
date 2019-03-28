@@ -10,6 +10,21 @@ type: page
     <div class="left">
            <h1>{{page.title}}</h1>
         <hr>
+		
+		<!-- get life tags -->
+		{% capture tags %}
+		   {% for post in site.posts %}
+		      {% capture header %}{{ post.categories[0] }}{% endcapture %} 
+			     {% header == 'Life' %}
+				  {% for tag in post.tags %}
+					{{ tag[0] }}
+				  {% endfor %}
+			   	 {% endif %} 
+		   {% endfor %}	  
+        {% endcapture %}
+        {% assign sortedtags = tags | split:' ' | sort %}
+		
+		
         <ul>
           {% for post in site.posts %}
 		  <!--{% capture categoryHeader %}{{ post.categories | first | split: '-' }}{% endcapture %}-->
