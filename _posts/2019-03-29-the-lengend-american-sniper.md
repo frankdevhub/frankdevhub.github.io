@@ -16,6 +16,14 @@ mathjax: true
 
 ps：最后科普了一下“传奇”的真人真事，凯尔最后死于一名患有创伤后应激障碍的美国老兵枪下，实在令人惋惜。而他的那部`《美国第一狙击手》`的自传，已经`mark`了。网上对他的战后人品包括出版收入的去向褒贬不一。我想重要的不是我们应如何去瓦解一个“传奇”，而是如何去创造一个属于自己的传奇。
 
+![image](https://user-images.githubusercontent.com/29160332/55202979-a8644080-5204-11e9-9f08-4aa02f0489da.png)
+
+![image](https://user-images.githubusercontent.com/29160332/55202999-bca83d80-5204-11e9-910a-6efab6357179.png)
+
+![image](https://user-images.githubusercontent.com/29160332/55203014-caf65980-5204-11e9-98fe-7033d5080481.png)
+
+![image](https://user-images.githubusercontent.com/29160332/55203028-db0e3900-5204-11e9-87c7-a7a0b1fabde4.png)
+
 
 * content
 {:toc}
