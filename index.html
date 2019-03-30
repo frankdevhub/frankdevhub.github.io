@@ -80,6 +80,25 @@ layout: default
                 </ul>
             </div>
 
+			<!-- Search start -->
+			<div id="search-container">
+			  <input type="text" id="search-input" placeholder="search...">
+			  <ul id="results-container"></ul>
+			</div>
+
+			<script src="{{ site.baseurl }}/simple-jekyll-search.min.js"></script>
+
+			SimpleJekyllSearch({
+				searchInput: document.getElementById('search-input'),
+				resultsContainer: document.getElementById('results-container'),
+				json: '/search.json',
+				searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+				noResultsText: '没有搜索到文章',
+				limit: 20, 
+				fuzzy: true 
+			})
+			<!-- Search end -->
+			
             <!-- Content -->
 			
 			<!-- frandkevhub add start filter life categories -->
