@@ -81,6 +81,22 @@ layout: default
             </div>
 
             <!-- Content -->
+			
+			<!-- frandkevhub add start filter life categories -->
+			{% assign categories = "Life," %}
+				{% for post in site.posts %}
+				 {% assign cat = post.categories[0] %}
+				  {% unless categories contains cat %}
+					 {% if post.next %}
+					   {% capture categories %}{{ categories | append: ","| append: cat }}{% endcapture %}
+					 {% else %}
+					   {% capture categories %}{{ categories | append: cat }}{% endcapture %}
+					 {% endif %}
+				  {% endunless %} 
+				{% endfor %}	
+		
+		   {% assign filteredCategories = {{categories | split: "," }} %}
+		   
             <div class="side ">
                 <div>
                     <i class="fa fa-th-list"></i>
@@ -88,6 +104,8 @@ layout: default
                 </div>
                 <ul class="content-ul" cate>
                     {% for category in site.categories %}
+					   {% capture cat % %}{{ category | first }}{% endcapture %}
+					     {% if filteredCategories contains cat %}
                     <li>
                         <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
                             <span class="name">
@@ -96,10 +114,13 @@ layout: default
                             <span class="badge">{{ category | last | size }}</span>
                         </a>
                     </li>
+					    {% endif %}
                     {% endfor %}
                 </ul>
             </div>
          
+		    <!-- frankdevhub add end -->
+		 
             <div class="side">
                 <div>
                     <i class="fa fa-tags"></i>
