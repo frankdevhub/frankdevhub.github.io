@@ -68,6 +68,30 @@ layout: default
     <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
     <div class="right">
         <div class="wrap">
+		
+		<!-- Search start -->
+			<div id="search-container" class="side">
+			  <div>
+				  <i class="fa fa-search" aria-hidden="true"></i>
+				  <input type="text"  style="display:table-cell;"  id="search-input" placeholder="search...">
+			  </div>
+			  <ul id="results-container"></ul>
+			</div>
+
+		    <script>
+			SimpleJekyllSearch({
+				searchInput: document.getElementById('search-input'),
+				resultsContainer: document.getElementById('results-container'),
+				json: '/search.json',
+				searchResultTemplate: '<li><a  style="font-size:x-small" href="{url}" title="{title}">{title}</a></li>',
+				noResultsText: '没有搜索到文章',
+				limit: 20, 
+				fuzzy: false 
+			})
+			</script>
+			<!-- Search end -->
+		
+		
             <div class="side">
                 <div>
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -80,25 +104,6 @@ layout: default
                 </ul>
             </div>
 
-			<!-- Search start -->
-			<div id="search-container">
-			  <input type="text" id="search-input" placeholder="search...">
-			  <ul id="results-container"></ul>
-			</div>
-
-			<script src="{{ site.baseurl }}/simple-jekyll-search.min.js"></script>
-
-			SimpleJekyllSearch({
-				searchInput: document.getElementById('search-input'),
-				resultsContainer: document.getElementById('results-container'),
-				json: '/search.json',
-				searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
-				noResultsText: '没有搜索到文章',
-				limit: 20, 
-				fuzzy: true 
-			})
-			<!-- Search end -->
-			
             <!-- Content -->
 			
 			<!-- frandkevhub add start filter life categories -->
