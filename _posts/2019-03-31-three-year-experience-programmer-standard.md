@@ -7,7 +7,6 @@ tags: career java programmer warning
 author: Franklinfang
 icon: play
 mathjax: true
-top: 9998
 ---
 
 * content
