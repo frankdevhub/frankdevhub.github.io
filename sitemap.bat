@@ -19,7 +19,7 @@ set "current_log_timestamp= "
 /wait gem install jekyll-sitemap
 
 /wait jekyll build & echo "jekyll build complete" 
-/wait call:replceHostConfig
+call:replceHostConfig
 
 git add .
 git commit -m "generate sitemap.xml and robot.txt and push to origin"
