@@ -1,29 +1,37 @@
 
+::--------------------------------------------------------
+::-- @author frankdevhub@163.com 
+::-- @Date 2019/04/03 Wednesday
+::-- @description: generate sitemap and robot.txt
+::--------------------------------------------------------
 
-echo "------------- jekyll build start -------------"
+set current_log_timestamp=""
+:getLocalTimeStamp
+
+set date_timestamp_format=%1
+set time_timestamp_format=%2
+
+if date_timestamp_format==1
+current_log_timestamp=%DATE:~4,4%%DATE:~9,2%%DATE:~12,2%
+
+if time_timestamp_format==1
+current_log_timestamp=%TIME:~0,2%%TIME:~3,2%%TIME:~6,2%
+
+goto:eof
+
+@echo 'start at call:getLocalTimeStamp 1 -1' 
+
+::--------------------------------------------------------
+::-- @description: install plugin jekyll-sitemap
+::--------------------------------------------------------
+
+@echo off
+setlocal enabledelayedexpansion
 
 
-echo ""------------- jekyll build complete "-------------"
-
-
-echo "------------- cd into site package ------------"
-echo "------------- change 'localhost:4000' to website host -------------"
-
-
-echo "------------- change complete -------------"
-
-
-echo "------------- move sitemap.xml and robot.txt to  main root -------------"
-
-
-echo "------------- push git add ,git commit ,git push-------------"
-
-git add .
-git commit -m "generate new sitemap"
-git push -u origin master
-
-echo "------------- sitemap created successfully -------------"
+jekyll build &echo 'sss' 
 
 
 
-pause
+
+& pause
