@@ -3,7 +3,7 @@ layout: post
 title:  "联想服务前端实习面试经历"
 date:   2015-06-1 14:06:05
 categories: Interview
-tags: 面试 Lenovo 实习 JavaScript
+tags: interview Lenovo internship JavaScript
 author: Franklinfang
 ---
 
