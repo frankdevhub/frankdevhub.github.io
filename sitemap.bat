@@ -16,9 +16,9 @@ set "current_log_timestamp= "
 ::-- @description: install plugin jekyll-sitemap
 ::--------------------------------------------------------
 
-/wait gem install jekyll-sitemap
+gem install jekyll-sitemap
 
-/wait jekyll build & echo "jekyll build complete" 
+jekyll build & echo "jekyll build complete" 
 call:replceHostConfig
 
 git add .
