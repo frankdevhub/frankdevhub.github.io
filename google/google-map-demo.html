@@ -19,15 +19,13 @@
 // Initialize and add the map
 function initMap() {
   // The location of Guam SkyDive
-  var Guam SkyDive = {lat: 13.481475, lng: 144.8024493};
+  var coordinate = {lat: 13.481475, lng: 144.8024493};
   // The map, centered at Guam SkyDive
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 14, center: Guam SkyDive});
+      document.getElementById('map'), {zoom: 14, center: coordinate});
   // The marker, positioned at Guam SkyDive
-  var marker = new google.maps.Marker({position: Guam SkyDive, map: map});
-  marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
+  var marker = new google.maps.Marker({position: coordinate, map: map});
+  
   var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -43,6 +41,9 @@ function initMap() {
           content: contentString
         });
 
+  marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });		
   infowindow.open(map, marker);		
 }
     </script>
