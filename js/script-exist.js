@@ -2,7 +2,7 @@
 	 console.log('url:'+url+'');
 	 var xmlHttp ;  
 	 var timeOut = false;
-        if (window.ActiveXObject)  
+        if (window.ActiveXObject) 
          {  
           xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");  
          }  
@@ -16,7 +16,7 @@
 	    setTimeout(function(){
 			timeOut = true;
 			xmlHttp.abort();
-		},2000);
+		},2500);
         if(xmlHttp.readyStatus==4){
             if(xmlhttp.status==200)return true;
             else if(xmlhttp.status==404)return false;
