@@ -1,6 +1,7 @@
  function isExistScript(url){
 	 console.log('url:'+url+'');
-	 //test url:https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js
+	 //test only
+	 //url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
 	 var xmlHttp;  
 	 
 	    if (window.ActiveXObject) 
@@ -11,23 +12,23 @@
          {  
           xmlHttp = new XMLHttpRequest();    
          }   
-		 
 		  
 		 xmlHttp.onreadystatechange = function(){
-					if(xmlHttp.readyStatus==4){
-						if(xmlhttp.status==200)return true;
-						else if(xmlhttp.status==404)return false;
+					if(xmlHttp.readyStatus == 4){
+						if(xmlhttp.status == 200)return true;
+						else if(xmlhttp.status == 404)return false;
 						else return false;
+					}else{
+						
 					}
-					return false;
 	    }	 
 	 
-		 
-        xmlHttp.open("GET",url,true);  
-		//start timer
 		var timer = setTimeout(function(){
                xmlHttp.abort();
-		},2500);	 
+		},4500); 
+		 
+        xmlHttp.open("GET",url);  
+		//start timer	
         xmlHttp.send(null); 
         console.log('xmlHttp start sending');	 
 	    
