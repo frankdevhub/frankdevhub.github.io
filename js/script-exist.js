@@ -1,4 +1,4 @@
- !function isExistScript(url){
+ function isExistScript(url){
 	 var xmlHttp ;  
         if (window.ActiveXObject)  
          {  

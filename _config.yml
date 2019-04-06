@@ -61,3 +61,6 @@ excerpt_separator: "\n\n\n\n"
 plugins: [jekyll-paginate,jekyll-sitemap]
 paginate: 6
 
+# Google Map APi
+google_map_uri: https://maps.googleapis.com/maps/api/js?key=[API_KEY]&callback=initMap
+google_map_key: AIzaSyCFQKvF06HHSlm6BUeACn153xWu7ZQHujc
