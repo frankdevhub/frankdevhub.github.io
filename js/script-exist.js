@@ -1,4 +1,5 @@
  function isExistScript(url){
+	 console.log('url:'+url+'');
 	 var xmlHttp ;  
 	 var timeOut = false;
         if (window.ActiveXObject)  
@@ -9,10 +10,10 @@
          {  
           xmlHttp = new XMLHttpRequest();    
          }   
-        xmlHttp.open("GET",url,false);  
+        xmlHttp.open("GET",url,true);  
         xmlHttp.send();  
 		//timer start
-	    setTimeOut(function(){
+	    setTimeout(function(){
 			timeOut = true;
 			xmlHttp.abort();
 		},2000);
@@ -21,9 +22,7 @@
             else if(xmlhttp.status==404)return false;
             else return false;
         }  
-        return false;  
-        else  
-        return true;  
+        return false;   
 	 
  }
  
