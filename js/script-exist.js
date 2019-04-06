@@ -1,8 +1,22 @@
- function isExistScript(url){
-	 console.log('url:'+url+'');
+ var xmlHttp;  
+ 
+ function callBackExistScript(){
+	 if(xmlHttp.readyStatus == 4){
+			if(xmlhttp.status == 200){
+					return true;
+			}else if(xmlhttp.status == 404){
+					return false;
+			}else{
+					return false;
+				}
+			}
+	 return false;		
+ }
+ 
+ function isExistScript(url,callBackExistScript){
 	 //test only
-	 //url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
-	 var xmlHttp;  
+     url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
+	 console.log('url:'+url+'');
 	 var timeout = false;
 	    if (window.ActiveXObject) 
          {  
@@ -13,33 +27,32 @@
           xmlHttp = new XMLHttpRequest();    
          }   
 		  
+		 var timer = setTimeout(function(){
+			   timeout = true;
+               xmlHttp.abort();
+			   return false;
+		},2000); 
+		 
 		 xmlHttp.onreadystatechange = function(){
 			 //if(xmlHttp.readyState !== 4) continue;
 					if(xmlHttp.readyStatus == 4){
 						if(xmlhttp.status == 200){
+							clearTimeout(timer);
 							return true;
 						}else if(xmlhttp.status == 404){
+							clearTimeout(timer);
 							return false;
 						}else{
+							clearTimeout(timer);
 							return false;
 						}
 					}
 	    }	 
 	 
-		var timer = setTimeout(function(){
-			   timeout = true;
-			   clearTimeout();
-               xmlHttp.abort();
-			   timeout = true;
-			   return false;
-		},2000); 
 		 
         xmlHttp.open("GET",url,true);  
 		//start timer	
         xmlHttp.send(null); 
-
-	
-		return true;
 		
  }
  
