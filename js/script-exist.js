@@ -3,6 +3,7 @@
 	 //test only
 	 //url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
 	 var xmlHttp;  
+	 var timeout = false;
 	    if (window.ActiveXObject) 
          {  
           xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");  
@@ -13,6 +14,7 @@
          }   
 		  
 		 xmlHttp.onreadystatechange = function(){
+			 //if(xmlHttp.readyState !== 4) continue;
 					if(xmlHttp.readyStatus == 4){
 						if(xmlhttp.status == 200){
 							return true;
@@ -21,25 +23,24 @@
 						}else{
 							return false;
 						}
-					}else{
-						return;
 					}
 	    }	 
 	 
 		var timer = setTimeout(function(){
+			   timeout = true;
 			   clearTimeout();
                xmlHttp.abort();
+			   timeout = true;
 			   return false;
 		},2000); 
 		 
         xmlHttp.open("GET",url,true);  
 		//start timer	
         xmlHttp.send(null); 
-        console.log('xmlHttp start sending');	 
-	    
-		return true;
-			   
 
+	
+		return true;
+		
  }
  
  
