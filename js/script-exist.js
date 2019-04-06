@@ -1,7 +1,7 @@
  function isExistScript(url){
 	 console.log('url:'+url+'');
 	 //test only
-	 url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
+	 //url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
 	 var xmlHttp;  
 	    if (window.ActiveXObject) 
          {  
@@ -22,7 +22,7 @@
 							return false;
 						}
 					}else{
-						//continue;
+						return;
 					}
 	    }	 
 	 
@@ -37,6 +37,7 @@
         xmlHttp.send(null); 
         console.log('xmlHttp start sending');	 
 	    
+		return true;
 			   
 
  }
