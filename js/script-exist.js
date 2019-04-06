@@ -22,7 +22,6 @@
             else if(xmlhttp.status==404)return false;
             else return false;
         }  
-        return false;   
 	 
  }
  
