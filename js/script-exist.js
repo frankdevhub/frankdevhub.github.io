@@ -13,18 +13,18 @@
         xmlHttp.open("GET",url,true);  
 		//start timer
 		var timer = setTimeout(function(){
-               xhr.abort();
+               xmlHttp.abort();
 		},2500);	 
         xmlHttp.send(null); 
         console.log('xmlHttp start sending');	 
-	 
-		 xmlHttp.onreadystatechange = function(){
+	    
+		xmlHttp.onreadystatechange = function(){
 				if(xmlHttp.readyStatus==4){
 					if(xmlhttp.status==200)return true;
 					else if(xmlhttp.status==404)return false;
 					else return false;
 				}
-				return true;
+				return false;
 		}	 
 			   
 
