@@ -10,7 +10,7 @@
          {  
           xmlHttp = new XMLHttpRequest();    
          }   
-        xmlHttp.open("GET",url,false);  
+        xmlHttp.open("GET",url,true);  
 		//start timer
 		var timer = setTimeout(function(){
                xhr.abort();
