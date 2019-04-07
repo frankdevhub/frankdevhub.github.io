@@ -1,8 +1,8 @@
  var xmlHttp;  
  
- function isExistScript(){
+ function isExistScript(url){
 	 //test only
-     url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
+     //url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
 	 console.log('url:' +url+ '');
 	 var timeout = false;
 	    if (window.ActiveXObject) 
