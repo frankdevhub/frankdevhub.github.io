@@ -28,12 +28,15 @@
 			 //if(xmlHttp.readyState !== 4) continue;
 					if(xmlHttp.readyStatus == 4){
 						if(xmlhttp.status == 200){
+							console.log('' +url+ '->net::access');
 							clearTimeout(timer);
 							return true;
 						}else if(xmlhttp.status == 404){
+							console.log('' +url+ '->net::404error');
 							clearTimeout(timer);
 							return false;
 						}else{
+							console.log('' +url+ '->net::error');
 							clearTimeout(timer);
 							return false;
 						}
