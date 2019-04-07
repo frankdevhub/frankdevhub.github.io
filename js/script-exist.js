@@ -18,6 +18,7 @@
         xmlHttp.open("GET",url,true);  
 		  
 		var timer = setTimeout(function(){
+			   console.log('timer has been time out');
 			   timeout = true;
                xmlHttp.abort();
 			   console.log('' +url+ '->net::ERR_NETWORK_IO_SUSPENDED');
