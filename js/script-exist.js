@@ -3,7 +3,7 @@
  function isExistScript(url){
 	 //test only
      url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
-	 console.log('url:'+url+'');
+	 console.log('url:' +url+ '');
 	 var timeout = false;
 	    if (window.ActiveXObject) 
          {  
@@ -13,10 +13,14 @@
          {  
           xmlHttp = new XMLHttpRequest();    
          }   
+		 
+		 
+        xmlHttp.open("GET",url,true);  
 		  
-		 var timer = setTimeout(function(){
+		var timer = setTimeout(function(){
 			   timeout = true;
                xmlHttp.abort();
+			   console.log('' +url+ '->net::ERR_NETWORK_IO_SUSPENDED');
 			   return false;
 		},2000); 
 		 
@@ -36,11 +40,9 @@
 					}
 	    }	 
 	 
-		 
-        xmlHttp.open("GET",url,true);  
-		//start timer	
+		$.holdReady(true); 
+		//start timer and wait 	
         xmlHttp.send(null); 
-		
  }
  
  
