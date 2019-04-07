@@ -21,6 +21,9 @@
 			   timeout = true;
                xmlHttp.abort();
 			   console.log('' +url+ '->net::ERR_NETWORK_IO_SUSPENDED');
+			   
+			   $.holdReady(false); 
+			   
 			   return false;
 		},2000); 
 		 
@@ -30,6 +33,7 @@
 						if(xmlhttp.status == 200){
 							console.log('' +url+ '->net::access');
 							clearTimeout(timer);
+							$.holdReady(false); 
 							return true;
 						}else if(xmlhttp.status == 404){
 							console.log('' +url+ '->net::404error');
@@ -40,6 +44,8 @@
 							clearTimeout(timer);
 							return false;
 						}
+						
+						$.holdReady(false); 
 					}
 	    }	 
 	 
@@ -47,7 +53,5 @@
 		//start timer and wait 	
         xmlHttp.send(null); 
  }
- 
- 
  
  
