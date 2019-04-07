@@ -1,6 +1,6 @@
  var xmlHttp;  
  
- function isExistScript(url){
+ function isExistScript(){
 	 //test only
      url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
 	 console.log('url:' +url+ '');
@@ -15,44 +15,42 @@
          }   
 		 
 		 
-        xmlHttp.open("GET",url,true);  
+        xmlHttp.open("GET",url, true);  
 		  
-		var timer = setTimeout(function(){
+		var timer = window.setTimeout(function(){
+			   clearTimeout(timer);
+			
 			   console.log('timer has been time out');
 			   timeout = true;
                xmlHttp.abort();
 			   console.log('' +url+ '->net::ERR_NETWORK_IO_SUSPENDED');
-			   
-			   $.holdReady(false); 
-			   
+
 			   return false;
-		},2000); 
+		},3000); 
 		 
 		 xmlHttp.onreadystatechange = function(){
 			 //if(xmlHttp.readyState !== 4) continue;
-					if(xmlHttp.readyStatus == 4){
-						if(xmlhttp.status == 200){
+					if(xmlHttp.readyState == 4){
+						if(xmlHttp.status == 200){
 							console.log('' +url+ '->net::access');
-							clearTimeout(timer);
-							$.holdReady(false); 
+							 
 							return true;
-						}else if(xmlhttp.status == 404){
+						}else if(xmlHttp.status == 404){
+							
 							console.log('' +url+ '->net::404error');
-							clearTimeout(timer);
 							return false;
 						}else{
+						
 							console.log('' +url+ '->net::error');
-							clearTimeout(timer);
 							return false;
 						}
-						
-						$.holdReady(false); 
+							clearTimeout(timer);
 					}
 	    }	 
-	 
-		$.holdReady(true); 
 		//start timer and wait 	
         xmlHttp.send(null); 
- }
+	 
+ } 
  
+
  
