@@ -13,7 +13,7 @@
          {  
           xmlHttp = new XMLHttpRequest();    
          }   
-		 
+		xmlHttp.access = undefined;
 		 
         xmlHttp.open("GET",url, true);  
 		  
@@ -24,7 +24,8 @@
 			   timeout = true;
                xmlHttp.abort();
 			   console.log('' +url+ '->net::ERR_NETWORK_IO_SUSPENDED');
-
+               xmlHttp.access = false;
+			   
 			   return false;
 		},3000); 
 		 
@@ -32,19 +33,24 @@
 			 //if(xmlHttp.readyState !== 4) continue;
 					if(xmlHttp.readyState == 4){
 						if(xmlHttp.status == 200){
+							clearTimeout(timer);
 							console.log('' +url+ '->net::access');
+							xmlHttp.access = true; 
 							 
 							return true;
 						}else if(xmlHttp.status == 404){
 							
+							clearTimeout(timer);
 							console.log('' +url+ '->net::404error');
+							xmlHttp.access = false;
 							return false;
 						}else{
-						
+							
+							clearTimeout(timer);
+						    xmlHttp.access = false;
 							console.log('' +url+ '->net::error');
 							return false;
 						}
-							clearTimeout(timer);
 					}
 	    }	 
 		//start timer and wait 	
