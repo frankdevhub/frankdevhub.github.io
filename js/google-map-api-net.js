@@ -37,7 +37,7 @@ function drawGoogleMap(xmlHttp){
 	SyntaxHighlighter.all();
 	if(listened){
 		if(xmlHttp.access == true){
-		
+		    dynamicloadjs(google_map_api,initMap);
 		}else{
 			   console.log('show error dialog');
 			   var netErrorDialog = jqueryAlert({
