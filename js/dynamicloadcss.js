@@ -1,4 +1,4 @@
-function dynamicLoadCss(url){
+function dynamicloadcss(url){
 	
 	var head = documents.getElementsByTagName('head')[0];
 	var link = document.createElement('link');
