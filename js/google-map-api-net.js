@@ -42,10 +42,9 @@ function drawGoogleMap(xmlHttp){
 			   console.log('show error dialog');
 			   var netErrorDialog = jqueryAlert({
 				'style'   : 'pc',
-				'title'   : '<span style="color:red">ERR_CONNECTION_REFUSED</span>'+
-				'content' : '<span>Google Map API Service is Not Reachable!</span>'+
-				            '<span>Using local Javascript API from </span>'+
-							'<span style="color:blue">https://www.frankdevhub.site</sapn>',
+				'title'   : '<span style="color:red">ERR_CONNECTION_REFUSED</span>',
+				'content' : '<span>Google Map API Service is Not Reachable!</span>',
+				            
 				'modal'   : true,
 				'contentTextAlign' : 'center',
 				'width'   : 'auto',
@@ -54,7 +53,8 @@ function drawGoogleMap(xmlHttp){
 						netErrorDialog.close();
 						//using local google map javascript api
 						
-						var url = "/js/maps-google-api.js";
+						var url = "{{site.url}}/js/maps-google-api.js";
+						console.log('using local url:' +url+ '');
 						dynamicloadjs(google_map_api,initMap);
 					
 						

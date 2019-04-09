@@ -44,13 +44,13 @@
 							console.log('' +url+ '->net::404error');
 							xmlHttp.access = false;
 							return false;
-						}else{
+						}/**else{
 							
 							clearTimeout(timer);
 						    xmlHttp.access = false;
 							console.log('' +url+ '->net::error');
 							return false;
-						}
+						}**/
 					}
 	    }	 
 		//start timer and wait 	
