@@ -13,6 +13,7 @@
          {  
           xmlHttp = new XMLHttpRequest();    
          }   
+		console.log('add property access');
 		xmlHttp.access = undefined;
 		 
         xmlHttp.open("GET",url, true);  

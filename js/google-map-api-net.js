@@ -9,10 +9,11 @@ if(xmlHttp.access != undefined){
 }
 	
 var listened = false;
-	
+//xmlHttp.access = false;
 //Add xmlHttp Property Listener
 Object.defineProperty(xmlHttp,'access', {
 		set:function(access){
+			console.log('set access property listener');
 			if(xmlHttp.readyState == 4){
 				if(access == true){
 					
@@ -28,7 +29,8 @@ Object.defineProperty(xmlHttp,'access', {
 				
 				}
 			}
-		}               	
+		}
+	 
 })
 
 
@@ -55,7 +57,7 @@ function drawGoogleMap(xmlHttp){
 						
 						var url = "{{site.url}}/js/maps-google-api.js";
 						console.log('using local url:' +url+ '');
-						dynamicloadjs(google_map_api,initMap);
+						dynamicloadjs(url,initMap);
 					
 						
 					}
