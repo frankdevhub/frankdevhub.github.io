@@ -1,3 +1,4 @@
+ console.log('load script-exist');
  var xmlHttp;  
  
  function isExistScript(url){

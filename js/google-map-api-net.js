@@ -5,35 +5,9 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFQKvF06HHSlm6BUeACn153xW
 console.log('load google-map-api-net.js');
 
 if(xmlHttp.access != undefined){
-	drawGoogleMap(xmlHttp.access);
+	drawGoogleMap(xmlHttp);
 }
 	
-var listened = false;
-//xmlHttp.access = false;
-//Add xmlHttp Property Listener
-Object.defineProperty(xmlHttp,'access', {
-		set:function(access){
-			console.log('set access property listener');
-			if(xmlHttp.readyState == 4){
-				if(access == true){
-					
-					listened = true;
-					drawGoogleMap(xmlHttp)
-					console.log('google map api accessable');
-					
-				}else if(access == false){
-					
-					listened = true;
-					console.log('google map api net error');
-					drawGoogleMap(listened);
-				
-				}
-			}
-		}
-	 
-})
-
-
 
 function drawGoogleMap(xmlHttp){
 	SyntaxHighlighter.all();
