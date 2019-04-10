@@ -109,8 +109,8 @@ function drawGoogleMap(){
 						netErrorDialog.close();
 						//using local google map javascript api
 						console.log('close error dialog and using local javascript api');
-						
-						var url = "{{site.url}}/js/maps-google-api.js";
+							
+						var url = "/js/maps-google-api.js";
 						console.log('using local url:' +url+ '');
 						dynamicloadjs(url,initMap);
 					
