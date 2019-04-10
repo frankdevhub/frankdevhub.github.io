@@ -2,9 +2,11 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFQKvF06HHSlm6BUeACn153xWu7ZQHujc&callback=initMap">
 </script> **/
 
-function drawGoogleMap(xmlHttp){
+console.log('google-map-api-net');
+
+function drawGoogleMap(){
 	SyntaxHighlighter.all();
-	if(listened){
+	if(xmlHttp.listened){
 		if(xmlHttp.access == true){
 		    dynamicloadjs(google_map_api,initMap);
 		}else{
