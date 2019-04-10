@@ -1,21 +1,27 @@
  console.log('load google-api-script-exist'); 
  
+ var xmlHttp;
+ 
+!function createXMLHttp(){
+	    if (window.ActiveXObject) 
+        {  
+          xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");  
+        }  
+        else if (window.XMLHttpRequest)  
+        {  
+          xmlHttp = new XMLHttpRequest();    
+        }   
+		 
+	xmlHttp.access = undefined; 
+	xmlHttp.listened = false; 
+}();
+ 
  function isExistGoogleApiScript(url,callback){
 	 //test only
      //url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
 	 console.log('url:' +url+ '');
 	 var timeout = false;
-	    if (window.ActiveXObject) 
-         {  
-          xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");  
-         }  
-         else if (window.XMLHttpRequest)  
-         {  
-          xmlHttp = new XMLHttpRequest();    
-         }   
-		 
-		xmlHttp.access = undefined; 
-		xmlHttp.listened = false;
+	
 		//Add xmlHttp Property Listener
 		Object.defineProperty(xmlHttp,'access', {
 				set:function(access){
