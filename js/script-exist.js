@@ -1,7 +1,8 @@
- console.log('load script-exist');
- var xmlHttp;  
+ console.log('load script-exist'); 
+
+ var listened = false;
  
- function isExistScript(url){
+ function isExistScript(url,callback){
 	 //test only
      //url="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js";
 	 console.log('url:' +url+ '');
@@ -14,6 +15,39 @@
          {  
           xmlHttp = new XMLHttpRequest();    
          }   
+		 
+		//Add xmlHttp Property Listener
+		Object.defineProperty(xmlHttp,'access', {
+				set:function(access){
+					this._access = access;
+					console.log('set access property listener');
+					if(this._readyState == 4){
+						if(this._access == true){
+							
+							listened = true;
+							if(typeof(callback)==='function'){
+								callback();
+							}
+							console.log('google map api accessable');
+							
+						}else if(access == false){
+							
+							listened = true;
+							console.log('google map api net error');
+                            if(typeof(callback)==='function'){
+								callback();
+							}
+						
+						}
+					}
+				},
+				get:function(){
+					return this._access;
+				}
+			 
+		});
+ 
+		 
 		console.log('add property access');
 		xmlHttp.access = undefined;
 		 

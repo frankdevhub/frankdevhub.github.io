@@ -2,13 +2,6 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFQKvF06HHSlm6BUeACn153xWu7ZQHujc&callback=initMap">
 </script> **/
 
-console.log('load google-map-api-net.js');
-
-if(xmlHttp.access != undefined){
-	drawGoogleMap(xmlHttp);
-}
-	
-
 function drawGoogleMap(xmlHttp){
 	SyntaxHighlighter.all();
 	if(listened){
@@ -28,6 +21,7 @@ function drawGoogleMap(xmlHttp){
 					'Close' : function(){
 						netErrorDialog.close();
 						//using local google map javascript api
+						console.log('close error dialog and using local javascript api');
 						
 						var url = "{{site.url}}/js/maps-google-api.js";
 						console.log('using local url:' +url+ '');
