@@ -13,7 +13,6 @@
         }   
 		 
 	xmlHttp.access = undefined; 
-	xmlHttp.listened = false; 
 }();
  
  function isExistGoogleApiScript(url,callback){
@@ -92,7 +91,7 @@
  
 function drawGoogleMap(){
 	SyntaxHighlighter.all();
-	if(xmlHttp.listened){
+	if(xmlHttp){
 		if(xmlHttp.access == true){
 		    dynamicloadjs(google_map_api,initMap);
 		}else{
