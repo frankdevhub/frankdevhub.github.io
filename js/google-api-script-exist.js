@@ -99,8 +99,8 @@ function drawGoogleMap(){
 			   var netErrorDialog = jqueryAlert({
 				'style'   : 'pc',
 				'title'   : '<span style="color:red;font-weight:bold">ERR_CONNECTION_REFUSED</span>',
-				'content' : '<span style="font-weight:bold">Google Map API Service is Not Reachable!</span><br/>'+
-				            '<span style="font-weight:bold">Change <a href="http://ditu.google.cn/maps/api/js">http://ditu.google.cn/maps/api/js</a></span>',
+				'content' : '<span style="font-weight:bold">Google Map API Service is Not Reachable! Using mirror API as follow</span><br/>'+
+				            '<span style="font-weight:bold"><a style="text-decoration:underline;" href="http://ditu.google.cn/maps/api/js">http://ditu.google.cn/maps/api/js</a></span>',
 				            
 				'modal'   : true,
 				'contentTextAlign' : 'center',
