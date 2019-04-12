@@ -98,8 +98,9 @@ function drawGoogleMap(){
 			   console.log('show error dialog');
 			   var netErrorDialog = jqueryAlert({
 				'style'   : 'pc',
-				'title'   : '<span style="color:red">ERR_CONNECTION_REFUSED</span>',
-				'content' : '<span>Google Map API Service is Not Reachable!</span>',
+				'title'   : '<span style="color:red;font-weight:bold">ERR_CONNECTION_REFUSED</span>',
+				'content' : '<span style="font-weight:bold">Google Map API Service is Not Reachable!</span><br/>'+
+				            '<span style="font-weight:bold">Using <a href="http://ditu.google.cn/maps/api/js">http://ditu.google.cn/maps/api/js</a> instead. </span>',
 				            
 				'modal'   : true,
 				'contentTextAlign' : 'center',
