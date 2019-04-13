@@ -28,12 +28,12 @@
 					console.log('set access property listener');
 					    if( access && this._listened){
 							if(typeof(callback)==='function'){
-								callback();
+								callback(key);
 							}
 							console.log('google map api accessable');
 						}else if(!access && this._listened){
 							 if(typeof(callback)==='function'){
-								callback();
+								callback(key);
 							}
 						}
 				},
@@ -89,7 +89,8 @@
 	 
  } 
  
-function drawGoogleMap(){
+function drawGoogleMap(key){
+	console.log('drawGoogleMap using key:' +key+ '');
 	SyntaxHighlighter.all();
 	if(xmlHttp){
 		if(xmlHttp.access == true){
@@ -111,7 +112,10 @@ function drawGoogleMap(){
 						//using local google map javascript api
 						console.log('close error dialog and using local javascript api');
 							
-						var url = "/js/maps-google-api.js";
+						var url = "/js/maps-google-api.js?key=[API_KEY]&callback=initMap";
+						//put google map javascript api key
+						url = url.replace('[API_KEY]',key);
+						
 						console.log('using local url:' +url+ '');
 						dynamicloadjs(url,initMap);
 					
