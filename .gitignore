@@ -5,3 +5,6 @@ _site
 .idea
 .DS_Store
 .node_modules/
+.metadata/
+.recommenders
+.gitignore
