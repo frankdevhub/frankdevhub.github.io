@@ -5,6 +5,7 @@ _site
 .idea
 .DS_Store
 .node_modules/
-.metadata/
+/.metadata/
 .recommenders
 .gitignore
+/RemoteSystemsTempFiles/
