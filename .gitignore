@@ -10,3 +10,4 @@ _site
 .gitignore
 /RemoteSystemsTempFiles/
 /baidu-seo-sitemap/bin
+/baidu-seo-sitemap/.project
