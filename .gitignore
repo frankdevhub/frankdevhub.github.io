@@ -9,3 +9,4 @@ _site
 .recommenders
 .gitignore
 /RemoteSystemsTempFiles/
+/baidu-seo-sitemap/bin
