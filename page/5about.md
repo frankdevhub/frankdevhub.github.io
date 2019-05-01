@@ -16,7 +16,7 @@ type: page
 ## 联系我
 
 * GitHub：[frankdevhub](https://github.com/frankdevhub)
-* email：frankdevhub@163.com
+* email：kevinfang0806@126.com
 
 ## 关于本站
 
