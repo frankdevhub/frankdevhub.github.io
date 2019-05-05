@@ -1,4 +1,4 @@
-var zIndex = 1000;
+var zIndex = 1000;  
 var jqueryAlert = function(opts){
 	// 设置默认参数
 	var opt = {
