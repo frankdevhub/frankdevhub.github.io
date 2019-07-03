@@ -29,6 +29,9 @@ mathjax: true
 <iframe frameborder="0" height="400px" width="100%" src="https://v.qq.com/txp/iframe/player.html?vid=o0805l87byx" allowFullScreen="true"></iframe>
 </div>
 
+
+
+
 `ARMA 3` is a hardcore military simulator that allows the player to carry out the many different roles of a soldier in combat zones. Its campaign takes place in the 225 square-kilometre fictional ex-soviet state of Chernarus where a bloody conflict is taking place.
 
 <div align="center">
