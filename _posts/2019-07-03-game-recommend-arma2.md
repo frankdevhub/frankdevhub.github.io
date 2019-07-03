@@ -25,22 +25,31 @@ mathjax: true
 
 ### ARMA3 发行预告
 
-<iframe frameborder="0" height="400px" width="80%" src="https://v.qq.com/txp/iframe/player.html?vid=o0805l87byx" allowFullScreen="true"></iframe>
-
+<div align="center">
+<iframe frameborder="0" height="400px" width="100%" src="https://v.qq.com/txp/iframe/player.html?vid=o0805l87byx" allowFullScreen="true"></iframe>
+</div>
 
 `ARMA 3` is a hardcore military simulator that allows the player to carry out the many different roles of a soldier in combat zones. Its campaign takes place in the 225 square-kilometre fictional ex-soviet state of Chernarus where a bloody conflict is taking place.
 
+<div align="center">
 ![image](https://user-images.githubusercontent.com/29160332/60622900-f4321180-9e13-11e9-8e29-288ca6ca5833.png)
+</div>
 
 ### ARMA3 官方教程(载具视角演示)
 
-<iframe frameborder="0" height="400px" width="80%" src="https://v.qq.com/txp/iframe/player.html?vid=f0180vj7xwc" allowFullScreen="true"></iframe>
+<div align="center">
+<iframe frameborder="0" height="400px" width="100%" src="https://v.qq.com/txp/iframe/player.html?vid=f0180vj7xwc" allowFullScreen="true"></iframe>
+</div>
 
 The game features a player-driven, branching campaign in which your actions have consequences. You can choose to win the hearts and minds of the warring factions inside Chernarus, or play them off against one another. Your choices will shape the future country allowing you to ultimately decide which faction (if any) survives to rule.
 
+<div align="center">
 ![image](https://user-images.githubusercontent.com/29160332/60622962-1b88de80-9e14-11e9-840d-ec1ead799517.png)
+</div>
 
 
 ARMA 3 has a vast array of military hardware at the players disposal, 73 modern weapons, 167 vehicle variants in the air, on land and at sea all modelled on after the real world counterparts. The game world will feature real-time day/night cycle.
 
-<iframe frameborder="0" height="400px" width="80%" src="https://v.qq.com/txp/iframe/player.html?vid=u0153iw3ny5" allowFullScreen="true"></iframe>
+<div align="center">
+<iframe frameborder="0" height="400px" width="100%" src="https://v.qq.com/txp/iframe/player.html?vid=u0153iw3ny5" allowFullScreen="true"></iframe>
+</div>
