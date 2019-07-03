@@ -11,12 +11,12 @@ type: page
 
 ## 关于我
 
-<iframe src="https://githubbadge.appspot.com/frankdevhub?s=1" style="border: 0;height: 142px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
+<iframe src="https://githubbadge.appspot.com/frankdevhub?s=1" style="border: 0;height: 400px;width: 100%;overflow: hidden;" frameBorder="0"></iframe>
 
 ## 联系我
 
 * GitHub：[frankdevhub](https://github.com/frankdevhub)
-* email：kevinfang0806@126.com
+* email：frankdevhub@gmail.com
 
 ## 关于本站
 
