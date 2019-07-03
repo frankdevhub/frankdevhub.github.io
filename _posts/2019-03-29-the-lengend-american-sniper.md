@@ -22,13 +22,14 @@ ps：最后科普了一下“传奇”的真人真事，凯尔最后死于一名
 
 ![image](https://user-images.githubusercontent.com/29160332/55202979-a8644080-5204-11e9-9f08-4aa02f0489da.png)
 
+
+
+
 ![image](https://user-images.githubusercontent.com/29160332/55202999-bca83d80-5204-11e9-910a-6efab6357179.png)
 
 ![image](https://user-images.githubusercontent.com/29160332/55203014-caf65980-5204-11e9-98fe-7033d5080481.png)
 
 ![image](https://user-images.githubusercontent.com/29160332/55203028-db0e3900-5204-11e9-87c7-a7a0b1fabde4.png)
-
-
 
 ## 人物生平
 
