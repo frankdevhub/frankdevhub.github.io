@@ -17,7 +17,7 @@ mathjax: true
 `《武装突袭》`1-3部是由波西米亚互动集团研发的一款战术动作游戏，《武装突袭2》于2009年6月23日发行。
 <div align="center">
 <iframe frameborder="0" display="block" scrolling="yes" height="400px" onload="reset_scrollTop()" id="arma2_official"
- width="100%" src="http://www.arma2.com/" allowFullScreen="true">
+ width="100%" src="https://www.arma2.com/" allowFullScreen="true">
 </iframe>
 </div>
 
