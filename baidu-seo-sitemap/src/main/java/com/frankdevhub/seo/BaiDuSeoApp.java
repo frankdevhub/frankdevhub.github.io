@@ -3,6 +3,7 @@ package com.frankdevhub.seo;
 import com.frankdevhub.seo.data.logging.Logger;
 import com.frankdevhub.seo.data.logging.LoggerFactory;
 import com.frankdevhub.seo.message.MessageMethod;
+import com.frankdevhub.seo.utils.PostUtils;
 
 /**
  * <p>Title:@ClassName BaiDuSeoApp.java</p>
@@ -18,9 +19,10 @@ import com.frankdevhub.seo.message.MessageMethod;
 public class BaiDuSeoApp {
     private static final Logger LOGGER = LoggerFactory.getLogger(BaiDuSeoApp.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         LOGGER.begin().headerAction(MessageMethod.EVENT).info("application start...");
-
+        PostUtils utils = new PostUtils();
+        utils.doPostLinks();
         LOGGER.begin().headerAction(MessageMethod.EVENT).info("application end...");
     }
 }
