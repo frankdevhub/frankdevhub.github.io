@@ -14,9 +14,14 @@ mathjax: true
 
 ## ARMA 武装突袭(又名：闪点行动)
 
+<script type="text/javascript">
+
+</script>
+
+
 `《武装突袭》`1-3部是由波西米亚互动集团研发的一款战术动作游戏，《武装突袭2》于2009年6月23日发行。
 <div align="center">
-<iframe frameborder="0" display="block" scrolling="yes" height="400px" id="arma2_official"
+<iframe frameborder="0" onload="reset_scrollTop" id="arma2_iframe" display="block" scrolling="yes" height="400px" id="arma2_official"
  width="100%" src="http://arma2.com" allowFullScreen="true">
 </iframe>
 </div>
