@@ -2,8 +2,11 @@ _site
 .sass-cache
 .jekyll-metadata
 .vscode
-.idea
+.idea/
+.imp
+.classpath
 .DS_Store
+.settings
 .node_modules/
 /.metadata/
 .recommenders
@@ -11,3 +14,7 @@ _site
 /RemoteSystemsTempFiles/
 /baidu-seo-sitemap/bin
 /baidu-seo-sitemap/.project
+/baidu-seo-sitemap/.settings
+/baidu-seo-sitemap/.classpath
+/baidu-seo-sitemap/.idea
+
