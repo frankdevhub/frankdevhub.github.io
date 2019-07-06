@@ -22,7 +22,7 @@ public class UrlTest {
         String urlRegx = "(^([wW]{3}.|[wW][aA][pP].|[fF][tT][pP].|[fF][iI][lL][eE].)([-A-Za-z0-9#_]+.)([-A-Za-z0-9#_]" +
                 "+)[/|&](([-A-Za-z0-9+&@#/%?=~_|!:;]+)?))$";
         Pattern pattern = Pattern.compile(urlRegx);
-        String testUrl = "www.frankdevhub.sites/parm1=foo&&parm2=foo";
+        String testUrl = "aawww.frankdevhub.sites/parm1=foo&&parm2=foo";
         Matcher matcher = pattern.matcher(testUrl);
         boolean flag = false;
         if (matcher.find()) {
