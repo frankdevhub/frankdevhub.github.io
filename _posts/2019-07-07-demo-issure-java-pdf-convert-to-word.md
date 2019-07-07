@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Issure 201907071149 How to convert pdf to java?"
+title: "Issure 201907071149 How to convert pdf to word?"
 categories: demo issure java
 tags: demo issure java pdf word convert
 author: Franklinfang
@@ -9,11 +9,10 @@ author: Franklinfang
 * content
 {:toc}
 
-## #Issure 201907071149# How to convert pdf to java?
-
 ## java pdfbox.jar pdf 文档转换成word的实例
 
-- maven dependency
+### maven dependency
+
 
 ```xml
 <dependency>
@@ -24,9 +23,7 @@ author: Franklinfang
 ```
 
 
-
-
-## Pdf2WordUtils
+### Pdf2WordUtils
 
 ```java
 package com.frankdevhub.document;
@@ -51,6 +48,9 @@ import java.io.Writer;
  * @CreateDate: 2019/7/7 10:16
  * @Version: 1.0
  */
+ 
+ 
+ 
 public class Pdf2WordUtils {
 
     private final String fileName; //default using file under resource folder
