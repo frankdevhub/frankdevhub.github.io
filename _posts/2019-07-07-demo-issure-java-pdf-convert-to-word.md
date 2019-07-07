@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "#Issure 201907071149# How to convert pdf to java?"
-date:   2019-07-07 11:50:23
+title: "Issure 201907071149 How to convert pdf to java?"
 categories: demo issure java
 tags: demo issure java pdf word convert
 author: Franklinfang
@@ -22,9 +21,7 @@ author: Franklinfang
      <artifactId>pdfbox</artifactId>
      <version>2.0.16</version>
  </dependency>
-```xml
-
-
+```
 
 
 
