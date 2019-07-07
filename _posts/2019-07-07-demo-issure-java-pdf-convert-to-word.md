@@ -16,18 +16,22 @@ author: Franklinfang
 
 - maven dependency
 
-{% highlight xml %}
+```xml
 <dependency>
      <groupId>org.apache.pdfbox</groupId>
      <artifactId>pdfbox</artifactId>
      <version>2.0.16</version>
  </dependency>
-{% endhighlight %}
+```xml
+
+
+
+
 
 
 ## Pdf2WordUtils
 
-{% highlight java %}
+```java
 package com.frankdevhub.document;
 
 import org.apache.commons.lang.StringUtils;
@@ -114,4 +118,4 @@ public class Pdf2WordUtils {
 
 }
 
-{% endhighlight %}
+```
