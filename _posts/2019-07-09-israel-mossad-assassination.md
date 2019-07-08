@@ -12,7 +12,7 @@ mathjax: true
 * content
 {:toc}
 
-## 先下手为强
+## 危机感下昔日羊群的崛起
 ![image](https://user-images.githubusercontent.com/29160332/60833358-b147b380-a1f0-11e9-80d8-4186987bf7b4.png)
 
 
