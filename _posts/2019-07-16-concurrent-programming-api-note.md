@@ -9,8 +9,6 @@ author: Franklinfang
 * content
 {:toc}
 
-
-
 ## Concurrent-Programming Basic API 
 
 
