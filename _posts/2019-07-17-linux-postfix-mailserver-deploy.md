@@ -2,7 +2,7 @@
 layout: post
 title:  "Linux运维高级篇——搭建私人邮件服务器"
 categories: Java Linux 
-tags:  java linux mailserver dns postfix devocot 
+tags:  java linux dns postfix devocot 
 author: Franklinfang
 ---
 
