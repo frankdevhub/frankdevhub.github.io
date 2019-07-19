@@ -13,6 +13,8 @@ author: Franklinfang
 
 注：阿里云新开通的ECS云服务器已默认封闭 25 邮件发送端口，导致postfix无法发送邮件，需要更换新的端口并开放防火墙。
 
+操作流程详见：[Linux服务器安装Postfix邮件服务](https://blog.51cto.com/12227558/2074095)
+
 
 
 
