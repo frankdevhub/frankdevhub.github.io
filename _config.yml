@@ -37,7 +37,7 @@ baidu_tongji_id: 4cbcf4f20c00cf6768989d0f363af2b8
 
 # Share
 social-share: true
-social-share-items: ['wechat']
+social-share-items: ['wechat','weibo','google','facebook','twitter']
 
 # Build settings
 markdown: kramdown
