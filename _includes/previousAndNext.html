@@ -14,7 +14,13 @@
     <div>
          {% if site.social-share %}
             <div class="social-share-wrapper">
-            <div class="social-share"></div>
+            <div class="social-share" data-initialized="true" data-sites="wechat,weibo,google,facebook,twitter">
+		    <a href="#" class="social-share-icon icon-wechat"></a>
+		    <a href="#" class="social-share-icon icon-weibo"></a>
+		    <a href="#" class="social-share-icon icon-google"></a>
+		    <a href="#" class="social-share-icon icon-facebook"></a>
+		    <a href="#" class="social-share-icon icon-twitter"></a>
+	    </div>
             </div>
           {% endif %}
 	  <script type="text/javascript">
