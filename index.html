@@ -8,8 +8,9 @@ layout: default
 	<small>frankdevhub@gmail.com （房宸晟）| 这世界上有三种人：羊，狼和牧羊犬。你自己选择。</small>
         <hr>
         <ul>
-		    <!-- sticky posts -->
-			{% for post in site.categories.Sticky %}
+        <!-- sticky posts -->
+	{% if page.url == '/' %}	
+	 {% for post in site.categories.Sticky %}
               <li>
                 <h2>
                   <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -43,8 +44,9 @@ layout: default
                 <hr>
               </li>
             {% endfor %}
-
-			<!-- regular posts -->
+           {% endif %}
+		
+	    <!-- regular posts -->
             {% for post in paginator.posts %}
 				{% assign sticky = false %}
 				{% for cat in post.categories %}
@@ -129,7 +131,7 @@ layout: default
 				resultsContainer: document.getElementById('results-container'),
 				json: '/search.json',
 				searchResultTemplate: '<li><a  style="font-size:x-small" href="{url}" title="{title}">{title}</a></li>',
-				noResultsText: '没有搜索到文章',
+				noResultsText: '没有搜索到关联文章',
 				limit: 20, 
 				fuzzy: false 
 			})
