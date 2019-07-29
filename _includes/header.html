@@ -15,7 +15,15 @@
                         <i class="fa fa-home"></i>Home
                     </a>
                 </li>
-
+                <li>
+                    {% if page.url == '/webnovel' %}
+                    <a class="active" href="{{site.baseurl}}/webnovel">
+                        {% else %}
+                    <a href="{{site.baseurl}}/webnovel">
+                    {% endif %}
+                        <i class="fa fa-bookmark"></i>Webnovel
+                    </a>
+                </li>
                 {% for my_page in site.pages %}
                     {% if my_page.type == 'page' %}
                     <li>
