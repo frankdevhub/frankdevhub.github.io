@@ -7,7 +7,7 @@
 
 # Site settings
 title: Franklinfang
-brief-intro: frankdevhub
+brief-intro: frankdevhub.site
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://frankdevhub.github.io" # the base hostname & protocol for your site
 
