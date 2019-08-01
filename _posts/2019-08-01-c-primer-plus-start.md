@@ -55,6 +55,12 @@ gcc version 4.1.2 20080704 (Red Hat 4.1.2-46)
 
 如果未安装 GCC，那么请按照 [http://gcc.gnu.org/install/](http://gcc.gnu.org/install/) 上的详细说明安装 GCC。
 
+
+
+
+
+
+
 ## Mac OS X 上的安装
 
 如果您使用的是 Mac OS X，最快捷的获取 GCC 的方法是从苹果的网站上下载 Xcode 开发环境，并按照安装说明进行安装。一旦安装上 Xcode，您就能使用 GNU 编译器。
