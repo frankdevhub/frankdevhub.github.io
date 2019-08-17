@@ -2,7 +2,7 @@
 layout: post
 title: "以色列：有种暗杀叫“先下手为强”"
 date:   2019-07-09 02:21 
-categories: Life Culture Sticky
+categories: Life Culture
 tags: israel culture
 author: Franklinfang
 icon: play
