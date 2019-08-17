@@ -2,7 +2,7 @@
 layout: post
 title: "这世界上有三种人：羊，狼和牧羊犬。你自己选择。"
 date:   2019-03-29 09:19:03
-categories: Life Movie Sticky
+categories: Life Movie 
 tags: movie american sniper
 author: Franklinfang
 icon: play
