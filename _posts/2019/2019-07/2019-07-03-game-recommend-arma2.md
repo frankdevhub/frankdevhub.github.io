@@ -2,7 +2,7 @@
 layout: post
 title: "ARMA-Bohemia Interactive"
 date:   2019-07-03 19:29:03
-categories: Life Game Sticky
+categories: Life Game
 tags: game arma2 sniper
 author: Franklinfang
 icon: play
