@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "使群"
-categories: deploy 容器
-tags:  basic java
+categories: Sticky deploy 容器
+tags: basic java
 author: Franklinfang
 ---
 
