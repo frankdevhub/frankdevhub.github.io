@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "使用Nginx单机部署多Tomcat应用实现Tomcat集群"
+title:  "使群"
 categories: deploy 容器
 tags:  basic java
 author: Franklinfang
@@ -10,6 +10,7 @@ author: Franklinfang
 {:toc}
 
 # Nginx + Tomcat实现Tomcat集群
+## ss
 
 - 1.解压两个tomcat文件夹
 
