@@ -12,6 +12,12 @@ author: Franklinfang
 
 # Nginx + Tomcat实现Tomcat集群
 
+![image](https://user-images.githubusercontent.com/29160332/68220483-c90a3980-0022-11ea-8b4c-fae2ecd6536a.png)
+
+
+
+
+
 - 1.解压两个tomcat文件夹
 
 ![image](https://user-images.githubusercontent.com/29160332/68215417-2ea5f800-001a-11ea-8cbc-25ed5935a194.png)
