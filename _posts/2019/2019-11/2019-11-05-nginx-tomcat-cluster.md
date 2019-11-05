@@ -2,12 +2,13 @@
 layout: post
 title:  "使用Nginx单机部署多Tomcat应用实现Tomcat集群"
 categories: deploy 容器
-tags:  basic java
+tags:  tomcat java
 author: Franklinfang
 ---
 
 * content
 {:toc}
+
 
 # Nginx + Tomcat实现Tomcat集群
 
