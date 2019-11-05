@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "kubernetes(k8s)基础介绍"
-categories: java
+categories: sticky deploy 容器
 tags:  docker kubernetes
 author: Franklinfang
 ---
