@@ -1,11 +1,10 @@
 ---
 layout: post
-title:  "OAuth2.0认证流程是如何实现的？"
-categories: java
-tags:  java basic
+title:  "使用Nginx单机部署多Tomcat应用实现Tomcat集群"
+categories: deploy 容器
+tags:  tomcat java
 author: Franklinfang
 ---
-
 
 * content
 {:toc}
