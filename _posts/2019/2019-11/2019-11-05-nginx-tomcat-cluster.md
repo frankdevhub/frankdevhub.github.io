@@ -37,13 +37,13 @@ author: Franklinfang
 
 ![image](https://user-images.githubusercontent.com/29160332/68215732-b1c74e00-001a-11ea-80be-d2b3d4110077.png)
 
-tomcat这3个端口的作用分别是：
+**tomcat这3个端口的作用分别是：
 
 8005端口是用来关闭TOMCAT服务的端口。
 
 连接器监听8009端口，负责和其他的HTTP服务器建立连接。在把Tomcat与其他HTTP服务器集成时，就需要用到这个连接器。
 
-连接器监听8080端口，负责建立HTTP连接。在通过浏览器访问Tomcat服务器的Web应用时，使用的就是这个连接器
+连接器监听8080端口，负责建立HTTP连接。在通过浏览器访问Tomcat服务器的Web应用时，使用的就是这个连接器**
 
 - 5.如果是在虚拟机或服务器上，之前限制过端口号，则需要将新的9080端口添加到防火墙。sudo vim /etc/sysconfig/iptables
 
