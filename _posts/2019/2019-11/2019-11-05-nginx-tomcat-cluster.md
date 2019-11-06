@@ -11,7 +11,7 @@ author: Franklinfang
 
 # Nginx + Tomcat实现Tomcat集群
 
-<div align=center> ![image](https://user-images.githubusercontent.com/29160332/68220483-c90a3980-0022-11ea-8b4c-fae2ecd6536a.png)
+<div align=center> ![image](https://user-images.githubusercontent.com/29160332/68220483-c90a3980-0022-11ea-8b4c-fae2ecd6536a.png) </div>
 
 
 
