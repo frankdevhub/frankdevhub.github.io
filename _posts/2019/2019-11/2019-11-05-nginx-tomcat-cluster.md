@@ -11,7 +11,7 @@ author: Franklinfang
 
 # Nginx + Tomcat实现Tomcat集群
 
-<div align=center> ![image](https://user-images.githubusercontent.com/29160332/68220483-c90a3980-0022-11ea-8b4c-fae2ecd6536a.png) </div>
+![image](https://user-images.githubusercontent.com/29160332/68220483-c90a3980-0022-11ea-8b4c-fae2ecd6536a.png)
 
 
 
@@ -37,13 +37,13 @@ author: Franklinfang
 
 ![image](https://user-images.githubusercontent.com/29160332/68215732-b1c74e00-001a-11ea-80be-d2b3d4110077.png)
 
-**tomcat这3个端口的作用分别是：
+**tomcat这3个端口的作用分别是：**
 
-8005端口是用来关闭TOMCAT服务的端口。
+**8005端口是用来关闭TOMCAT服务的端口。**
 
-连接器监听8009端口，负责和其他的HTTP服务器建立连接。在把Tomcat与其他HTTP服务器集成时，就需要用到这个连接器。
+**连接器监听8009端口，负责和其他的HTTP服务器建立连接。在把Tomcat与其他HTTP服务器集成时，就需要用到这个连接器。**
 
-连接器监听8080端口，负责建立HTTP连接。在通过浏览器访问Tomcat服务器的Web应用时，使用的就是这个连接器**
+**连接器监听8080端口，负责建立HTTP连接。在通过浏览器访问Tomcat服务器的Web应用时，使用的就是这个连接器**
 
 - 5.如果是在虚拟机或服务器上，之前限制过端口号，则需要将新的9080端口添加到防火墙。sudo vim /etc/sysconfig/iptables
 
@@ -59,11 +59,11 @@ author: Franklinfang
 
 - 7.修改浏览器所在地的host，将本地127.0.0.1赋值给一个域名。vim  /etc/hosts,添加如下域名。之后通过访问  www.mier.com:8080 与www.mier.com:8090就能访问虚拟机上着两个应用了。
 
-<div align=center> ![image](https://user-images.githubusercontent.com/29160332/68215961-14b8e500-001b-11ea-87ee-f5b2bc81710a.png)
+![image](https://user-images.githubusercontent.com/29160332/68215961-14b8e500-001b-11ea-87ee-f5b2bc81710a.png)
 
 - 8.修改nginx/config目录下的nginx.conf文件，引入扩展域名解析文件，在http{}内加入如下命令。
 
-<div align=center> ![image](https://user-images.githubusercontent.com/29160332/68216021-2ac6a580-001b-11ea-99dc-d03d06637aa8.png)
+![image](https://user-images.githubusercontent.com/29160332/68216021-2ac6a580-001b-11ea-99dc-d03d06637aa8.png)
 
 - 9.然后在nginx/config目录下创建vhost文件夹，在其中新增一个6步骤中域名开头的conf文件，如www.mier.com.conf。
 
