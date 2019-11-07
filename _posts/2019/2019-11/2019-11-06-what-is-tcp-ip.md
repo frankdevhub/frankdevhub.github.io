@@ -2,7 +2,7 @@
 layout: post
 title:  "TCP/IP协议详解"
 categories: TCP/IP
-tags:  tcp TCP/IP
+tags:  TCP/IP
 author: Franklinfang
 ---
 
