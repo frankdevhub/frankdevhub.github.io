@@ -11,7 +11,7 @@ author: Franklinfang
 
 # Redis集群的5种方式
 
-**Redis 多副本，采用主从(replication)部署结构，相较于单副本而言最大的特点就是主从实例间数据实时同步，并且提供数据持久化和备份策略。**
+Redis 多副本，采用主从(replication)部署结构，相较于单副本而言最大的特点就是主从实例间数据实时同步，并且提供数据持久化和备份策略。
 
 ![image](https://user-images.githubusercontent.com/29160332/68992180-2b74fc80-08a3-11ea-8c9b-64bc428d2360.png)
 
