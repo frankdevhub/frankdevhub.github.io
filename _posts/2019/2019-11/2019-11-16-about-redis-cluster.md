@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Redis集群的5种使用方式，各自优缺点分析"
-categories: Redis
-tags:  redis 
+categories: Redis Cache
+tags:  redis  cache
 author: Franklinfang
 ---
 
