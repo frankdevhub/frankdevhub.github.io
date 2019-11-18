@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "OAuth2.0认证流程是如何实现的？"
-categories: java
+categories: Java
 tags:  java basic
 author: Franklinfang
 ---

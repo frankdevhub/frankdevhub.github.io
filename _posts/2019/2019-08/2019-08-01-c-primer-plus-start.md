@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "C++ 环境设置"
-categories: c++
+categories: C++
 tags:  c++ basic
 author: Franklinfang
 ---
