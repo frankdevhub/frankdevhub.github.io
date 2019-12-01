@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "C++实现基于TCP的Socket通信"
-categories: C++
-tags:  c++
+categories: C++ TCP/IP Socket IO
+tags:  c++ TCP/IP io
 author: Franklinfang
 ---
 
