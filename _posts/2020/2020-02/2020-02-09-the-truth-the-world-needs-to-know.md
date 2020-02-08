@@ -10,7 +10,7 @@ mathjax: true
 ---
 * content
 {:toc}
-# This is truth the world needs to know
+# This is the truth the world needs to know !
 
 **深夜写完代码喝了一杯咖啡，久久不能入睡，尽管事实真相并不清晰，但是想到最近的国事，天下兴亡匹夫有责，少年强则国强。在回想当今国难当头发国难财的人比比皆是，我们为了生存选择沉默，但是对于这样敢于发声的英雄，相信历史会给予评判盖棺定论。**
 
