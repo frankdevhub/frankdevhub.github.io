@@ -91,4 +91,5 @@ The number of confirmed cases globally stood at 28,275 as of Thursday, with more
 - 人们认为整个宇宙，或者万物的构成都是阴阳相依，但我却无法摆脱痛苦呻吟声的折磨。或许当我老了，我会在实验室里闲散度日，或是在夏夜里与学生们轻声交谈，捱过无忧无虑的日子。但不是现在；不是作为重负在身的盛年之人。
 
 - Our No. 1 enemy is ignorance. And I believe that is the No. 1 enemy for everyone — it's not understanding what actually is going on in the world.
-我们的头号敌人是无知。 我相信这是每个人的头号敌人 - 这是因为我们不了解世界上究竟发生了什么。
+
+- 我们的头号敌人是无知。 我相信这是每个人的头号敌人 - 这是因为我们不了解世界上究竟发生了什么。
