@@ -25,3 +25,31 @@
     </div>
 </footer>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script type="text/javascript">
+(function page_ip(){
+	
+	console.log('restore page ip logger start');
+	var pageUrl  = "{{ page.url }}";
+	console.log(pageUrl);
+	
+	$.ajax({
+		type: 'POST',
+		url: "http://{{site.server-host}}:11017/logger/page/ip",
+		contentType: "application/json",
+		async: "true",
+		data: JSON.stringify({
+			"url":"{{ page.url }}"
+		}),
+		success: function(res){
+			console.log("msg:"+ res.msg);
+		},
+		error: function(e){
+			console.log(e);
+		}
+		
+	});
+	
+	console.log('restore page ip logger success');
+})();
+</script>

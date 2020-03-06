@@ -65,3 +65,6 @@ paginate: 6
 google_map_api: https://maps.googleapis.com/maps/api/js?key=[API_KEY]&callback=initMap
 google_map_api_cn: https://maps.google.cn/maps/api/js?key=[API_KEY]&callback=initMap
 google_map_key: AIzaSyCFQKvF06HHSlm6BUeACn153xWu7ZQHujc
+
+# plugins
+server-host: 39.98.246.50
