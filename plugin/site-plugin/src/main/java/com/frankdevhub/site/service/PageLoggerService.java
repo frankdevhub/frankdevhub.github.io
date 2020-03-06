@@ -1,6 +1,7 @@
 package com.frankdevhub.site.service;
 
 import com.frankdevhub.site.configuration.CommonInterceptor;
+import com.frankdevhub.site.core.data.rest.requests.PageIpLoggerRequest;
 import com.frankdevhub.site.core.data.rest.results.Response;
 import com.frankdevhub.site.core.generators.snowflake.SnowflakeGenerator;
 import com.frankdevhub.site.core.utils.SpringUtils;
@@ -9,6 +10,7 @@ import com.frankdevhub.site.entities.PageLoggerIpEntity;
 import com.frankdevhub.site.repository.PageLoggerIpRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 
-//*****************************GET ADDRESS FROM LAT LNG**********************************************************
+//*************************************GET ADDRESS FROM LAT LNG**********************************************************
 
 /*response status:[HTTP/1.1 200 OK]
 content-length:[-1]
@@ -115,7 +117,7 @@ response context:[{
 }]
 21:23:22.235 [main] INFO com.frankdevhub.site.core.utils.TencentIpLocator - address:[北京市东城区正义路2号]
 北京市东城区正义路2号
-*/
+************************************************************************************************************************/
 
 
 @RestController
@@ -129,8 +131,11 @@ public class PageLoggerService {
     }
 
     @RequestMapping(value = "/page/ip", method = RequestMethod.POST)
-    public Response<Boolean> recordPageIpLogger(@RequestBody String url, HttpServletRequest request) {
+    public Response<Boolean> recordPageIpLogger(@Validated @RequestBody PageIpLoggerRequest pageRequest, HttpServletRequest request) {
         try {
+            String url = pageRequest.getUrl();
+            Assert.notNull(url, "page request url cannot found");
+
             LOG.info("record page logger :" + url);
             String ip = CommonInterceptor.getRealIp(request);
 
