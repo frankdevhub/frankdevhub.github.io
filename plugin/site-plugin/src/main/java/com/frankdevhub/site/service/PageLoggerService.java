@@ -1,8 +1,8 @@
 package com.frankdevhub.site.service;
 
+import com.frankdevhub.site.configuration.CommonInterceptor;
 import com.frankdevhub.site.core.data.rest.results.Response;
 import com.frankdevhub.site.core.generators.snowflake.SnowflakeGenerator;
-import com.frankdevhub.site.core.utils.HostUtils;
 import com.frankdevhub.site.core.utils.SpringUtils;
 import com.frankdevhub.site.core.utils.TencentIpLocator;
 import com.frankdevhub.site.entities.PageLoggerIpEntity;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import tk.mybatis.mapper.util.Assert;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 
@@ -117,7 +118,8 @@ response context:[{
 */
 
 
-@RestController(value = "/logger")
+@RestController
+@RequestMapping("/logger")
 public class PageLoggerService {
 
     private final Logger LOG = LoggerFactory.getLogger(PageLoggerService.class);
@@ -127,10 +129,11 @@ public class PageLoggerService {
     }
 
     @RequestMapping(value = "/page/ip", method = RequestMethod.POST)
-    public Response<Boolean> recordPageIpLogger(@RequestBody String url) {
+    public Response<Boolean> recordPageIpLogger(@RequestBody String url, HttpServletRequest request) {
         try {
             LOG.info("record page logger :" + url);
-            String ip = HostUtils.getMyIp();
+            String ip = CommonInterceptor.getRealIp(request);
+
             Assert.notNull(ip, "ip object cannot found");
             String _location[] = TencentIpLocator.getIpLocation(ip);
             String location = _location[0] + "," + _location[1];
