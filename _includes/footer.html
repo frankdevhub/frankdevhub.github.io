@@ -27,12 +27,9 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <script type="text/javascript">
-(function page_ip(){
-	
-	console.log('restore page ip logger start');
+(function page_logger(){
 	var pageUrl  = "{{ page.url }}";
-	console.log(pageUrl);
-	
+
 	$.ajax({
 		type: 'POST',
 		url: "http://{{site.server-host}}:11017/logger/page/ip",
@@ -49,7 +46,6 @@
 		}
 		
 	});
-	
-	console.log('restore page ip logger success');
+
 })();
 </script>
