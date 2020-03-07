@@ -10,7 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 
 @Component
 public class CommonInterceptor implements HandlerInterceptor {
@@ -34,13 +35,38 @@ public class CommonInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) {
 
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
 
+    }
+
+    public static String getMacAddress(String ip) {
+        String mac = "";
+        if (ip != null) {
+            try {
+                Process process = Runtime.getRuntime().exec("arp " + ip);
+                InputStreamReader ir = new InputStreamReader(process.getInputStream());
+                LineNumberReader input = new LineNumberReader(ir);
+                String line;
+                StringBuffer s = new StringBuffer();
+                while ((line = input.readLine()) != null) {
+                    s.append(line);
+                }
+                mac = s.toString();
+                if (StringUtils.isNotBlank(mac)) {
+                    mac = mac.substring(mac.indexOf(":") - 2, mac.lastIndexOf(":") + 3);
+                }
+                return mac;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        LOG.info("[MAC_ADDRESS]: " + mac);
+        return mac;
     }
 
     public static String getRealIp(HttpServletRequest request) {

@@ -11,10 +11,7 @@ import com.frankdevhub.site.repository.PageLoggerIpRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tk.mybatis.mapper.util.Assert;
 
 import javax.servlet.http.HttpServletRequest;
@@ -120,6 +117,7 @@ response context:[{
 ************************************************************************************************************************/
 
 
+@CrossOrigin
 @RestController
 @RequestMapping("/logger")
 public class PageLoggerService {
@@ -138,10 +136,13 @@ public class PageLoggerService {
 
             LOG.info("record page logger :" + url);
             String ip = CommonInterceptor.getRealIp(request);
-
             Assert.notNull(ip, "ip object cannot found");
+
             String _location[] = TencentIpLocator.getIpLocation(ip);
             String location = _location[0] + "," + _location[1];
+
+            String macAddress = CommonInterceptor.getMacAddress(ip);
+            LOG.info("user mac address: " + macAddress);
 
             LOG.debug("location value: " + location);
             Long id = new SnowflakeGenerator().generateKey();
