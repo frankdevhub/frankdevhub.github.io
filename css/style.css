@@ -1,0 +1,95 @@
+.rkmd-btn.btn-lightBlue {
+    color: #FFF;
+    background-color: #03a9f4;
+}
+.rkmd-btn {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 1.5rem;
+    color: #424242;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: .8px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    outline: none;
+    border: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 6px;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+}
+*, *::after, *::before {
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+button {
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: buttonface;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+}
+main section .wrap .holder {
+    float: left;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+main section .wrap {
+    overflow: hidden;
+    display: block;
+    margin: 1rem 0 0.8rem;
+    text-align: center;
+}
+body {
+    margin: 0;
+    padding: 0;
+    color: #646360;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #eee;
+}
+user agent stylesheet
+html {
+    color: -internal-root-color;
+}
+*, *::after, *::before {
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *::after, *::before {
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
