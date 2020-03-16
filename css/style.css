@@ -30,11 +30,7 @@
     transition: all .3s ease-out;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
 }
-*, *::after, *::before {
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-}
+
 user agent stylesheet
 button {
     -webkit-appearance: button;
@@ -59,37 +55,4 @@ button {
     border-style: outset;
     border-color: buttonface;
     border-image: initial;
-}
-main section .wrap .holder {
-    float: left;
-    text-align: center;
-    background-color: #f2f2f2;
-}
-main section .wrap {
-    overflow: hidden;
-    display: block;
-    margin: 1rem 0 0.8rem;
-    text-align: center;
-}
-body {
-    margin: 0;
-    padding: 0;
-    color: #646360;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    background-color: #eee;
-}
-user agent stylesheet
-html {
-    color: -internal-root-color;
-}
-*, *::after, *::before {
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-}
-*, *::after, *::before {
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
 }
