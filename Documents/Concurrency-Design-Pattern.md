@@ -18,5 +18,6 @@ mathjax: true
  - 使用Single Threaded Execution模式的程序
    - [SafeGate](https://github.com/frankdevhub/Coding-Laboratory/blob/master/Concurrency%20Design%20Pattern/com-frankdevhub-concurrency-pattern/src/com/frankdevhub/pattern/chp1/SafeGate.java)
  - java.util.comcurrent包和计数信号量
-   - []()
-   - []()   
+   - [Log](https://github.com/frankdevhub/Coding-Laboratory/blob/master/Concurrency%20Design%20Pattern/com-frankdevhub-concurrency-pattern/src/com/frankdevhub/pattern/chp1/Log.java)
+   - [BoundedResource](https://github.com/frankdevhub/Coding-Laboratory/blob/master/Concurrency%20Design%20Pattern/com-frankdevhub-concurrency-pattern/src/com/frankdevhub/pattern/chp1/BoundedResource.java)
+   - [UserThread](https://github.com/frankdevhub/Coding-Laboratory/blob/master/Concurrency%20Design%20Pattern/com-frankdevhub-concurrency-pattern/src/com/frankdevhub/pattern/chp1/UserThread.java)
