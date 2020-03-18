@@ -13,3 +13,5 @@ mathjax: true
 
 
 ## [Netty: The Definitive Guide](/Documents/Netty-The-Definitive-Guide)
+
+## [Concurrency Design Pattern](](/Documents/Netty-The-Definitive-Guide/Concurrency-Design-Pattern)
