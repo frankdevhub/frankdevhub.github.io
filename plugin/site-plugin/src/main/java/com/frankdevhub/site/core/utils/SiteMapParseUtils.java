@@ -32,6 +32,13 @@ public class SiteMapParseUtils {
 		this.domain = domain;
 	}
 
+	public Map<Object, Object> submitXMLDocument(File file) throws DocumentException {
+		Map<Object, Object> res = new HashMap<>();
+		Map<Object, Object> parse = parseXMLDocument(file);
+		res = pushToBaiduPlatform((List) parse.get("list"));
+		return res;
+	}
+
 	public Map<Object, Object> parseXMLDocument(File file) throws DocumentException {
 		Map<Object, Object> res = new HashMap<>();
 		long start = System.currentTimeMillis();

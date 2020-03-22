@@ -1,20 +1,25 @@
 package com.frankdevhub.site.service;
 
+import java.io.File;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.frankdevhub.site.core.data.rest.requests.PageIpLoggerRequest;
 import com.frankdevhub.site.core.data.rest.results.Response;
+import com.frankdevhub.site.core.utils.SiteMapParseUtils;
+import com.frankdevhub.site.core.utils.SpringUtils;
+import com.frankdevhub.site.repository.SiteMapPushRecordRepository;
 
 @CrossOrigin
 @RestController
@@ -23,12 +28,40 @@ public class SiteMapService {
 
 	private final Logger LOG = LoggerFactory.getLogger(SiteMapService.class);
 
-	@RequestMapping(value = "/baidu/platform/submit", method = RequestMethod.POST)
-	public Response<Map<Object, Object>> submit(@Validated @RequestBody PageIpLoggerRequest pageRequest,
-			HttpServletRequest request) {
-		try {
+	@Value("${site.hostname}")
+	private String DEFAULT_HOSTNAME;
 
-			return new Response<Map<Object, Object>>().setData(null).setMsg("success").success();
+	@Value("${site.port}")
+	private String DEFAULT_PORT;
+
+	@Value("${site.domain}")
+	private String DEFAULT_DOMIAN;
+
+	private SiteMapPushRecordRepository getRepository() {
+		return SpringUtils.getBean(SiteMapPushRecordRepository.class);
+	}
+
+	@RequestMapping(value = "/baidu/platform/submit", method = RequestMethod.POST)
+	public Response<Map<Object, Object>> submit(@RequestParam("file") MultipartFile file) {
+		try {
+			LOG.info("using DEFAULT_HOSTNAME : [" + DEFAULT_HOSTNAME + "]");
+			LOG.info("using DEFAULT_PORT : [" + DEFAULT_PORT + "]");
+			LOG.info("using DEFAULT_DOMIAN : [" + DEFAULT_DOMIAN + "]");
+
+			String fileName = file.getOriginalFilename();
+
+			LOG.info("site map filename = [" + fileName + "]");
+			String suffix = fileName.substring(fileName.indexOf(".") + 1);
+
+			if (!suffix.equals("xml"))
+				throw new Exception("sitemap file should be xml format");
+			File temp = File.createTempFile("temp" + new Date().getTime(), "xml");
+			file.transferTo(temp);
+
+			Map<Object, Object> result = new SiteMapParseUtils(DEFAULT_HOSTNAME, DEFAULT_PORT, DEFAULT_DOMIAN)
+					.submitXMLDocument(temp);
+
+			return new Response<Map<Object, Object>>().setData(result).setMsg("success").success();
 		} catch (Exception e) {
 			e.printStackTrace();
 
