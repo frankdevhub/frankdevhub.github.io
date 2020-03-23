@@ -72,7 +72,7 @@ public class SiteMapParseUtils {
 			urls.add(n.getText());
 		}
 		long end = System.currentTimeMillis();
-		double cost = (end - start) / 1000;
+		double cost = end - start;
 		res.put("timecost", cost);
 		res.put("size", size);
 		res.put("list", urls);
@@ -149,12 +149,26 @@ public class SiteMapParseUtils {
 		JSONObject obj = JSONObject.parseObject(result);
 		Object success_obj = obj.get("success");
 		Object remain_obj = obj.get("remain");
-		if (null != success_obj && null != remain_obj) {
-			succeedCount = Integer.parseInt(success_obj.toString());
-			failureCount = originCount - succeedCount;
+		Object not_same_site_obj = obj.get("not_same_site");
+		Object not_valid_obj = obj.get("not_valid");
+		if (null != success_obj) {
+			if (null != remain_obj) {
+				succeedCount = Integer.parseInt(success_obj.toString());
+				failureCount = originCount - succeedCount;
+			} else {
+				if (null != not_same_site_obj) {
+					String error = not_same_site_obj.toString();
+					throw new Exception("not_same_site_error:" + error);
+				}
+				if (null != not_valid_obj) {
+					String error = not_valid_obj.toString();
+					throw new Exception("not_valid_error:" + error);
+				}
+			}
+
 		} else {
-			Object error_obj = obj.get("error");
-			throw new Exception(error_obj.toString());
+			Object error_msg_obj = obj.get("message");
+			throw new Exception(error_msg_obj.toString());
 		}
 
 		if (null != in)
@@ -166,7 +180,7 @@ public class SiteMapParseUtils {
 		out = null;
 
 		long end = System.currentTimeMillis();
-		double timecost = (end - start) / 1000;
+		double timecost = end - start;
 
 		res.put("submit_count", submitCount);
 		res.put("succeed_count", succeedCount);
@@ -175,4 +189,5 @@ public class SiteMapParseUtils {
 
 		return res;
 	}
+
 }
