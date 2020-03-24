@@ -1,5 +1,21 @@
 package com.frankdevhub.site.service;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.frankdevhub.site.configuration.CommonInterceptor;
 import com.frankdevhub.site.core.data.rest.requests.PageIpLoggerRequest;
 import com.frankdevhub.site.core.data.rest.results.Response;
@@ -8,15 +24,9 @@ import com.frankdevhub.site.core.utils.SpringUtils;
 import com.frankdevhub.site.core.utils.TencentIpLocator;
 import com.frankdevhub.site.entities.PageLoggerIpEntity;
 import com.frankdevhub.site.repository.PageLoggerIpRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import com.github.pagehelper.PageInfo;
+
 import tk.mybatis.mapper.util.Assert;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-
 
 //*************************************GET ADDRESS FROM LAT LNG**********************************************************
 
@@ -116,56 +126,85 @@ response context:[{
 北京市东城区正义路2号
 ************************************************************************************************************************/
 
-
 @CrossOrigin
 @RestController
 @RequestMapping("/logger")
 public class PageLoggerService {
 
-    private final Logger LOG = LoggerFactory.getLogger(PageLoggerService.class);
+	private final Logger LOG = LoggerFactory.getLogger(PageLoggerService.class);
 
-    private final PageLoggerIpRepository getRepository() {
-        return SpringUtils.getBean(PageLoggerIpRepository.class);
-    }
+	private final PageLoggerIpRepository getRepository() {
+		return SpringUtils.getBean(PageLoggerIpRepository.class);
+	}
 
-    @RequestMapping(value = "/page/ip", method = RequestMethod.POST)
-    public Response<Boolean> recordPageIpLogger(@Validated @RequestBody PageIpLoggerRequest pageRequest, HttpServletRequest request) {
-        try {
-            String url = pageRequest.getUrl();
-            Assert.notNull(url, "page request url cannot found");
+	@RequestMapping(value = "/page/ip/ipaddress", method = RequestMethod.GET)
+	public Response<PageInfo<PageLoggerIpEntity>> getPageLoggerByClientIp(
+			@Validated @RequestParam(name = "ip") String ipAddress) {
+		try {
 
-            LOG.info("record page logger :" + url);
-            String ip = CommonInterceptor.getRealIp(request);
-            Assert.notNull(ip, "ip object cannot found");
+			return new Response<PageInfo<PageLoggerIpEntity>>().setData(null).setMsg("success").success();
+		} catch (Exception e) {
 
-            String _location[] = TencentIpLocator.getIpLocation(ip);
-            String location = _location[0] + "," + _location[1];
+			LOG.error("error", e);
+			e.printStackTrace();
+			return new Response<PageInfo<PageLoggerIpEntity>>().setData(null).setMsg(e.getMessage()).failed(e);
+		}
+	}
 
-            String macAddress = CommonInterceptor.getMacAddress(ip);
-            LOG.info("user mac address: " + macAddress);
+	@RequestMapping(value = "/page/ip/datetime", method = RequestMethod.GET)
+	public Response<PageInfo<PageLoggerIpEntity>> getPageLoggerByDateTime(
+			@RequestParam(name = "startDateTime", required = true) Long startDateTime,
+			@RequestParam(name = "endDateTime", required = true) Long endDateTime,
+			@RequestParam(name = "asend", defaultValue = "false") Boolean asend) {
+		try {
+			List<PageLoggerIpEntity> records;
+			records = getRepository().selectByExample(startDateTime, endDateTime, asend);
 
-            LOG.debug("location value: " + location);
-            Long id = new SnowflakeGenerator().generateKey();
-            PageLoggerIpEntity entity = new PageLoggerIpEntity();
-            entity.setId(id).setLogId(id)
-                    .setLatitude(_location[0])
-                    .setLongitude(_location[1])
-                    .setDate(new Date().getTime())
-                    .setUrl(url)
-                    .setIpAddress(ip);
+			return new Response<PageInfo<PageLoggerIpEntity>>().setData(new PageInfo<>(records)).setMsg("success")
+					.success();
+		} catch (Exception e) {
 
-            String address = TencentIpLocator.getAddress(location);
-            entity.setAddress(address);
-            getRepository().insertSelective(entity);
+			LOG.error("error", e);
+			e.printStackTrace();
+			return new Response<PageInfo<PageLoggerIpEntity>>().setData(null).setMsg(e.getMessage()).failed(e);
+		}
+	}
 
-            LOG.info("record page logger complete");
-            return new Response<Boolean>().setData(Boolean.TRUE).setMsg("page ip logger restore success").success();
-        } catch (Exception e) {
-            e.printStackTrace();
+	@RequestMapping(value = "/page/ip", method = RequestMethod.POST)
+	public Response<Boolean> recordPageIpLogger(@Validated @RequestBody PageIpLoggerRequest pageRequest,
+			HttpServletRequest request) {
+		try {
+			String url = pageRequest.getUrl();
+			Assert.notNull(url, "page request url cannot found");
 
-            LOG.error("error", e);
-            return new Response<Boolean>().setData(null).setMsg(e.getMessage()).failed(e);
-        }
-    }
+			LOG.info("record page logger :" + url);
+			String ip = CommonInterceptor.getRealIp(request);
+			Assert.notNull(ip, "ip object cannot found");
+
+			String _location[] = TencentIpLocator.getIpLocation(ip);
+			String location = _location[0] + "," + _location[1];
+
+			String macAddress = CommonInterceptor.getMacAddress(ip);
+			LOG.info("user mac address: " + macAddress);
+
+			LOG.debug("location value: " + location);
+			Long id = new SnowflakeGenerator().generateKey();
+			PageLoggerIpEntity entity = new PageLoggerIpEntity();
+			entity.setId(id).setLogId(id).setLatitude(_location[0]).setLongitude(_location[1])
+					.setDate(new Date().getTime()).setUrl(url).setIpAddress(ip);
+
+			String address = TencentIpLocator.getAddress(location);
+			entity.setAddress(address);
+			getRepository().insertSelective(entity);
+
+			LOG.info("record page logger complete");
+			return new Response<Boolean>().setData(Boolean.TRUE).setMsg("page ip logger restore success").success();
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			LOG.error("error", e);
+			return new Response<Boolean>().setData(null).setMsg(e.getMessage()).failed(e);
+		}
+	}
 
 }
