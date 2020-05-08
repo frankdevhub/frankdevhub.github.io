@@ -7,6 +7,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 ::-- @description: submit renewed post file
 ::--------------------------------------------------------
 
+
 @echo 'start' 
 
 git add .
