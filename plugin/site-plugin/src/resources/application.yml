@@ -43,5 +43,9 @@ aliyunOSS:
    access_id: LTAI4GKkHLr3MMCy44XGEE5a
    access_key: KpLZPXeRNfMYi9JXTbeKm7We1wcyoZ
    bucket_name: frankdevhub
+site:
+    hostname: 39.98.246.50
+    port: 8090
+    domain: www.frankdevhub.site
 
 
