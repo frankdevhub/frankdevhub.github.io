@@ -8,14 +8,12 @@ _site
 .DS_Store
 .settings
 .node_modules/
-/.metadata/
+/.metadata
 .recommenders
 .gitignore
-/RemoteSystemsTempFiles/
-/baidu-seo-sitemap/bin
-/baidu-seo-sitemap/.project
-/baidu-seo-sitemap/.settings
-/baidu-seo-sitemap/.classpath
-/baidu-seo-sitemap/.idea
+/RemoteSystemsTempFiles
+/.project
+/.classpath
+/.idea
+/bin
 
-/scripts/concurrent-programming-note/concurrent-programming-api-note/bin
