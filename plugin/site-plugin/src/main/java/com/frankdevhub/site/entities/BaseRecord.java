@@ -13,7 +13,7 @@ public class BaseRecord<T> {
 
 	@Column(name = "create_date")
 	private Date createDate;
-
+	
 	@Column(name = "update_date")
 	private Date updateDate;
 
