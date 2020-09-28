@@ -1,51 +1,43 @@
 server:
-  port: 8089
+   port: 8089
 logging:
-  level:
-    ROOT: DEBUG
+   level:
+      ROOT: DEBUG
 spring:
-  session:
-    store-type: none
-  datasource:
-    url: jdbc:mysql://39.98.246.50:3306/frankdevhub_site_log?characterEncoding=UTF-8&useSSL=false
-    username: root
-    password: frankdevhub_store
-    driver-class-name: com.mysql.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    filters: stat
-    maxActive: 20
-    initialSize: 1
-    maxWait: 60000
-    minIdle: 1
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: select 'x'
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxOpenPreparedStatements: 20
+   session:
+      store-type: none
+   datasource:
+      url: jdbc:mysql://39.98.246.50:3306/frankdevhub_site_log?characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: frankdevhub_store
+      driver-class-name: com.mysql.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
 #  thymeleaf:
 #    mode: HTML5
 #    encoding: UTF-8
 #    content-type: text/html
 #    cache: false
 #    prefix: classpath:/templates
-
 security:
-  sessions: NEVER
+   sessions: NEVER
 mybatis:
-#  typeAliasesPackage: com.wasp.rbac.domain.valueobject
    executorType: Simple
-#  schema: org.wasp.account.domain.model
-aliyunOSS:
-   endpoint: oss-eu-central-1.aliyuncs.com
-   access_id: LTAI4GKkHLr3MMCy44XGEE5a
-   access_key: KpLZPXeRNfMYi9JXTbeKm7We1wcyoZ
-   bucket_name: frankdevhub
+#  typeAliasesPackage: com.wasp.rbac.domain.valueobject
 site:
-    hostname: 39.98.246.50
-    port: 8090
-    domain: www.frankdevhub.site
-
-
+#  schema: org.wasp.account.domain.model
+   hostname: 39.98.246.50
+   port: 8090
+   domain: www.frankdevhub.site
