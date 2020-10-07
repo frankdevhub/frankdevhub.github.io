@@ -7,11 +7,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.frankdevhub.site"})
+@ComponentScan(basePackages = { "com.frankdevhub.site" })
 @MapperScan(basePackages = "com.frankdevhub.site.mapper")
 @EnableTransactionManagement
 public class SiteApp {
-    public static void main(String[] args) {
-        SpringApplication.run(SiteApp.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(SiteApp.class, args);
+	}
 }

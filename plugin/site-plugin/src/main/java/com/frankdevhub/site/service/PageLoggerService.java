@@ -2,6 +2,7 @@ package com.frankdevhub.site.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,10 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.frankdevhub.site.configuration.CommonInterceptor;
 import com.frankdevhub.site.core.data.rest.requests.PageIpLoggerRequest;
 import com.frankdevhub.site.core.data.rest.results.Response;
-import com.frankdevhub.site.core.generators.snowflake.SnowflakeGenerator;
 import com.frankdevhub.site.core.utils.SpringUtils;
 import com.frankdevhub.site.core.utils.TencentIpLocator;
-import com.frankdevhub.site.entities.PageLoggerIpEntity;
+import com.frankdevhub.site.entities.PageLoggerIpRecord;
 import com.frankdevhub.site.repository.PageLoggerIpRepository;
 import com.github.pagehelper.PageInfo;
 
@@ -137,35 +137,35 @@ public class PageLoggerService {
 	}
 
 	@RequestMapping(value = "/page/ip/ipaddress", method = RequestMethod.GET)
-	public Response<PageInfo<PageLoggerIpEntity>> getPageLoggerByClientIp(
+	public Response<PageInfo<PageLoggerIpRecord>> getPageLoggerByClientIp(
 			@Validated @RequestParam(name = "ip") String ipAddress) {
 		try {
 
-			return new Response<PageInfo<PageLoggerIpEntity>>().setData(null).setMsg("success").success();
+			return new Response<PageInfo<PageLoggerIpRecord>>().setData(null).setMsg("success").success();
 		} catch (Exception e) {
 
 			LOG.error("error", e);
 			e.printStackTrace();
-			return new Response<PageInfo<PageLoggerIpEntity>>().setData(null).setMsg(e.getMessage()).failed(e);
+			return new Response<PageInfo<PageLoggerIpRecord>>().setData(null).setMsg(e.getMessage()).failed(e);
 		}
 	}
 
 	@RequestMapping(value = "/page/ip/datetime", method = RequestMethod.GET)
-	public Response<PageInfo<PageLoggerIpEntity>> getPageLoggerByDateTime(
+	public Response<PageInfo<PageLoggerIpRecord>> getPageLoggerByDateTime(
 			@RequestParam(name = "startDateTime", required = true) Long startDateTime,
 			@RequestParam(name = "endDateTime", required = true) Long endDateTime,
 			@RequestParam(name = "asend", defaultValue = "false") Boolean asend) {
 		try {
-			List<PageLoggerIpEntity> records;
+			List<PageLoggerIpRecord> records;
 			records = getRepository().selectByExample(startDateTime, endDateTime, asend);
 
-			return new Response<PageInfo<PageLoggerIpEntity>>().setData(new PageInfo<>(records)).setMsg("success")
+			return new Response<PageInfo<PageLoggerIpRecord>>().setData(new PageInfo<>(records)).setMsg("success")
 					.success();
 		} catch (Exception e) {
 
 			LOG.error("error", e);
 			e.printStackTrace();
-			return new Response<PageInfo<PageLoggerIpEntity>>().setData(null).setMsg(e.getMessage()).failed(e);
+			return new Response<PageInfo<PageLoggerIpRecord>>().setData(null).setMsg(e.getMessage()).failed(e);
 		}
 	}
 
@@ -179,22 +179,22 @@ public class PageLoggerService {
 			LOG.info("record page logger :" + url);
 			String ip = CommonInterceptor.getRealIp(request);
 			Assert.notNull(ip, "ip object cannot found");
-
 			String _location[] = TencentIpLocator.getIpLocation(ip);
 			String location = _location[0] + "," + _location[1];
-
 			String macAddress = CommonInterceptor.getMacAddress(ip);
 			LOG.info("user mac address: " + macAddress);
 
 			LOG.debug("location value: " + location);
-			Long id = new SnowflakeGenerator().generateKey();
-			PageLoggerIpEntity entity = new PageLoggerIpEntity();
-			entity.setId(id).setLogId(id).setLatitude(_location[0]).setLongitude(_location[1])
-					.setDate(new Date().getTime()).setUrl(url).setIpAddress(ip);
-
+			// replace snowflake generated id as UUID instead
+			// Long id = new SnowflakeGenerator().generateKey();
+			PageLoggerIpRecord record = new PageLoggerIpRecord();
+			String id = UUID.randomUUID().toString();
+			record.setId(id).setLatitude(_location[0]).setLongitude(_location[1]).setDate(new Date().getTime())
+					.setUrl(url).setIpAddress(ip);
+			// GET tencent ip location address information
 			String address = TencentIpLocator.getAddress(location);
-			entity.setAddress(address);
-			getRepository().insertSelective(entity);
+			record.setAddress(address);
+			getRepository().insertSelective(record);
 
 			LOG.info("record page logger complete");
 			return new Response<Boolean>().setData(Boolean.TRUE).setMsg("page ip logger restore success").success();

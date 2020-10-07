@@ -16,43 +16,44 @@ import javax.sql.DataSource;
 
 @Configuration
 public class MybatisConfig implements TransactionManagementConfigurer {
-    @Autowired
-    DataSource dataSource;
+	@Autowired
+	DataSource dataSource;
 
-    @Bean(name = "sqlSessionFactory")
-    public SqlSessionFactory sqlSessionFactoryBean() {
-        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(dataSource);
-        bean.setTypeAliasesPackage("com.frankdevhub.site.mapper");
+	@Bean(name = "sqlSessionFactory")
+	public SqlSessionFactory sqlSessionFactoryBean() {
+		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+		bean.setDataSource(dataSource);
+		bean.setTypeAliasesPackage("com.frankdevhub.site.mapper");
 
-        //ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        try {
-            //  bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
-            return bean.getObject();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-    }
+		// ResourcePatternResolver resolver = new
+		// PathMatchingResourcePatternResolver();
+		try {
+			// bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
+			return bean.getObject();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
 
-    @Bean
-    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
-        return new SqlSessionTemplate(sqlSessionFactory);
-    }
+	@Bean
+	public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+		return new SqlSessionTemplate(sqlSessionFactory);
+	}
 
-    @Bean
-    public PlatformTransactionManager annotationDrivenTransactionManager() {
-        return new DataSourceTransactionManager(dataSource);
-    }
+	@Bean
+	public PlatformTransactionManager annotationDrivenTransactionManager() {
+		return new DataSourceTransactionManager(dataSource);
+	}
 
-    @Bean
-    public PageHelper pageHelper() {
-        PageHelper pageHelper = new PageHelper();
+	@Bean
+	public PageHelper pageHelper() {
+		PageHelper pageHelper = new PageHelper();
 
-        ConfigProperties props = new ConfigProperties();
-        props.setProperty("offsetAsPageNum", "true").setProperty("rowBoundsWithCount", "true").setProperty("reasonable",
-                "true");
-        pageHelper.setProperties(props);
-        return pageHelper;
-    }
+		ConfigProperties props = new ConfigProperties();
+		props.setProperty("offsetAsPageNum", "true").setProperty("rowBoundsWithCount", "true").setProperty("reasonable",
+				"true");
+		pageHelper.setProperties(props);
+		return pageHelper;
+	}
 }

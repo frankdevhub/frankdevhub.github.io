@@ -5,14 +5,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name = "site_page_log")
-public class PageLoggerIpEntity extends BaseRecord<PageLoggerIpEntity> {
+public class PageLoggerIpRecord extends BaseRecord<PageLoggerIpRecord> {
 
 	@Id
 	@Column(name = "id")
-	private Long id;
-
-	@Column(name = "log_id")
-	private Long logId;
+	private String id;
 
 	@Column(name = "date")
 	private Long date;
@@ -35,21 +32,12 @@ public class PageLoggerIpEntity extends BaseRecord<PageLoggerIpEntity> {
 	@Column(name = "address")
 	private String address;
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public PageLoggerIpEntity setId(Long id) {
+	public PageLoggerIpRecord setId(String id) {
 		this.id = id;
-		return this;
-	}
-
-	public Long getLogId() {
-		return logId;
-	}
-
-	public PageLoggerIpEntity setLogId(Long logId) {
-		this.logId = logId;
 		return this;
 	}
 
@@ -57,7 +45,7 @@ public class PageLoggerIpEntity extends BaseRecord<PageLoggerIpEntity> {
 		return date;
 	}
 
-	public PageLoggerIpEntity setDate(Long date) {
+	public PageLoggerIpRecord setDate(Long date) {
 		this.date = date;
 		return this;
 	}
@@ -66,7 +54,7 @@ public class PageLoggerIpEntity extends BaseRecord<PageLoggerIpEntity> {
 		return url;
 	}
 
-	public PageLoggerIpEntity setUrl(String url) {
+	public PageLoggerIpRecord setUrl(String url) {
 		this.url = url;
 		return this;
 	}
@@ -75,7 +63,7 @@ public class PageLoggerIpEntity extends BaseRecord<PageLoggerIpEntity> {
 		return ipAddress;
 	}
 
-	public PageLoggerIpEntity setIpAddress(String ipAddress) {
+	public PageLoggerIpRecord setIpAddress(String ipAddress) {
 		this.ipAddress = ipAddress;
 		return this;
 	}
@@ -84,7 +72,7 @@ public class PageLoggerIpEntity extends BaseRecord<PageLoggerIpEntity> {
 		return macAddress;
 	}
 
-	public PageLoggerIpEntity setMacAddress(String macAddress) {
+	public PageLoggerIpRecord setMacAddress(String macAddress) {
 		this.macAddress = macAddress;
 		return this;
 	}
@@ -93,7 +81,7 @@ public class PageLoggerIpEntity extends BaseRecord<PageLoggerIpEntity> {
 		return latitude;
 	}
 
-	public PageLoggerIpEntity setLatitude(String latitude) {
+	public PageLoggerIpRecord setLatitude(String latitude) {
 		this.latitude = latitude;
 		return this;
 	}
@@ -102,7 +90,7 @@ public class PageLoggerIpEntity extends BaseRecord<PageLoggerIpEntity> {
 		return longitude;
 	}
 
-	public PageLoggerIpEntity setLongitude(String longitude) {
+	public PageLoggerIpRecord setLongitude(String longitude) {
 		this.longitude = longitude;
 		return this;
 	}
@@ -111,7 +99,7 @@ public class PageLoggerIpEntity extends BaseRecord<PageLoggerIpEntity> {
 		return address;
 	}
 
-	public PageLoggerIpEntity setAddress(String address) {
+	public PageLoggerIpRecord setAddress(String address) {
 		this.address = address;
 		return this;
 	}
