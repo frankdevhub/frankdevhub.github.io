@@ -24,11 +24,7 @@ public class MybatisConfig implements TransactionManagementConfigurer {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 		bean.setDataSource(dataSource);
 		bean.setTypeAliasesPackage("com.frankdevhub.site.mapper");
-
-		// ResourcePatternResolver resolver = new
-		// PathMatchingResourcePatternResolver();
 		try {
-			// bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
 			return bean.getObject();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,7 +45,6 @@ public class MybatisConfig implements TransactionManagementConfigurer {
 	@Bean
 	public PageHelper pageHelper() {
 		PageHelper pageHelper = new PageHelper();
-
 		ConfigProperties props = new ConfigProperties();
 		props.setProperty("offsetAsPageNum", "true").setProperty("rowBoundsWithCount", "true").setProperty("reasonable",
 				"true");

@@ -11,18 +11,15 @@ import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 @AutoConfigureAfter(MybatisConfig.class)
 public class MyBatisMapperScannerConfig {
 
-    @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer() {
-        MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-        mapperScannerConfigurer.setBasePackage("com.frankdevhub.site.mapper");
-
-        ConfigProperties props = new ConfigProperties();
-        props.setProperty("mappers", ViewMapper.class.getName())
-                .setProperty("notEmpty", "false")
-                .setProperty("IDENTITY", "MYSQL");
-
-        mapperScannerConfigurer.setProperties(props);
-        return mapperScannerConfigurer;
-    }
+	@Bean
+	public MapperScannerConfigurer mapperScannerConfigurer() {
+		MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+		mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
+		mapperScannerConfigurer.setBasePackage("com.frankdevhub.site.mapper");
+		ConfigProperties props = new ConfigProperties();
+		props.setProperty("mappers", ViewMapper.class.getName()).setProperty("notEmpty", "false")
+				.setProperty("IDENTITY", "MYSQL");
+		mapperScannerConfigurer.setProperties(props);
+		return mapperScannerConfigurer;
+	}
 }

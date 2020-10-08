@@ -21,7 +21,6 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `site_page_log`;
 CREATE TABLE `site_page_log` (
   `id` bigint(20) NOT NULL,
-  `log_id` bigint(20) DEFAULT NULL,
   `date` bigint(20) DEFAULT NULL,
   `url` varchar(100) DEFAULT NULL,
   `ip_address` varchar(20) DEFAULT NULL,

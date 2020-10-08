@@ -22,7 +22,7 @@ import com.frankdevhub.site.core.data.rest.results.Response;
 import com.frankdevhub.site.core.utils.SpringUtils;
 import com.frankdevhub.site.core.utils.TencentIpLocator;
 import com.frankdevhub.site.entities.PageLoggerIpRecord;
-import com.frankdevhub.site.repository.PageLoggerIpRepository;
+import com.frankdevhub.site.repository.PageLoggerRecordRepository;
 import com.github.pagehelper.PageInfo;
 
 import tk.mybatis.mapper.util.Assert;
@@ -132,8 +132,8 @@ public class PageLoggerService {
 
 	private final Logger LOG = LoggerFactory.getLogger(PageLoggerService.class);
 
-	private final PageLoggerIpRepository getRepository() {
-		return SpringUtils.getBean(PageLoggerIpRepository.class);
+	private final PageLoggerRecordRepository getRepository() {
+		return SpringUtils.getBean(PageLoggerRecordRepository.class);
 	}
 
 	@RequestMapping(value = "/page/ip/ipaddress", method = RequestMethod.GET)

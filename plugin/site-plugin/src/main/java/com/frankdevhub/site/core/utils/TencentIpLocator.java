@@ -43,9 +43,12 @@ public class TencentIpLocator {
 		HttpEntity responseEntity = response.getEntity();
 		System.out.println(String.format("response status:[%s]", response.getStatusLine()));
 		String responseText = EntityUtils.toString(responseEntity);
-		if (responseEntity != null) {
+		if (null != responseEntity) {
 			System.out.println(String.format("content-length:[%s]", responseEntity.getContentLength()));
 			System.out.println(String.format("response context:[%s]", responseText));
+
+			if (null == responseText)
+				return null;
 
 			JSONObject responseObj = JSON.parseObject(responseText);
 			JSONObject resObj = (JSONObject) responseObj.get("result");

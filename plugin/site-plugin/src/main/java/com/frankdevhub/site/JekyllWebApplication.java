@@ -8,10 +8,10 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.frankdevhub.site" })
-@MapperScan(basePackages = "com.frankdevhub.site.mapper")
+@MapperScan(value = "com.frankdevhub.site.mapper")
 @EnableTransactionManagement
-public class SiteApp {
+public class JekyllWebApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(SiteApp.class, args);
+		SpringApplication.run(JekyllWebApplication.class, args);
 	}
 }

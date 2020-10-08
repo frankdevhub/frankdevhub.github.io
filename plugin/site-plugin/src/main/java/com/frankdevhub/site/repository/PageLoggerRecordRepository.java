@@ -13,8 +13,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class PageLoggerIpRepository extends MyBatisRepository {
-
+public class PageLoggerRecordRepository extends MyBatisRepository {
 	private static final String IP_DATE = "date";
 
 	private PageLoggerIpMapper getMapper() {
@@ -32,9 +31,9 @@ public class PageLoggerIpRepository extends MyBatisRepository {
 		Example example = new Example(PageLoggerIpRecord.class);
 		example.createCriteria().andBetween(IP_DATE, startDateTime, endDateTime);
 		if (asend)
-			example.setOrderByClause(IP_DATE + "ASEC");
+			example.setOrderByClause(IP_DATE + "\tASEC");
 		else
-			example.setOrderByClause(IP_DATE + "DSEC");
+			example.setOrderByClause(IP_DATE + "\tDSEC");
 		return getMapper().selectByExample(example);
 	}
 }
