@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "1分钟看懂美国H1B签证改革 | 美国"
-categories: Sticky Life america H1B
+categories: Sticky america H1B
 tags:  american H1B
 author: Franklinfang
 ---
@@ -9,7 +9,8 @@ author: Franklinfang
 * content
 {:toc}
 
-#警惕史上最严的美国H1B签证改革
+# 警惕史上最严的美国H1B签证改革
+
 美国总统川普上任后致力于加强在美国生产，雇用美国人的政策，针对H1B非移民工作签证，他特别签署法令。那么H1B有怎样的变化，现在的情况如何呢？
 
 美国总统川普（特朗普）4月18日签署〝买美国货、雇美国人〞行政令，指示联邦部门加强执行H-1B签证规定，并提出新的改革方案，防止签证欺诈和滥用。
@@ -22,8 +23,6 @@ author: Franklinfang
 
 
 ![image](https://e-images.juwaistatic.com/2017/05/BuyAmerican.jpg)
-
-
 
 
 
