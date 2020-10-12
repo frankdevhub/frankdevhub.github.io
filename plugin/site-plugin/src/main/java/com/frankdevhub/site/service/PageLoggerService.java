@@ -143,7 +143,6 @@ public class PageLoggerService {
 
 			return new Response<PageInfo<PageLoggerIpRecord>>().setData(null).setMsg("success").success();
 		} catch (Exception e) {
-
 			LOG.error("error", e);
 			e.printStackTrace();
 			return new Response<PageInfo<PageLoggerIpRecord>>().setData(null).setMsg(e.getMessage()).failed(e);
@@ -156,13 +155,10 @@ public class PageLoggerService {
 			@RequestParam(name = "endDateTime", required = true) Long endDateTime,
 			@RequestParam(name = "asend", defaultValue = "false") Boolean asend) {
 		try {
-			List<PageLoggerIpRecord> records;
-			records = getRepository().selectByExample(startDateTime, endDateTime, asend);
-
+			List<PageLoggerIpRecord> records = getRepository().selectByExample(startDateTime, endDateTime, asend);
 			return new Response<PageInfo<PageLoggerIpRecord>>().setData(new PageInfo<>(records)).setMsg("success")
 					.success();
 		} catch (Exception e) {
-
 			LOG.error("error", e);
 			e.printStackTrace();
 			return new Response<PageInfo<PageLoggerIpRecord>>().setData(null).setMsg(e.getMessage()).failed(e);

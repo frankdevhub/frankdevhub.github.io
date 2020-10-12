@@ -41,7 +41,7 @@ public class RequestBodyUtils {
 	}
 
 	private static void parseBody(JSONArray array, boolean decrypt) throws JSONException {
-		Iterator iter = array.iterator();
+		Iterator<?> iter = array.iterator();
 		while (iter.hasNext()) {
 			JSONObject jsonObject = (JSONObject) iter.next();
 			parseBody(jsonObject, decrypt);
@@ -49,8 +49,9 @@ public class RequestBodyUtils {
 	}
 
 	private static void parseBody(JSONObject parent, boolean decrypt) throws JSONException {
-		Iterator iter = parent.entrySet().iterator();
+		Iterator<?> iter = parent.entrySet().iterator();
 		while (iter.hasNext()) {
+			@SuppressWarnings("rawtypes")
 			Map.Entry entry = (Map.Entry) iter.next();
 			String e = entry.getKey().toString();
 			String v = entry.getValue().toString();
@@ -69,10 +70,10 @@ public class RequestBodyUtils {
 	}
 
 	private static void decryptBody(JSONObject parent) throws JSONException {
-		Iterator iter = parent.entrySet().iterator();
+		Iterator<?> iter = parent.entrySet().iterator();
 		while (iter.hasNext()) {
+			@SuppressWarnings("rawtypes")
 			Map.Entry entry = (Map.Entry) iter.next();
-
 			String e = entry.getKey().toString();
 			String v = entry.getValue().toString();
 			if (!isJsonArray(v))
