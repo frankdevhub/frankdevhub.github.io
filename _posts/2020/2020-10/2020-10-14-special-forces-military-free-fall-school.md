@@ -1,4 +1,4 @@
-Special Forces Military Free Fall School---
+---
 layout: post
 title:  "Inside the Special Forces Military Free Fall School"
 categories: Sticky Life Movie 
