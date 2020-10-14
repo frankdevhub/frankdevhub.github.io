@@ -11,7 +11,7 @@ author: Franklinfang
 
 # Inside the Special Forces Military Free Fall School
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JTNPvE4vvII" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/JTNPvE4vvII" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 In the season two premiere of Coffee or Die, Marty Skovlund, Jr. travels to the U.S. Army JFK Special Warfare Center's Military Free Fall School in Yuma, Arizona, where special operations service-members are taught how to get to the battlefield clandestinely and safely to conduct operations against our nation's enemies.  
