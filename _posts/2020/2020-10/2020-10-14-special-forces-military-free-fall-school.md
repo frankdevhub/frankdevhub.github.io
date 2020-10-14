@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Inside the Special Forces Military Free Fall School"
-categories: Life Movie 
+categories: Sticky Life Movie 
 tags: movie american sniper Skydive
 author: Franklinfang
 ---
