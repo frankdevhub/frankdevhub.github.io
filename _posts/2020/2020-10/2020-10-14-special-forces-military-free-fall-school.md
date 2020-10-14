@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Inside the Special Forces Military Free Fall School"
-categories: Sticky Life Movie 
+categories: Life Movie 
 tags: movie american sniper Skydive
 author: Franklinfang
 ---
@@ -26,17 +26,21 @@ Want to keep up with all the latest stories on Coffee or Die? Go to www.coffeeor
 
 Special thanks to Scotty Wood for providing the photo we used in this thumbnail! Follow him on Instagram: @a_life_in_freefall
 
+
+
+
+
 Make sure to follow Coffee or Die on social media:
 
-- Facebook: www.facebook.com/coffeeordiemag 
+- Facebook: [ www.facebook.com/coffeeordiemag]( www.facebook.com/coffeeordiemag) 
 - Instagram: @coffeeordiemag 
 - Twitter: @coffeeordiemag
 
 Follow Marty Skovlund Jr.:
 
-- Instagram: https://www.instagram.com/martyskovlu...
-- Facebook: https://www.facebook.com/MartySkovlundJr
-- Twitter: https://twitter.com/martyskovlundjr
+- Instagram: [https://www.instagram.com/martyskovlu...](https://www.instagram.com/martyskovlu)...
+- Facebook: [https://www.facebook.com/MartySkovlundJr](https://www.facebook.com/MartySkovlundJr)
+- Twitter: [https://twitter.com/martyskovlundjr](https://twitter.com/martyskovlundjr)
 
 Are you tired of trendy coffee drinks and pretentious urban cafes? Check out the coffee specifically made for those who love America at www.blackriflecoffee.com. 
 
@@ -44,8 +48,8 @@ Learn more about why Black Rifle Coffee Company is America's Coffee: http://brcc
 
 Follow BRCC on social media: 
 
-- Instagram: https://www.instagram.com/blackriflec... 
-- facebook: https://www.facebook.com/blackrifleco... 
-- twitter: https://twitter.com/blckriflecoffee 
+- Instagram: [https://www.instagram.com/blackriflec](https://www.instagram.com/blackriflec)... 
+- facebook: [https://www.facebook.com/blackrifleco](https://www.facebook.com/blackrifleco)... 
+- twitter: [https://twitter.com/blckriflecoffee](https://twitter.com/blckriflecoffee)
 
-Did you know that we are on Amazon? http://amzn.to/2oFoBek
+Did you know that we are on Amazon? [http://amzn.to/2oFoBek](http://amzn.to/2oFoBek)
