@@ -3,6 +3,7 @@ package com.frankdevhub.site.core.data.rest.results;
 import com.frankdevhub.site.core.exception.*;
 import org.apache.commons.lang.StringUtils;
 
+@SuppressWarnings("all")
 public class Response<T> {
     public static Integer BASE_RESULT_UNHANDLED_ERROR = -2;
     public static Integer BASE_RESULT_STATUS_SUCCESS = 1;

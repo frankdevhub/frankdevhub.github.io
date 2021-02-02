@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 import javax.sql.DataSource;
 
 @Configuration
+@SuppressWarnings("all")
 public class MybatisConfig implements TransactionManagementConfigurer {
 	@Autowired
 	DataSource dataSource;
@@ -38,6 +39,7 @@ public class MybatisConfig implements TransactionManagementConfigurer {
 	}
 
 	@Bean
+	@Override
 	public PlatformTransactionManager annotationDrivenTransactionManager() {
 		return new DataSourceTransactionManager(dataSource);
 	}

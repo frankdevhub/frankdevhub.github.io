@@ -2,7 +2,7 @@ package com.frankdevhub.site.core.data.rest.results;
 
 import com.github.pagehelper.PageInfo;
 
-
+@SuppressWarnings("all")
 public class PageResult<T> extends Result {
     private PageInfo<T> data;
 

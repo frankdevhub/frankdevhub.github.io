@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@SuppressWarnings("all")
 @Table(name = "site_map_push_record")
 public class SiteMapPushRecord extends BaseRecord<SiteMapPushRecord> {
 

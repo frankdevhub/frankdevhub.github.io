@@ -3,6 +3,7 @@ package com.frankdevhub.site.entities;
 import javax.persistence.Column;
 import java.util.Date;
 
+@SuppressWarnings("all")
 public class BaseRecord<T> {
 
 	@Column(name = "create_time")

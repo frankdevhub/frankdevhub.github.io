@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 
 @Component
+@SuppressWarnings("all")
 public class CommonInterceptor implements HandlerInterceptor {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CommonInterceptor.class);

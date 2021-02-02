@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@SuppressWarnings("all")
 @Table(name = "site_page_log")
 public class PageLoggerIpRecord extends BaseRecord<PageLoggerIpRecord> {
 

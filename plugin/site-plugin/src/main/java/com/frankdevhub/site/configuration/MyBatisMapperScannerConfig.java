@@ -9,6 +9,7 @@ import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
 @Configuration
 @AutoConfigureAfter(MybatisConfig.class)
+@SuppressWarnings("all")
 public class MyBatisMapperScannerConfig {
 
 	@Bean

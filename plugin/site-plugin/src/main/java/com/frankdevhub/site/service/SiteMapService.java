@@ -1,27 +1,23 @@
 package com.frankdevhub.site.service;
 
-import java.io.File;
-import java.util.Date;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.frankdevhub.site.core.data.rest.results.Response;
 import com.frankdevhub.site.core.utils.SiteMapParseUtils;
 import com.frankdevhub.site.core.utils.SpringUtils;
 import com.frankdevhub.site.repository.SiteMapPushRecordRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.util.Date;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/siteMap")
+@SuppressWarnings("all")
 public class SiteMapService {
 
 	private final Logger LOG = LoggerFactory.getLogger(SiteMapService.class);
@@ -47,15 +43,14 @@ public class SiteMapService {
 			LOG.info("using DEFAULT_DOMIAN : [" + DEFAULT_DOMIAN + "]");
 
 			String fileName = file.getOriginalFilename();
-
 			LOG.info("site map filename = [" + fileName + "]");
 			String suffix = fileName.substring(fileName.indexOf(".") + 1);
 
-			if (!suffix.equals("xml"))
+			if (!suffix.equals("xml")) {
 				throw new Exception("sitemap file should be xml format");
+			}
 			File temp = File.createTempFile("temp" + new Date().getTime(), "xml");
 			file.transferTo(temp);
-
 			Map<Object, Object> result = new SiteMapParseUtils(DEFAULT_HOSTNAME, DEFAULT_PORT, DEFAULT_DOMIAN)
 					.submitXMLDocument(temp);
 

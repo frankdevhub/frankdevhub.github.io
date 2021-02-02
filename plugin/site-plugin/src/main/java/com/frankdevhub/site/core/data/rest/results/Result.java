@@ -1,5 +1,6 @@
 package com.frankdevhub.site.core.data.rest.results;
 
+@SuppressWarnings("all")
 public class Result {
     private String message;
     private String status;

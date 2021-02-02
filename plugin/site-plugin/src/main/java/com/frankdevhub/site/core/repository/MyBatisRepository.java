@@ -6,10 +6,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+@SuppressWarnings("all")
 public class MyBatisRepository {
     public void setPage(Integer pageNum, Integer pageSize) {
-        if (pageSize != null && pageSize != null)
+        if (pageSize != null && pageSize != null) {
             PageHelper.startPage(pageNum, pageSize, true);
+        }
     }
 
     private void resetCurrentCalendarMilliSecond(Calendar c) {

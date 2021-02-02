@@ -4,13 +4,11 @@ import com.frankdevhub.site.core.repository.MyBatisRepository;
 import com.frankdevhub.site.core.utils.SpringUtils;
 import com.frankdevhub.site.entities.PageLoggerIpRecord;
 import com.frankdevhub.site.mapper.PageLoggerIpMapper;
-
+import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 import java.util.UUID;
-
-import org.springframework.stereotype.Repository;
 
 @Repository
 public class PageLoggerRecordRepository extends MyBatisRepository {
@@ -21,8 +19,9 @@ public class PageLoggerRecordRepository extends MyBatisRepository {
 	}
 
 	public Integer insertSelective(PageLoggerIpRecord record) {
-		if (null == record.getId())
+		if (null == record.getId()) {
 			record.setId(UUID.randomUUID().toString());
+		}
 		record.doCreateEntity();
 		return getMapper().insertSelective(record);
 	}
@@ -30,10 +29,12 @@ public class PageLoggerRecordRepository extends MyBatisRepository {
 	public List<PageLoggerIpRecord> selectByExample(Long startDateTime, Long endDateTime, Boolean asend) {
 		Example example = new Example(PageLoggerIpRecord.class);
 		example.createCriteria().andBetween(IP_DATE, startDateTime, endDateTime);
-		if (asend)
+		if (asend) {
 			example.setOrderByClause(IP_DATE + "\tASEC");
-		else
+		}
+		else {
 			example.setOrderByClause(IP_DATE + "\tDSEC");
+		}
 		return getMapper().selectByExample(example);
 	}
 }

@@ -2,7 +2,7 @@ package com.frankdevhub.site.entities;
 
 import java.util.Properties;
 
-@SuppressWarnings("serial")
+@SuppressWarnings("all")
 public class ConfigProperties extends Properties {
 
 	public synchronized ConfigProperties setProperty(String key, String value) {

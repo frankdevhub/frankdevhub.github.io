@@ -1,6 +1,6 @@
 package com.frankdevhub.site.core.data.rest.results;
 
-
+@SuppressWarnings("all")
 public class FallBack<T> {
     private static final String ERR_CODE = "406";
     private static final String ERR_MSG = "invoke remote service failure";

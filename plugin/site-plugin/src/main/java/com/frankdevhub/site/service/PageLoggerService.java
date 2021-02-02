@@ -128,6 +128,7 @@ response context:[{
 @CrossOrigin
 @RestController
 @RequestMapping("/logger")
+@SuppressWarnings("all")
 public class PageLoggerService {
 
 	private final Logger LOG = LoggerFactory.getLogger(PageLoggerService.class);

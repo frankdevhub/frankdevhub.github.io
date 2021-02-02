@@ -1,6 +1,6 @@
 package com.frankdevhub.site.core.data.rest.results;
 
-
+@SuppressWarnings("all")
 public class NoResult extends Result {
     private Boolean result;
 

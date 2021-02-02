@@ -6,9 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import tk.mybatis.spring.annotation.MapperScan;
 
+@SuppressWarnings("all")
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.frankdevhub.site" })
-@MapperScan(value = "com.frankdevhub.site.mapper")
+@ComponentScan(basePackages = {"com.frankdevhub.site"})
+@MapperScan(basePackages = {"com.frankdevhub.site.mapper"})
 @EnableTransactionManagement
 public class JekyllWebApplication {
 	public static void main(String[] args) {

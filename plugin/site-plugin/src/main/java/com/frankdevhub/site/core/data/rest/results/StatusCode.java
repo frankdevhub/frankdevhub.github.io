@@ -1,5 +1,6 @@
 package com.frankdevhub.site.core.data.rest.results;
 
+@SuppressWarnings("all")
 public class StatusCode {
     public static final String ERROR_00_Failed = "400";
     public static final String ERROR_01_NoGranted = "401";
