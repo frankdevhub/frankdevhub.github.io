@@ -119,3 +119,25 @@ GitHub Copilot 依赖于 OpenAI Codex，后者是一个基于 GPT-3 的自然语
 	fauxpilot-triton-1         | I0803 01:51:04.740423 93 grpc_server.cc:4587] Started GRPCInferenceService at 0.0.0.0:8001
 	fauxpilot-triton-1         | I0803 01:51:04.740608 93 http_server.cc:3303] Started HTTPService at 0.0.0.0:8000
 	fauxpilot-triton-1         | I0803 01:51:04.781561 93 http_server.cc:178] Started Metrics Service at 0.0.0.0:8002
+
+
+由于 CodeGen 模型同样是通过公共代码训练的，因此给出的代码建议可能仍然存在版权 / 许可方面的问题。开发者 Dolan-Gavitt 表示，有足够计算能力的公司或开发者可以使用自己专有的代码库或使用特定协议的开源代码库（如只含 GPL 协议的代码仓库）训练模型，将训练好的模型导入 FauxPilot 即可正常使用，这样也无需再担心产生的代码会有许可问题了。这就是 FauxPilot 可以在本地运行的好处，它也能够为企业提供一种在内部运行人工智能辅助软件的方式。
+
+FauxPilot 的另一个特点是对于隐私方面的考虑，它不会读取公司或开发者编写的代码，也不会将这些信息共享给第三方。
+
+FauxPilot 在 GitHub 上的地址如下：[https://github.com/moyix/fauxpilot](https://github.com/moyix/fauxpilot)
+
+## 简介
+
+这是一个本地托管版本的 GitHub Copilot。它在英伟达的 Triton 推理服务器中使用了 SalesForce CodeGen 模型和 FasterTransformer 后端。
+
+## 前提条件
+
+- Docker
+- docker-compose >= 1.28
+- 一台计算能力大于 7.0 的英伟达 GPU，以及足够的 VRAM 来运行你想要的模型
+- nvidia-docker
+- curl 和 zstd，用于下载和解包模型
+
+
+## Copilot 插件
