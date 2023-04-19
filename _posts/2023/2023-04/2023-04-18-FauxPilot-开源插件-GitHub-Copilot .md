@@ -43,8 +43,7 @@ FauxPilot 在 GitHub 上的地址如下：[https://github.com/moyix/fauxpilot](h
 
 你可以配置官方 VSCode Copilot 插件来使用你的本地服务器。只要编辑你的 settings.json 来添加。
 
-··· json
-
+``` json
     "github.copilot.advanced": {
         "debug.overrideEngine": "codegen",
         "debug.testOverrideProxyUrl": "http://localhost:5000",
@@ -61,10 +60,12 @@ FauxPilot 在 GitHub 上的地址如下：[https://github.com/moyix/fauxpilot](h
 
 
 
+
+
 	$ ./launch.sh 
 	[+] Running 2/0
-	 ⠿ Container fauxpilot-triton-1         Created                                                                     0.0s
-	 ⠿ Container fauxpilot-copilot_proxy-1  Created                                                                     0.0s
+	 ⠿ Container fauxpilot-triton-1         Created                                                    0.0s
+	 ⠿ Container fauxpilot-copilot_proxy-1  Created                                                    0.0s
 	Attaching to fauxpilot-copilot_proxy-1, fauxpilot-triton-1
 	fauxpilot-triton-1         | 
 	fauxpilot-triton-1         | =============================
@@ -129,22 +130,22 @@ FauxPilot 在 GitHub 上的地址如下：[https://github.com/moyix/fauxpilot](h
 	fauxpilot-triton-1         | I0803 01:51:04.738989 93 metrics.cc:650] Collecting metrics for GPU 0: NVIDIA RTX A6000
 	fauxpilot-triton-1         | I0803 01:51:04.739373 93 tritonserver.cc:2159] 
 	fauxpilot-triton-1         | +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-	fauxpilot-triton-1         | | Option                           | Value                                        |
+	fauxpilot-triton-1         | | Option                           | Value                                     |
 	fauxpilot-triton-1         | +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 	fauxpilot-triton-1         | | server_id                        | triton
     |
-	fauxpilot-triton-1         | | server_version                   | 2.23.0                                       |
+	fauxpilot-triton-1         | | server_version                   | 2.23.0                                    |
 	fauxpilot-triton-1         | | server_extensions                | classification sequence model_repository model_repository(unload_dependents) schedule_policy model_configuration system_shared_memory cuda_shared_memory binary_tensor_data statistics trace |
-	fauxpilot-triton-1         | | model_repository_path[0]         | /model                                       |
-	fauxpilot-triton-1         | | model_control_mode               | MODE_NONE                                    |
-	fauxpilot-triton-1         | | strict_model_config              | 1                                            |
-	fauxpilot-triton-1         | | rate_limit                       | OFF                                          |
-	fauxpilot-triton-1         | | pinned_memory_pool_byte_size     | 268435456                                    |
-	fauxpilot-triton-1         | | cuda_memory_pool_byte_size{0}    | 67108864                                     |
-	fauxpilot-triton-1         | | response_cache_byte_size         | 0                                            |
-	fauxpilot-triton-1         | | min_supported_compute_capability | 6.0                                          |
-	fauxpilot-triton-1         | | strict_readiness                 | 1                                            |
-	fauxpilot-triton-1         | | exit_timeout                     | 30                                           |
+	fauxpilot-triton-1         | | model_repository_path[0]         | /model                                    |
+	fauxpilot-triton-1         | | model_control_mode               | MODE_NONE                                 |
+	fauxpilot-triton-1         | | strict_model_config              | 1                                         |
+	fauxpilot-triton-1         | | rate_limit                       | OFF                                       |
+	fauxpilot-triton-1         | | pinned_memory_pool_byte_size     | 268435456                                 |
+	fauxpilot-triton-1         | | cuda_memory_pool_byte_size{0}    | 67108864                                  |
+	fauxpilot-triton-1         | | response_cache_byte_size         | 0                                         |
+	fauxpilot-triton-1         | | min_supported_compute_capability | 6.0                                       |
+	fauxpilot-triton-1         | | strict_readiness                 | 1                                         |
+	fauxpilot-triton-1         | | exit_timeout                     | 30                                        |
 	fauxpilot-triton-1         | +----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 	fauxpilot-triton-1         | 
 	fauxpilot-triton-1         | I0803 01:51:04.740423 93 grpc_server.cc:4587] Started GRPCInferenceService at 0.0.0.0:8001
