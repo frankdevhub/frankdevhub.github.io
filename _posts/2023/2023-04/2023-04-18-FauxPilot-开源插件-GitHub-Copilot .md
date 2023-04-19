@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "FauxPilot：可本地运行的开源 GitHub Copilot （Copilot Plugin）"
-categories: GitHub Copilot OpenAI 开源插件
-tags:  Copilot
+categories: GitHub Copilot OpenAI
+tags:  Copilot GitHub
 author: Franklinfang
 ---
 
