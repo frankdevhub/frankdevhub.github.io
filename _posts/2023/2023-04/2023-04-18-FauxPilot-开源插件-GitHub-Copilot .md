@@ -51,15 +51,57 @@ FauxPilot 在 GitHub 上的地址如下：[https://github.com/moyix/fauxpilot](h
     }
 ```
 
+## 设置	
+
+运行设置脚本以选择要使用的模型。 这将从 Huggingface 下载模型，然后将其转换为与 FasterTransformer 一起使用。
+
+	$ ./setup.sh 
+	Models available:
+	[1] codegen-350M-mono (2GB total VRAM required; Python-only)
+	[2] codegen-350M-multi (2GB total VRAM required; multi-language)
+	[3] codegen-2B-mono (7GB total VRAM required; Python-only)
+	[4] codegen-2B-multi (7GB total VRAM required; multi-language)
+	[5] codegen-6B-mono (13GB total VRAM required; Python-only)
+	[6] codegen-6B-multi (13GB total VRAM required; multi-language)
+	[7] codegen-16B-mono (32GB total VRAM required; Python-only)
+	[8] codegen-16B-multi (32GB total VRAM required; multi-language)
+	Enter your choice [6]: 2
+	Enter number of GPUs [1]: 1
+	Where do you want to save the model [/home/moyix/git/fauxpilot/models]? /fastdata/mymodels
+	Downloading and converting the model, this will take a while...
+	Converting model codegen-350M-multi with 1 GPUs
+	Loading CodeGen model
+	Downloading config.json: 100%|██████████| 996/996 [00:00<00:00, 1.25MB/s]
+	Downloading pytorch_model.bin: 100%|██████████| 760M/760M [00:11<00:00, 68.3MB/s] 
+	Creating empty GPTJ model
+	Converting...
+	Conversion complete.
+	Saving model to codegen-350M-multi-hf...
 	
+	=============== Argument ===============
+	saved_dir: /models/codegen-350M-multi-1gpu/fastertransformer/1
+	in_file: codegen-350M-multi-hf
+	trained_gpu_num: 1
+	infer_gpu_num: 1
+	processes: 4
+	weight_data_type: fp32
+	========================================
+	transformer.wte.weight
+	transformer.h.0.ln_1.weight
+	[... more conversion output trimmed ...]
+	transformer.ln_f.weight
+	transformer.ln_f.bias
+	lm_head.weight
+	lm_head.bias
+	Done! Now run ./launch.sh to start the FauxPilot server.
 
 
 
+## FauxPilot
 
+This is an attempt to build a locally hosted version of [GitHub Copilot](https://github.com/features/copilot/). It uses the [SalesForce CodeGen](https://developer.nvidia.com/nvidia-triton-inference-server) models inside of NVIDIA's Triton Inference Server with the [FasterTransformer backend](https://github.com/triton-inference-server/fastertransformer_backend/).
 
-
-
-
+## Prerequisites
 
 
 	$ ./launch.sh 
