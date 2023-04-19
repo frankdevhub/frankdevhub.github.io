@@ -103,6 +103,66 @@ This is an attempt to build a locally hosted version of [GitHub Copilot](https:/
 
 ## Prerequisites
 
+You'll need:
+
+- Docker
+- `docker-compose` >= 1.28
+- An NVIDIA GPU with Compute Capability >= 7.0 and enough VRAM to run the model you want.
+- [nvidia-docker](https://cloud.tencent.com/developer/article/2126651)
+- `curl` and `zstd `for downloading and unpacking the models.
+
+
+## Support and Warranty
+
+lmao
+
+## Setup
+
+Run the setup script to choose a model to use. This will download the model from Huggingface and then convert it for use with FasterTransformer.
+
+	$ ./setup.sh 
+	Models available:
+	[1] codegen-350M-mono (2GB total VRAM required; Python-only)
+	[2] codegen-350M-multi (2GB total VRAM required; multi-language)
+	[3] codegen-2B-mono (7GB total VRAM required; Python-only)
+	[4] codegen-2B-multi (7GB total VRAM required; multi-language)
+	[5] codegen-6B-mono (13GB total VRAM required; Python-only)
+	[6] codegen-6B-multi (13GB total VRAM required; multi-language)
+	[7] codegen-16B-mono (32GB total VRAM required; Python-only)
+	[8] codegen-16B-multi (32GB total VRAM required; multi-language)
+	Enter your choice [6]: 2
+	Enter number of GPUs [1]: 1
+	Where do you want to save the model [/home/moyix/git/fauxpilot/models]? /fastdata/mymodels
+	Downloading and converting the model, this will take a while...
+	Converting model codegen-350M-multi with 1 GPUs
+	Loading CodeGen model
+	Downloading config.json: 100%|██████████| 996/996 [00:00<00:00, 1.25MB/s]
+	Downloading pytorch_model.bin: 100%|██████████| 760M/760M [00:11<00:00, 68.3MB/s] 
+	Creating empty GPTJ model
+	Converting...
+	Conversion complete.
+	Saving model to codegen-350M-multi-hf...
+	
+	=============== Argument ===============
+	saved_dir: /models/codegen-350M-multi-1gpu/fastertransformer/1
+	in_file: codegen-350M-multi-hf
+	trained_gpu_num: 1
+	infer_gpu_num: 1
+	processes: 4
+	weight_data_type: fp32
+	========================================
+	transformer.wte.weight
+	transformer.h.0.ln_1.weight
+	[... more conversion output trimmed ...]
+	transformer.ln_f.weight
+	transformer.ln_f.bias
+	lm_head.weight
+	lm_head.bias
+	Done! Now run ./launch.sh to start the FauxPilot server.
+
+
+Then you can just run `./launch.sh:`
+
 
 	$ ./launch.sh 
 	[+] Running 2/0
@@ -193,3 +253,60 @@ This is an attempt to build a locally hosted version of [GitHub Copilot](https:/
 	fauxpilot-triton-1         | I0803 01:51:04.740423 93 grpc_server.cc:4587] Started GRPCInferenceService at 0.0.0.0:8001
 	fauxpilot-triton-1         | I0803 01:51:04.740608 93 http_server.cc:3303] Started HTTPService at 0.0.0.0:8000
 	fauxpilot-triton-1         | I0803 01:51:04.781561 93 http_server.cc:178] Started Metrics Service at 0.0.0.0:8002
+
+
+## API
+
+Once everything is up and running, you should have a server listening for requests on `http://localhost:5000`. You can now talk to it using the standard [OpenAIAPI](https://platform.openai.com/docs/api-reference/) (although the full API isn't implemented yet). For example, from Python, using the [OpenAI Python bindings](https://github.com/openai/openai-python):
+
+	$ ipython
+	Python 3.8.10 (default, Mar 15 2022, 12:22:08) 
+	Type 'copyright', 'credits' or 'license' for more information
+	IPython 8.2.0 -- An enhanced Interactive Python. Type '?' for help.
+	
+	In [1]: import openai
+	
+	In [2]: openai.api_key = 'dummy'
+	
+	In [3]: openai.api_base = 'http://127.0.0.1:5000/v1'
+	
+	In [4]: result = openai.Completion.create(engine='codegen', prompt='def hello', max_tokens=16, temperature=0.1, stop=["\n\n"])
+	
+	In [5]: result
+	Out[5]: 
+	<OpenAIObject text_completion id=cmpl-6hqu8Rcaq25078IHNJNVooU4xLY6w at 0x7f602c3d2f40> JSON: {
+	  "choices": [
+	    {
+	      "finish_reason": "stop",
+	      "index": 0,
+	      "logprobs": null,
+	      "text": "() {\n    return \"Hello, World!\";\n}"
+	    }
+	  ],
+	  "created": 1659492191,
+	  "id": "cmpl-6hqu8Rcaq25078IHNJNVooU4xLY6w",
+	  "model": "codegen",
+	  "object": "text_completion",
+	  "usage": {
+	    "completion_tokens": 15,
+	    "prompt_tokens": 2,
+	    "total_tokens": 17
+	  }
+	}
+
+
+## Copilot Plugin
+
+Perhaps more excitingly, you can configure the official [VSCode Copilot plugin](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) to use your local server. Just edit your `settings.json` to add:
+
+``` json
+    "github.copilot.advanced": {
+        "debug.overrideEngine": "codegen",
+        "debug.testOverrideProxyUrl": "http://localhost:5000",
+        "debug.overrideProxyUrl": "http://localhost:5000"
+    }
+```
+
+And you should be able to use Copilot with your own locally hosted suggestions! Of course, probably a lot of stuff is subtly broken. In particular, the probabilities returned by the server are partly fake. Fixing this would require changing FasterTransformer so that it can return log-probabilities for the top k tokens rather that just the chosen token.
+
+Have fun!
