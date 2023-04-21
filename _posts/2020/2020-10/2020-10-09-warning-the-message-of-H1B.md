@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "1分钟看懂美国H1B签证改革 | 美国"
-categories: Sticky america H1B
+categories: america H1B
 tags:  american H1B
 author: Franklinfang
 ---
