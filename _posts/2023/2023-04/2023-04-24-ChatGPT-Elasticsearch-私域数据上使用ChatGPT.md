@@ -9,6 +9,7 @@ author: Franklinfang
 * content
 {:toc}
 
+
 ![image](e38d714a88fcf90cb1607340ec41bd58.png)
 
 如何结合 Elasticsearch 的搜索相关性和 OpenAI 的 ChatGPT 的问答功能来查询您的数据？在此博客中，您将了解如何使用 Elasticsearch 将 ChatGPT 连接到专有数据存储，并为您的数据构建问答功能。
@@ -32,6 +33,10 @@ ChatGPT 的另一个限制是它缺乏关于特定领域内容的知识。虽然
 最小化这些限制的一种方法是为 ChatGPT 提供对与您的域和问题相关的特定文档的访问权限，并启用 ChatGPT 的语言理解功能以生成定制的响应。
 
 这可以通过将 ChatGPT 连接到 Elasticsearch 等搜索引擎来实现。
+
+
+
+
 
 
 ## Elasticsearch——you know, for search!
