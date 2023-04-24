@@ -20,6 +20,10 @@ author: Franklinfang
 
 近几个月来，人们对 ChatGPT 充满了热情，这是一种由 OpenAI 创建的开创性人工智能模型。但 ChatGPT 到底是什么？ 
 
+
+
+
+
 基于强大的 GPT 架构，ChatGPT 旨在理解文本输入并生成类似人类的响应。GPT 代表“生成式预训练Transformer（Generative Pre-trained Transformer）”。Transformer 是一种尖端模型架构，彻底改变了自然语言处理 (NLP) 领域。这些模型在海量数据上进行了预训练，能够理解上下文、生成相关响应，甚至进行对话. 要了解更多关于 transformer 模型的历史和 Elastic Stack 中的一些 NLP 基础知识，请务必查看很棒的[Elastic ML 工程师 Josh Devins 的演讲](https://www.youtube.com/watch?v=SvvbMCwyOnU)。
 
 ChatGPT 的主要目标是促进人机之间有意义且引人入胜的交互。通过利用 NLP 的最新进展，ChatGPT 模型可以提供广泛的应用程序，从聊天机器人和虚拟助手到内容生成、代码完成等等。这些人工智能驱动的工具已迅速成为无数行业的宝贵资源，帮助企业简化流程并增强服务。
@@ -33,10 +37,6 @@ ChatGPT 的另一个限制是它缺乏关于特定领域内容的知识。虽然
 最小化这些限制的一种方法是为 ChatGPT 提供对与您的域和问题相关的特定文档的访问权限，并启用 ChatGPT 的语言理解功能以生成定制的响应。
 
 这可以通过将 ChatGPT 连接到 Elasticsearch 等搜索引擎来实现。
-
-
-
-
 
 
 ## Elasticsearch——you know, for search!
