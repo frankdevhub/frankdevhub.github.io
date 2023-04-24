@@ -33,3 +33,42 @@ ChatGPT 的另一个限制是它缺乏关于特定领域内容的知识。虽然
 
 这可以通过将 ChatGPT 连接到 Elasticsearch 等搜索引擎来实现。
 
+
+## Elasticsearch——you know, for search!
+
+Elasticsearch 是一个高效的搜索引擎，旨在提供相关文档检索，确保用户可以快速准确地访问他们需要的信息。Elasticsearch 的主要重点是向用户提供最相关的结果、简化搜索过程并增强用户体验。
+
+Elasticsearch 拥有众多可确保一流搜索性能的功能，包括支持传统关键字和基于文本的搜索 ( [BM25](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules-similarity.html) )以及一个具备精确匹配和近似kNN的AI向量搜索（[k-Nearest Neighbor](https://www.elastic.co/guide/en/elasticsearch/reference/current/knn-search.html)）。这些高级功能使 Elasticsearch 不仅可以检索相关的结果，还可以检索使用自然语言表达的查询的结果。通过利用传统、向量或混合搜索 (BM25 + kNN)，Elasticsearch 可以提供无与伦比的精确结果，帮助用户轻松找到他们需要的信息。
+
+Elasticsearch 的主要优势之一是其强大的 API，它可以与其他服务无缝集成以扩展和增强其功能。通过将 Elasticsearch 与各种第三方工具和平台集成，用户可以根据自己的特定需求创建功能强大的自定义搜索解决方案。这种灵活性和可扩展性使 Elasticsearch 成为希望提高搜索能力并在竞争激烈的数字环境中保持领先地位的企业的理想选择。
+
+通过与 ChatGPT 等高级人工智能模型协同工作，Elasticsearch 可以为 ChatGPT 提供最相关的文档以用于其响应。Elasticsearch 和 ChatGPT 之间的这种协同作用可确保用户收到与其查询相关的事实、上下文相关和最新的答案。从本质上讲，Elasticsearch 的检索能力与 ChatGPT 的自然语言理解能力相结合，提供了无与伦比的用户体验，为信息检索和 AI 支持的协助树立了新标准。
+
+## 如何将 ChatGPT 与 Elasticsearch 结合使用
+
+![image](b402aba80bc45e5876c83f2e0f35a019.png)
+
+1. Python API接受用户提问。
+2. 
+	为 Elasticsearch 生成混合搜索请求
+	- title字段上的 BM25 匹配
+	- kNN 搜索title向量字段
+	- 提升 kNN 搜索结果以对齐分数
+	- 设置 size=1 只返回得分最高的文档
+
+2. 搜索请求发送到Elasticsearch。
+
+3. 文档正文和原始url返回给python应用程序。
+
+	1. 对 OpenAI ChatCompletion 进行 API 调用：
+	2. prompt："answer this question <question> using only this document <body_content from top search result>"
+	3. 生成的响应返回给 python。
+	4. Python 将原始文档源 url 添加到生成的响应中，并将其打印到屏幕上供用户使用。
+ 
+ElasticDoc ChatGPT 流程利用 Python 界面接受用户问题并为 Elasticsearch 生成混合搜索请求，结合 BM25 和 kNN 搜索方法从 Elastic的官方文档中查找最相关的文档，这些文档现已在 Elasticsearch 中编制索引。但是，**您不必使用混合搜索甚至向量搜索。Elasticsearch 可以灵活地使用最适合您需求的搜索模式，并为您的特定数据集提供最相关的结果。**
+
+在检索到最佳结果后，该程序会为 OpenAI 的 ChatCompletion API 制作Prompt，指示它仅使用所选文档中的信息来回答用户的问题。此提示是确保 ChatGPT 模型仅使用官方文档中的信息、这是减少ChatGPT产生幻觉的关键。
+
+最后，该程序向用户展示 API 生成的响应和源文档的链接，提供无缝且用户友好的体验，集成了前端交互、Elasticsearch 查询和 OpenAI API 使用以实现高效的问答。
+
+请注意，虽然为简单起见我们只返回得分最高的文档，但最佳做法是返回多个文档以为 ChatGPT 提供更多上下文。可以在不止一个文档页面中找到正确的答案，或者如果我们要为完整的正文文本生成向量，那么这些较大的文本正文可能需要分块并存储在多个 Elasticsearch 文档中。通过利用 Elasticsearch 与传统搜索方法协同搜索大量矢量字段的能力，您可以显着提高您的顶级文档召回率。
