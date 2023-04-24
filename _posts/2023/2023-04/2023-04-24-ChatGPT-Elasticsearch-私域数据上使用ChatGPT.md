@@ -72,3 +72,25 @@ ElasticDoc ChatGPT 流程利用 Python 界面接受用户问题并为 Elasticsea
 最后，该程序向用户展示 API 生成的响应和源文档的链接，提供无缝且用户友好的体验，集成了前端交互、Elasticsearch 查询和 OpenAI API 使用以实现高效的问答。
 
 请注意，虽然为简单起见我们只返回得分最高的文档，但最佳做法是返回多个文档以为 ChatGPT 提供更多上下文。可以在不止一个文档页面中找到正确的答案，或者如果我们要为完整的正文文本生成向量，那么这些较大的文本正文可能需要分块并存储在多个 Elasticsearch 文档中。通过利用 Elasticsearch 与传统搜索方法协同搜索大量矢量字段的能力，您可以显着提高您的顶级文档召回率。
+
+## 技术设置
+
+技术要求相当低，但需要一些步骤才能将所有部分组合在一起。对于此示例，我们将配置[Elasticsearch 网络爬虫](https://www.elastic.co/cn/web-crawler)以摄取 Elastic 文档并在摄取时为title生成向量。您可以跟随本文并复制此设置，或使用自己的数据。为了跟随本文，我们需要：
+
+- Elasticsearch集群
+- Eland Python 库
+- OpenAI API 账号
+
+运行我们的 python 前端和 api 后端的服务器
+
+## Elastic Cloud设置
+
+本节中的步骤假设您当前没有在 Elastic Cloud 中运行的 Elasticsearch 集群。如果你已经有一个 Elastic Cloud 
+
+的集群，可以跳到下一部分。
+
+### 注册
+
+如果您还没有 Elasticsearch 集群，您可以通过[Elastic Cloud](https://cloud.elastic.co/registration)注册免费试用。
+
+![image](1ddae6f52507fbc2b0305f8272f6cc63.png)
