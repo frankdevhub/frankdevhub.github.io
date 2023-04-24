@@ -19,7 +19,7 @@ GitHub Copilot 依赖于 OpenAI Codex，后者是一个基于 GPT-3 的自然语
 
 目前 Salesforce CodeGen 提供了 3.5 亿、20 亿、60 亿 和 160 亿参数的模型，但在 FauxPilot 这边只看到 3.5 亿、60 亿和 160 亿的模型，暂时没有 20 亿模型可用，这就对训练模型需要使用的 GPU 提出了较高的要求。因为 3.5 亿参数的模型仅需要 2GB VRAM；而稍高一个档次的 60 亿参数模型所需要的 VRAM 就大幅上涨到了 13GB，这就需要至少 RTX 3090 的显卡才能跑，就更不用说 160 亿的模型了。
 
-![image](2cbc40a18df03a0d3492702cae9c4f2d.png)
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2022/2023-04/2cbc40a18df03a0d3492702cae9c4f2d.png)
 
 由于 CodeGen 模型同样是通过公共代码训练的，因此给出的代码建议可能仍然存在版权 / 许可方面的问题。开发者 Dolan-Gavitt 表示，有足够计算能力的公司或开发者可以使用自己专有的代码库或使用特定协议的开源代码库（如只含 GPL 协议的代码仓库）训练模型，将训练好的模型导入 FauxPilot 即可正常使用，这样也无需再担心产生的代码会有许可问题了。这就是 FauxPilot 可以在本地运行的好处，它也能够为企业提供一种在内部运行人工智能辅助软件的方式。
 

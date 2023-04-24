@@ -10,11 +10,11 @@ author: Franklinfang
 {:toc}
 
 
-![image](e38d714a88fcf90cb1607340ec41bd58.png)
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2022/2023-04/e38d714a88fcf90cb1607340ec41bd58.png)
 
 如何结合 Elasticsearch 的搜索相关性和 OpenAI 的 ChatGPT 的问答功能来查询您的数据？在此博客中，您将了解如何使用 Elasticsearch 将 ChatGPT 连接到专有数据存储，并为您的数据构建问答功能。
 
-![image](6d492cab1ab2337ffb6f6c249e67085e.png)
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2022/2023-04/6d492cab1ab2337ffb6f6c249e67085e.png)
 
 ## 什么是ChatGPT？
 
@@ -51,7 +51,7 @@ Elasticsearch 的主要优势之一是其强大的 API，它可以与其他服�
 
 ## 如何将 ChatGPT 与 Elasticsearch 结合使用
 
-![image](b402aba80bc45e5876c83f2e0f35a019.png)
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2022/2023-04/b402aba80bc45e5876c83f2e0f35a019.png)
 
 1. Python API接受用户提问。
 2. 
@@ -98,4 +98,4 @@ ElasticDoc ChatGPT 流程利用 Python 界面接受用户问题并为 Elasticsea
 
 如果您还没有 Elasticsearch 集群，您可以通过[Elastic Cloud](https://cloud.elastic.co/registration)注册免费试用。
 
-![image](1ddae6f52507fbc2b0305f8272f6cc63.png)
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2022/2023-04/1ddae6f52507fbc2b0305f8272f6cc63.png)
