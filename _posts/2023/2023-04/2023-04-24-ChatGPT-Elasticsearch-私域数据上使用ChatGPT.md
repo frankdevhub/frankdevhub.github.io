@@ -73,7 +73,7 @@ Elasticsearch 的主要优势之一是其强大的 API，它可以与其他服�
  
 ElasticDoc ChatGPT 流程利用 Python 界面接受用户问题并为 Elasticsearch 生成混合搜索请求，结合 BM25 和 kNN 搜索方法从 Elastic的官方文档中查找最相关的文档，这些文档现已在 Elasticsearch 中编制索引。但是，**您不必使用混合搜索甚至向量搜索。Elasticsearch 可以灵活地使用最适合您需求的搜索模式，并为您的特定数据集提供最相关的结果。**
 
-在检索到最佳结果后，该程序会为 OpenAI 的 ChatCompletion API 制作Prompt，指示它仅使用所选文档中的信息来回答用户的问题。此提示是确保 ChatGPT 模型仅使用官方文档中的信息、这是减少ChatGPT产生幻觉的关键。
+在检索到最佳结果后，该程序会为 OpenAI 的 ChatCompletion API 制作 `Prompt`，指示它仅使用所选文档中的信息来回答用户的问题。此提示是确保 ChatGPT 模型仅使用官方文档中的信息、这是减少ChatGPT产生幻觉的关键。
 
 最后，该程序向用户展示 API 生成的响应和源文档的链接，提供无缝且用户友好的体验，集成了前端交互、Elasticsearch 查询和 OpenAI API 使用以实现高效的问答。
 
@@ -135,20 +135,28 @@ ElasticDoc ChatGPT 流程利用 Python 界面接受用户问题并为 Elasticsea
 
 向下滚动并单击保存：
 
-在弹出的 summarizing the architecture changes 窗口中，单击“Confirm”。
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/541d3fd9edf930b1d369c4136f3428bc.png)
+
+在弹出的 **summarizing the architecture changes** 窗口中，单击“Confirm”。
+
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/d8447c6adb30c5a17e7fbfa6d1c33e3e.png)
 
 片刻之后，您的部署现在将能够运行机器学习模型！
 
 重置 Elasticsearch 部署用户和密码：
 
-单击部署名称下方左侧导航栏中的安全性。
-单击重置密码并使用重置进行确认。（注意：因为这是一个新集群，所以不应使用此 Elastic 密码。）
-下载为“elastic”用户新创建的密码。（我们将使用它从 Hugging Face 和我们的 python 程序中加载我们的模型。）
+- 单击部署名称下方左侧导航栏中的安全性。
+- 单击重置密码并使用重置进行确认。（注意：因为这是一个新集群，所以不应使用此 Elastic 密码。）
+- 下载为“elastic”用户新创建的密码。（我们将使用它从 Hugging Face 和我们的 python 程序中加载我们的模型。）
+
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/31821424162e7012ce41a01d69457a5b.png)
 
 复制 Elasticsearch 部署云 ID。
 
-单击您的部署名称以转到概览页面。
-在右侧单击复制图标以复制您的 Cloud ID。（保存此以备后用连接到 Deployment。）
+- 单击您的部署名称以转到概览页面。
+- 在右侧单击复制图标以复制您的 Cloud ID。（保存此以备后用连接到 Deployment。）
+
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/c20e43128c8d69524db959321d96b645.png)
 
 ### Eland
 
@@ -169,6 +177,8 @@ Eland 可以作为 python 脚本的一部分运行，也可以在命令行上运
 
 - 从 Hugging Face 复制模型名称。最简单的方法是单击模型名称右侧的复制图标。
 
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/36903df161604048ff58749f3f97777e.png)
+
 运行 cloud auth 部分，系统会提示您输入：
 
 - Cloud ID（您可以在 Elastic Cloud 控制台中找到它）
@@ -181,6 +191,7 @@ Eland 可以作为 python 脚本的一部分运行，也可以在命令行上运
 - 将模型部署（启动）到机器学习节点上。
 
 ### Elasticsearch 索引和网络爬虫
+
 接下来我们将创建一个新的 Elasticsearch 索引来存储我们的 Elastic 文档，将网络爬虫配置为自动抓取这些文档并为其编制索引，并使用摄取管道为文档title生成向量。
 
 **请注意，您可以在此步骤中使用您的专有数据，以创建适合您的领域的问答体验。**
@@ -188,11 +199,17 @@ Eland 可以作为 python 脚本的一部分运行，也可以在命令行上运
 - 如果您尚未打开 Kibana，请从 Cloud Console 打开它。
 - 在 Kibana 中，导航到Enterprise Search -> Overview。单击创建 Elasticsearch 索引。
 
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/7e6617eea0a0cbf74a42ae92f403af9c.png)
+
 - 使用 Web Crawler 作为摄取方法，输入 elastic-docs 作为索引名称。然后，单击创建索引。
+
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/00b184a0dc5540311658a26be6448d0e.png)
 
 - 单击“**ingest Pipeline**”选项卡。
 - 单击 **Ingest Pipeline**  中的 **Copy and customize**。
 - 单击 **Add Inference Pipeline**
+
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/3ddab2ea41cc05f30caa8b99ea8d638a.png)
 
 - 为新管道输入名称 elastic-docs_title-vector。
 - 选择您在上面的 Eland 步骤中加载的经过训练的 ML 模型。
@@ -240,35 +257,28 @@ POST search-elastic-docs/_mapping
 - 输入[https://www.elastic.co/guide/en](https://www.elastic.co/guide/en)，然后单击验证域。
 - 检查运行后，单击**Add domain**。然后单击抓取规则。
 - 逐个添加以下爬行规则。从底部开始，逐步向上。规则按照第一个匹配进行评估。
-Disallow
 
-Contains
+| Disallow | Contains | release-notes |
+| :-----| ----: | :----: |
+| Allow | Regex | /guide/en/.*/current/.* |
+| Disallow | Regex | * |
 
-release-notes
-
-Allow
-
-Regex
-
-/guide/en/.*/current/.*
-
-Disallow
-
-Regex
-
-.*
-
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/9c0a4bee0e20ac1b5cee83b6ccf82497.png)
 
 - 准备好所有规则后，单击页面顶部的抓取。然后，单击“
 
   **Crawl all domains on this index**”。
 
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/42aa39401404496572573b5b07411ada.png)
+
 Elasticsearch 的网络爬虫现在将开始爬取文档站点，为title字段生成向量，并对文档和向量建立索引。
 
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/8db3fca2a71d8628b1956ad70d65bf3b.png)
 
 第一次爬网需要一些时间才能完成。同时，我们可以设置 OpenAI API 凭证和 Python 后端。
 
 ## 与 OpenAI API 连接
+
 要向 ChatGPT 发送文档和问题，我们需要一个 OpenAI API 帐户和密钥。如果您还没有帐户，可以创建一个免费帐户，您将获得初始数量的免费积分。 
 
 - 前往[https://platform.openai.com](https://platform.openai.com)并点击注册。您可以通过电子邮件地址和密码进行注册，也可以使用Google或Microsoft登录。
@@ -278,13 +288,16 @@ Elasticsearch 的网络爬虫现在将开始爬取文档站点，为title字段�
 - 单击创建新密钥。
 - 复制新密钥并将其保存在安全的地方，因为您将无法再次查看该密钥。
 
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/_posts/2023/2023-04/c847092e93ba9d7513e04721524dbc37.png)
+
 ## Python 后端设置
 
 ### 克隆或下载python程序
 
-Github 代码链接
+[Github 代码链接](https://github.com/jeffvestal/ElasticDocs_GPT/blob/main/elasticdocs_gpt.py)
 
-安装所需的 python 库。我们在具有隔离环境的 Replit 中运行示例程序。如果您在笔记本电脑或 VM 上运行它，最佳做法是为 python 设置一个VENV。
+安装所需的 python 库。我们在具有隔离环境的 Replit 中运行示例程序。如果您在笔记本电脑或 VM 上运行它，最佳做法是[为 python 设置一个VENV。](https://docs.python.org/3/library/venv.html)
+
 运行 pip install -r requirements.txt
 
 2.设置身份验证和连接环境变量（例如，如果在命令行上运行：export openai_api=”123456abcdefg789”）
@@ -294,10 +307,10 @@ Github 代码链接
 - cloud_user - Elasticsearch 集群用户
 - cloud_pass - Elasticsearch 用户密码
 
-3.运行streamlit程序。有关 streamlit 的更多信息可以在其文档中找到。 
+3.运行streamlit程序。有关 streamlit 的更多信息可以在其[文档](https://docs.streamlit.io/library/get-started/installation)中找到。 
 
-Streamlit 有自己的启动命令：streamlit run elasticdocs_gpt.py
-这将启动网络浏览器，并将 url 打印到命令行。
+- Streamlit 有自己的启动命令：streamlit run elasticdocs_gpt.py
+- 这将启动网络浏览器，并将 url 打印到命令行。
 
 ## 聊天响应的示例
 
