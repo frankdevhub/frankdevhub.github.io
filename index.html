@@ -4,24 +4,25 @@ layout: default
 
 <div class="page clearfix" index>
     <div class="left">
-	<h1>frankdevhub.site</h1>
-	<small>frankdevhub@gmail.com （房宸晟）| 这世界上有三种人：羊，狼和牧羊犬。你自己选择。</small>
-	
-	<div class="demo" style="margin-top:4px">
-	   <a href="/Documents/Code-Laboratory-Documents">
-	   <button class="rkmd-btn btn-lightBlue">
-	   <i class="fa fa-github fa-2x" aria-hidden="true"></i>  
-	   Source Documents</button>
-	   </a>
-	 </div>
+        <h1>frankdevhub.site</h1>
+        <small>frankdevhub@gmail.com （房宸晟）| 这世界上有三种人：羊，狼和牧羊犬。你自己选择。</small>
+
+        <!--        <div class="demo" style="margin-top:4px">-->
+        <!--            <a href="/Documents/Code-Laboratory-Documents">-->
+        <!--                <button class="rkmd-btn btn-lightBlue">-->
+        <!--                    <i class="fa fa-github fa-2x" aria-hidden="true"></i>-->
+        <!--                    Source Documents-->
+        <!--                </button>-->
+        <!--            </a>-->
+        <!--        </div>-->
         <hr>
         <ul>
-        <!-- sticky posts -->
-	{% if page.url == '/' %}	
-	 {% for post in site.categories.Sticky %}
-              <li>
+            <!-- sticky posts -->
+            {% if page.url == '/' %}
+            {% for post in site.categories.Sticky %}
+            <li>
                 <h2>
-                  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
@@ -32,41 +33,41 @@ layout: default
                         {% endif %}
                     </div>
                     <div class="label-card">
-                        {% if page.meta %}<i class="fa fa-key"></i>{{ page.meta }}  {% endif %}
+                        {% if page.meta %}<i class="fa fa-key"></i>{{ page.meta }} {% endif %}
                     </div>
 
                     <div class="label-card">
-                    {% include category.html %}
+                        {% include category.html %}
                     </div>
 
                     <div class="label-card">
-                    {% include tag.html %}
+                        {% include tag.html %}
                     </div>
                 </div>
                 <div class="excerpt">
                     {{post.excerpt}}
                 </div>
                 <div class="read-all">
-                    <a  href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-newspaper-o"></i>Read All</a>
+                    <a href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
-              </li>
+            </li>
             {% endfor %}
-           {% endif %}
-		
-	    <!-- regular posts -->
+            {% endif %}
+
+            <!-- regular posts -->
             {% for post in paginator.posts %}
-				{% assign sticky = false %}
-				{% for cat in post.categories %}
-				    {% if cat == 'Sticky' %}
-					    {% assign sticky = true %}
-					    {% break %}
-					{% endif %}
-				{% endfor %}
-			 {% if sticky != true %}
-              <li>
+            {% assign sticky = false %}
+            {% for cat in post.categories %}
+            {% if cat == 'Sticky' %}
+            {% assign sticky = true %}
+            {% break %}
+            {% endif %}
+            {% endfor %}
+            {% if sticky != true %}
+            <li>
                 <h2>
-                  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
@@ -77,63 +78,64 @@ layout: default
                         {% endif %}
                     </div>
                     <div class="label-card">
-                        {% if page.meta %}<i class="fa fa-key"></i>{{ page.meta }}  {% endif %}
+                        {% if page.meta %}<i class="fa fa-key"></i>{{ page.meta }} {% endif %}
                     </div>
 
                     <div class="label-card">
-                    {% include category.html %}
+                        {% include category.html %}
                     </div>
 
                     <div class="label-card">
-                    {% include tag.html %}
+                        {% include tag.html %}
                     </div>
                 </div>
                 <div class="excerpt">
                     {{post.excerpt}}
                 </div>
                 <div class="read-all">
-                    <a  href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-newspaper-o"></i>Read All</a>
+                    <a href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
-              </li>
-			 {% endif %} 
+            </li>
+            {% endif %}
             {% endfor %}
         </ul>
 
 
-
         <!-- Pagination links -->
         <div class="pagination">
-          {% if paginator.previous_page %}
+            {% if paginator.previous_page %}
             <a href="/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
-            <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous"><i class="fa fa-angle-left"></i></a>
-          {% else %}
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous"><i
+                    class="fa fa-angle-left"></i></a>
+            {% else %}
             <span class="previous disable"><i class="fa fa-angle-double-left"></i></span>
             <span class="previous disable"><i class="fa fa-angle-left"></i></span>
-          {% endif %}
-          <span class="page_number ">{{ paginator.page }}/{{ paginator.total_pages }}</span>
-          {% if paginator.next_page %}
+            {% endif %}
+            <span class="page_number ">{{ paginator.page }}/{{ paginator.total_pages }}</span>
+            {% if paginator.next_page %}
             <a href="{{ paginator.next_page_path }}" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="{{ site.baseurl }}/page{{ paginator.total_pages }}" class="next"><i class="fa fa-angle-double-right"></i></a>
-          {% else %}
+            <a href="{{ site.baseurl }}/page{{ paginator.total_pages }}" class="next"><i
+                    class="fa fa-angle-double-right"></i></a>
+            {% else %}
             <span class="next disable"><i class="fa fa-angle-right"></i></span>
             <span class="next disable"><i class="fa fa-angle-double-right"></i></span>
-          {% endif %}
+            {% endif %}
         </div>
     </div>
     <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
     <div class="right">
         <div class="wrap">
-		<!-- Search start -->
-			<div id="search-container" class="side">
-			  <div>
-				  <i class="fa fa-search" aria-hidden="true"></i>
-				  <input type="text"  style="display:table-cell;"  id="search-input" placeholder="search...">
-			  </div>
-			  <ul id="results-container" class="content-ul"></ul>
-			</div>
+            <!-- Search start -->
+            <div id="search-container" class="side">
+                <div>
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" style="display:table-cell;" id="search-input" placeholder="search...">
+                </div>
+                <ul id="results-container" class="content-ul"></ul>
+            </div>
 
-		    <script>
+            <script>
 			SimpleJekyllSearch({
 				searchInput: document.getElementById('search-input'),
 				resultsContainer: document.getElementById('results-container'),
@@ -143,55 +145,59 @@ layout: default
 				limit: 20, 
 				fuzzy: false 
 			})
-			</script>
-			<!-- Search end -->
-		
-		   <!-- Flag Counter start -->
-		    <div class="side">
+
+
+
+            </script>
+            <!-- Search end -->
+
+            <!-- Flag Counter start -->
+            <div class="side">
                 <div>
                     <i class="fa fa-globe" aria-hidden="true"></i>
                     Flag Counter
                 </div>
-                 <ul class="content-ul" recent>
-                  <div>
-					  <a href="https://info.flagcounter.com/AECJ">
-					  <img src="https://s01.flagcounter.com/count2/AECJ/bg_E3E3E3/txt_000000/border_CCCCCC/columns_2/maxflags_20/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0" 
-					     style="width:100%; height:95%; margin-top: 3%; align:center; margin-left: -5%;">
-					  </a>
-				  </div>
+                <ul class="content-ul" recent>
+                    <div>
+                        <a href="https://info.flagcounter.com/AECJ">
+                            <img src="https://s01.flagcounter.com/count2/AECJ/bg_E3E3E3/txt_000000/border_CCCCCC/columns_2/maxflags_20/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"
+                                 alt="Flag Counter" border="0"
+                                 style="width:100%; height:95%; margin-top: 3%; align:center; margin-left: -5%;">
+                        </a>
+                    </div>
                 </ul>
             </div>
-		
-			<!-- Recent Posts -->
+
+            <!-- Recent Posts -->
             <div class="side">
                 <div>
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     Recent Posts
                 </div>
                 <ul class="content-ul" recent>
-                    {% for post in site.posts offset: 0 limit: 10  %}
-                        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+                    {% for post in site.posts offset: 0 limit: 10 %}
+                    <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
 
             <!-- Content -->
-			
-			<!-- frandkevhub add start filter life categories -->
-			{% assign categories = "Life," %}
-				{% for post in site.posts %}
-				 {% assign cat = post.categories[0] %}
-				  {% unless categories contains cat %}
-					 {% if post.next %}
-					   {% capture categories %}{{ categories | append: ","| append: cat }}{% endcapture %}
-					 {% else %}
-					   {% capture categories %}{{ categories | append: cat }}{% endcapture %}
-					 {% endif %}
-				  {% endunless %} 
-				{% endfor %}	
-		
-		   {% assign filteredCategories = {{categories | split: "," }} %}
-		   
+
+            <!-- frandkevhub add start filter life categories -->
+            {% assign categories = "Life," %}
+            {% for post in site.posts %}
+            {% assign cat = post.categories[0] %}
+            {% unless categories contains cat %}
+            {% if post.next %}
+            {% capture categories %}{{ categories | append: ","| append: cat }}{% endcapture %}
+            {% else %}
+            {% capture categories %}{{ categories | append: cat }}{% endcapture %}
+            {% endif %}
+            {% endunless %}
+            {% endfor %}
+
+            {% assign filteredCategories = {{categories | split: "," }} %}
+
             <div class="side ">
                 <div>
                     <i class="fa fa-th-list"></i>
@@ -199,23 +205,24 @@ layout: default
                 </div>
                 <ul class="content-ul" cate>
                     {% for category in site.categories %}
-					   {% capture cat % %}{{ category | first }}{% endcapture %}
-					     {% if filteredCategories contains cat %}
+                    {% capture cat % %}{{ category | first }}{% endcapture %}
+                    {% if filteredCategories contains cat %}
                     <li>
-                        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}" class="categories-list-item" cate="{{ category | first }}">
+                        <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}"
+                           class="categories-list-item" cate="{{ category | first }}">
                             <span class="name">
                                 {{ category | first }}
                             </span>
                             <span class="badge">{{ category | last | size }}</span>
                         </a>
                     </li>
-					    {% endif %}
+                    {% endif %}
                     {% endfor %}
                 </ul>
             </div>
-         
-		    <!-- frankdevhub add end -->
-		 
+
+            <!-- frankdevhub add end -->
+
             <div class="side">
                 <div>
                     <i class="fa fa-tags"></i>
@@ -226,36 +233,37 @@ layout: default
                     {% assign max = first[1].size %}
                     {% assign min = max %}
                     {% for tag in site.tags offset:1 %}
-                      {% if tag[1].size > max %}
-                        {% assign max = tag[1].size %}
-                      {% elsif tag[1].size < min %}
-                        {% assign min = tag[1].size %}
-                      {% endif %}
+                    {% if tag[1].size > max %}
+                    {% assign max = tag[1].size %}
+                    {% elsif tag[1].size < min %}
+                    {% assign min = tag[1].size %}
+                    {% endif %}
                     {% endfor %}
 
                     {% if max == min %}
-                        {% assign diff = 1 %}
+                    {% assign diff = 1 %}
                     {% else %}
-                        {% assign diff = max | minus: min %}
+                    {% assign diff = max | minus: min %}
                     {% endif %}
 
                     {% for tag in site.tags %}
-                      {% assign temp = tag[1].size | minus: min | times: 36 | divided_by: diff %}
-                      {% assign base = temp | divided_by: 4 %}
-                      {% assign remain = temp | modulo: 4 %}
-                      {% if remain == 0 %}
-                        {% assign size = base | plus: 9 %}
-                      {% elsif remain == 1 or remain == 2 %}
-                        {% assign size = base | plus: 9 | append: '.5' %}
-                      {% else %}
-                        {% assign size = base | plus: 10 %}
-                      {% endif %}
-                      {% if remain == 0 or remain == 1 %}
-                        {% assign color = 9 | minus: base %}
-                      {% else %}
-                        {% assign color = 8 | minus: base %}
-                      {% endif %}
-                      <a href="{{ root_url }}/{{ site.tag_dir }}#{{ tag[0] }}" style="font-size: {{ size }}pt; color: #{{ color }}{{ color }}{{ color }};">{{ tag[0] }}</a>
+                    {% assign temp = tag[1].size | minus: min | times: 36 | divided_by: diff %}
+                    {% assign base = temp | divided_by: 4 %}
+                    {% assign remain = temp | modulo: 4 %}
+                    {% if remain == 0 %}
+                    {% assign size = base | plus: 9 %}
+                    {% elsif remain == 1 or remain == 2 %}
+                    {% assign size = base | plus: 9 | append: '.5' %}
+                    {% else %}
+                    {% assign size = base | plus: 10 %}
+                    {% endif %}
+                    {% if remain == 0 or remain == 1 %}
+                    {% assign color = 9 | minus: base %}
+                    {% else %}
+                    {% assign color = 8 | minus: base %}
+                    {% endif %}
+                    <a href="{{ root_url }}/{{ site.tag_dir }}#{{ tag[0] }}"
+                       style="font-size: {{ size }}pt; color: #{{ color }}{{ color }}{{ color }};">{{ tag[0] }}</a>
                     {% endfor %}
                 </div>
             </div>
