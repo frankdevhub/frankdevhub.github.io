@@ -10,7 +10,7 @@ Blog template powered by jekyll
 
 ## 2. 安装
    ### 2.1 安装 Ruby development environment
-   [`windows`安装教程](https://jekyllrb.com/docs/installation/windows/).
+   [`windows 安装教程`](https://jekyllrb.com/docs/installation/windows/).
    ### 2.2 安装Jekyll and bundler gems.
 
 ```shell
@@ -21,6 +21,62 @@ $ bundle config mirror.https://rubygems.org https://gems.ruby-china.com
 # 删除Bundle的一个镜像源
 $ bundle config --delete 'mirror.https://rubygems.org'
 $ gem install jekyll bundler
+```
+
+## 3. 创建博客
+Create a new Jekyll site at ./myblog.
+```shell
+$ jekyll new myblog
+or 
+$ jekyll new . --force
+```
+
+注意：如果卡住，这一步会存在一些依赖包的安装。例如：x`64-mingw32、 tzinfo-data、tzinfo (~> 1.2)、minima (~> 2.5)` 查看依赖包
+
+```shell
+$  bundler list
+Could not find gem 'minima (~> 2.5) x64-mingw32' in any of the gem sources
+listed in your Gemfile.
+```
+
+安装依赖包
+```shell
+$ gem install 64-mingw32、 tzinfo-data、tzinfo (~> 1.2)、minima (~> 2.5)
+```
+
+Change into your new directory.
+```shell
+cd myblog
+```
+
+Build the site and make it available on a local server.
+```shell
+$ bundle exec jekyll serve
+or (或者)
+$ bundle exec jekyll s
+
+Configuration file: C:/Users/XH/myblog/myblog/_config.yml
+            Source: C:/Users/XH/myblog/myblog
+       Destination: C:/Users/XH/myblog/myblog/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+       Jekyll Feed: Generating feed for posts
+                    done in 3.23 seconds.
+ Auto-regeneration: enabled for 'C:/Users/XH/myblog/myblog'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+```
+当然也可以直接执行：
+```shell
+$ jekyll serve
 
 ```
 
+Browse to `http://localhost:4000`
+
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/examples01.png)
+
+## 4. github 托管
+   [`GitHub Pages`](https://pages.github.com/)由Jekyll 提供支持，因此您可以免费使用 GitHub 轻松部署您的网站——[`自定义域名`](https://jekyllrb.com/docs/installation/windows/)等等。
+
+![image](https://raw.githubusercontent.com/frankdevhub/frankdevhub.github.io/master/examples02.png)
