@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "MathsGame"
+title:  "MathGame"
 categories: Matlab Python
 tags:  Matlab Python
 author: Franklinfang
