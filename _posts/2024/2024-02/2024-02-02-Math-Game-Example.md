@@ -12,10 +12,10 @@ author: Franklinfang
 ## MathGame
 
 <iframe  
- height=560 
- width=90% 
+ height="560" 
+ width="90%" 
  src="https://test.i9rht.com/static/index.html"  
- frameborder=0  
+ frameborder="0"  
  allowfullscreen>
  </iframe>
 
@@ -138,7 +138,7 @@ author: Franklinfang
       requestAnimationFrame(draw);
     }
     
-	// 重置动画切换画面
+    // 重置动画切换画面
     requestAnimationFrame(draw);
 
 ```
