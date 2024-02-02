@@ -11,121 +11,18 @@ author: Franklinfang
 
 ## MathGame
 
+<iframe  
+ height=560 
+ width=90% 
+ src="https://test.i9rht.com/static/index.html"  
+ frameborder=0  
+ allowfullscreen>
+ </iframe>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      html {
-        height: 100%;
-      }
 
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(to bottom, #172b36 0%, #d9e8e3 100%);
-      }
+```
 
-      #container {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        width: min(70vh, 80%);
-        max-width: 600px;
-        height: 100%;
-      }
-
-      #pongCanvas {
-        display: block;
-        border-radius: 4px;
-        overflow: hidden;
-        width: 100%;
-        margin-top: auto;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      }
-
-      #score {
-        font-family: monospace;
-        margin-top: 30px;
-        font-size: 16px;
-        padding-left: 20px;
-        color: #172b36;
-      }
-
-      #made {
-        text-align: center;
-        line-height: 1.5;
-        font-family: monospace;
-        margin-top: auto;
-        margin-bottom: 20px;
-        font-size: 10px;
-      }
-
-      #made a {
-        color: #172b36;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="container">
-      <canvas id="pongCanvas" width="800" height="800"></canvas>
-      <div id="score"></div>
-    </div>
-  </body>
-
-  <script>
-  
-    const colorPalette = {
-      ArcticPowder: "#F1F6F4",
-      MysticMint: "#00FFFF",
-      Forsythia: "#AFEEEE",
-      DeepSaffron: "#00CED1",
-      NocturnalExpedition: "#114C5A",
-      OceanicNoir: "#172B36",
-    };
-
-    const canvas = document.getElementById("pongCanvas");
-    const ctx = canvas.getContext("2d");
-    const scoreElement = document.getElementById("score");
-
-    const DAY_COLOR = colorPalette.MysticMint;
-    const DAY_BALL_COLOR = colorPalette.NocturnalExpedition;
-
-    const NIGHT_COLOR = colorPalette.NocturnalExpedition;
-    const NIGHT_BALL_COLOR = colorPalette.MysticMint;
-
-    const SQUARE_SIZE = 25;
-
-    const numSquaresX = canvas.width / SQUARE_SIZE;
-    const numSquaresY = canvas.height / SQUARE_SIZE;
-
-    let squares = [];
-
-    for (let i = 0; i < numSquaresX; i++) {
-      squares[i] = [];
-      for (let j = 0; j < numSquaresY; j++) {
-        squares[i][j] = i < numSquaresX / 2 ? DAY_COLOR : NIGHT_COLOR;
-      }
-    }
-
-    let x1 = canvas.width / 4;
-    let y1 = canvas.height / 2;
-    let dx1 = 12.5;
-    let dy1 = -12.5;
-
-    let x2 = (canvas.width / 4) * 3;
-    let y2 = canvas.height / 2;
-    let dx2 = -12.5;
-    let dy2 = 12.5;
-
-    let iteration = 0;
-
+    // 绘制碰撞球体实体
     function drawBall(x, y, color) {
       ctx.beginPath();
       ctx.arc(x, y, SQUARE_SIZE / 2, 0, Math.PI * 2, false);
@@ -148,11 +45,11 @@ author: Franklinfang
       }
     }
 
+    // 触碰事件触发后更新矩阵内的色块，AB两个阵营中根据触碰的角度计算变化的数量
     function updateSquareAndBounce(x, y, dx, dy, color) {
       let updatedDx = dx;
       let updatedDy = dy;
 
-      // Check multiple points around the ball's circumference
       for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 4) {
         let checkX = x + Math.cos(angle) * (SQUARE_SIZE / 2);
         let checkY = y + Math.sin(angle) * (SQUARE_SIZE / 2);
@@ -164,7 +61,6 @@ author: Franklinfang
           if (squares[i][j] !== color) {
             squares[i][j] = color;
 
-            // Determine bounce direction based on the angle
             if (Math.abs(Math.cos(angle)) > Math.abs(Math.sin(angle))) {
               updatedDx = -updatedDx;
             } else {
@@ -241,10 +137,8 @@ author: Franklinfang
 
       requestAnimationFrame(draw);
     }
-
+    
+	// 重置动画切换画面
     requestAnimationFrame(draw);
-  </script>
-</html>
 
-
-
+```

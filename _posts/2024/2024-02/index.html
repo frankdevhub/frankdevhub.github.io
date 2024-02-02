@@ -14,7 +14,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(to bottom, #172b36 0%, #d9e8e3 100%);
       }
 
       #container {
@@ -26,7 +25,7 @@
         height: 100%;
       }
 
-      #pongCanvas {
+      #mathCanvas {
         display: block;
         border-radius: 4px;
         overflow: hidden;
@@ -60,7 +59,7 @@
 
   <body>
     <div id="container">
-      <canvas id="pongCanvas" width="800" height="800"></canvas>
+      <canvas id="mathCanvas" width="800" height="800"></canvas>
       <div id="score"></div>
     </div>
   </body>
@@ -69,14 +68,14 @@
   
     const colorPalette = {
       ArcticPowder: "#F1F6F4",
-      MysticMint: "#00FFFF",
+      MysticMint: "#DB7093",
       Forsythia: "#AFEEEE",
-      DeepSaffron: "#00CED1",
+      DeepSaffron: "#DB7093",
       NocturnalExpedition: "#114C5A",
       OceanicNoir: "#172B36",
     };
 
-    const canvas = document.getElementById("pongCanvas");
+    const canvas = document.getElementById("mathCanvas");
     const ctx = canvas.getContext("2d");
     const scoreElement = document.getElementById("score");
 
@@ -138,7 +137,6 @@
       let updatedDx = dx;
       let updatedDy = dy;
 
-      // Check multiple points around the ball's circumference
       for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 4) {
         let checkX = x + Math.cos(angle) * (SQUARE_SIZE / 2);
         let checkY = y + Math.sin(angle) * (SQUARE_SIZE / 2);
@@ -150,7 +148,6 @@
           if (squares[i][j] !== color) {
             squares[i][j] = color;
 
-            // Determine bounce direction based on the angle
             if (Math.abs(Math.cos(angle)) > Math.abs(Math.sin(angle))) {
               updatedDx = -updatedDx;
             } else {
